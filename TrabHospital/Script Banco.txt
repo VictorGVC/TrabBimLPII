@@ -1,0 +1,135 @@
+CREATE TABLE Atendimentos (
+       atn_codigo           INTEGER Identity(1,1) NOT NULL,
+       dia_codigo           INTEGER NOT NULL,
+       med_codigo           INTEGER NOT NULL,
+       pac_codigo           INTEGER NOT NULL,
+       atn_data             DATETIME,
+       atn_anamnese         NVARCHAR(255),
+       atn_dtretorno        DATETIME,
+       atn_dtalta           DATETIME,
+       atn_contafechada     NCHAR(1),
+       atn_causamortis      NVARCHAR(30),
+       atn_vrconta          DECIMAL(8,2),
+       atn_dtobito          DATETIME,
+       atn_vrdesconto       DECIMAL(8,2),
+       CONSTRAINT PK_Atendimentos 
+              PRIMARY KEY (atn_codigo)
+);
+
+
+CREATE TABLE Contas (
+       con_codigo           INTEGER Identity(1,1) NOT NULL,
+       pro_codigo           INTEGER NOT NULL,
+       atn_codigo           INTEGER NOT NULL,
+       con_qtde             INTEGER,
+       con_data             DATETIME,
+       con_vrconta          DECIMAL(8,2),
+       CONSTRAINT PK_Contas 
+              PRIMARY KEY (con_codigo)
+);
+
+
+CREATE TABLE Depositos (
+       dep_parcela          INTEGER NOT NULL,
+       atn_codigo           INTEGER NOT NULL,
+       dep_data             DATETIME,
+       dep_valor            DECIMAL(8,2),
+       dep_nrcheque         NVARCHAR(20),
+       dep_dtcompensa       DATETIME,
+       dep_tipo             NCHAR(1),
+       CONSTRAINT PK_Depositos 
+              PRIMARY KEY (dep_parcela, atn_codigo)
+);
+
+
+CREATE TABLE Diagnosticos (
+       dia_codigo           INTEGER Identity(1,1) NOT NULL,
+       dia_descricao        NVARCHAR(50),
+       CONSTRAINT PK_Diagnosticos 
+              PRIMARY KEY (dia_codigo)
+);
+
+
+CREATE TABLE Medicos (
+       med_codigo           INTEGER Identity(1,1) NOT NULL,
+       pla_codigo           INTEGER NOT NULL,
+       med_nome             NVARCHAR(50),
+       med_crm              NVARCHAR(10),
+       med_fone             NVARCHAR(15),
+       med_celular          NVARCHAR(15),
+       CONSTRAINT PK_Medicos 
+              PRIMARY KEY (med_codigo)
+);
+
+
+CREATE TABLE Pacientes (
+       pac_codigo           INTEGER Identity(1,1) NOT NULL,
+       pla_codigo           INTEGER NOT NULL,
+       pac_nome             NVARCHAR(40),
+       pac_sexo             NCHAR(1),
+       pac_dtnasc           DATETIME,
+       pac_endereco         NVARCHAR(50),
+       pac_cidade           NVARCHAR(30),
+       pac_uf               NCHAR(2),
+       pac_cep              NVARCHAR(9),
+       pac_fone             NVARCHAR(15),
+       CONSTRAINT PK_Pacientes 
+              PRIMARY KEY (pac_codigo)
+);
+
+
+CREATE TABLE PlanoSaude (
+       pla_codigo           INTEGER Identity(1,1) NOT NULL,
+       pla_descricao        NVARCHAR(30),
+       CONSTRAINT PK_PlanoSaude 
+              PRIMARY KEY (pla_codigo)
+);
+
+
+CREATE TABLE Procedimentos (
+       pro_codigo           INTEGER Identity(1,1) NOT NULL,
+       pro_descricao        NVARCHAR(40),
+       pro_valor            DECIMAL(6,2),
+       CONSTRAINT PK_Procedimentos 
+              PRIMARY KEY (pro_codigo)
+);
+
+
+ALTER TABLE Contas
+       ADD CONSTRAINT FK_Contas_Atendimentos
+              FOREIGN KEY (atn_codigo)
+                             REFERENCES Atendimentos;
+ALTER TABLE Contas
+       ADD CONSTRAINT FK_Procedimentos_Contas
+              FOREIGN KEY (pro_codigo)
+                             REFERENCES Procedimentos;
+
+ALTER TABLE Atendimentos
+       ADD CONSTRAINT FK_Diagnostico_Atendimentos
+              FOREIGN KEY (dia_codigo)
+                             REFERENCES Diagnosticos;
+
+ALTER TABLE Atendimentos
+       ADD CONSTRAINT FK_Medicos_Atendimentos
+              FOREIGN KEY (med_codigo)
+                             REFERENCES Medicos;
+
+ALTER TABLE Atendimentos
+       ADD CONSTRAINT FK_Pacientes_Atendimentos
+              FOREIGN KEY (pac_codigo)
+                             REFERENCES Pacientes;
+
+ALTER TABLE Depositos
+       ADD CONSTRAINT FK_Atendimentos_Depositos
+              FOREIGN KEY (atn_codigo)
+                             REFERENCES Atendimentos;
+
+ALTER TABLE Medicos
+       ADD CONSTRAINT FK_PlanoSaude_Medicos
+              FOREIGN KEY (pla_codigo)
+                             REFERENCES PlanoSaude;
+
+ALTER TABLE Pacientes
+       ADD CONSTRAINT FK_PlanoSaude_Pacientes
+              FOREIGN KEY (pla_codigo)
+                             REFERENCES PlanoSaude;
