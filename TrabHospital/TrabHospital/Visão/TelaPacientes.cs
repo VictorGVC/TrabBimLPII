@@ -23,46 +23,57 @@ namespace TrabHospital.Visão
 		private void BtnSalvar_Click(object sender, EventArgs e)
 		{
 			char sexo;
+            if(tbCodigo.Text == "")
+            {
 
-			if (comboBox1.SelectedItem.ToString() == "Masculino")
-				sexo = 'M';
-			else
-				sexo = 'F';
-			if (!ControlPac.GravarPaciente(tbNome.Text, sexo, dtpNascimento.Value.Date, tbEndereco.Text,
-								  tbCidade.Text, tbUf.Text, tbCep.Text, tbTelefone.Text))
-			{
-				MessageBox.Show("Não foi possível gravar o paciente. Verifique os dados");
-			}
+            }
+            else if(tbNome.Text == "")
+            {
+
+            }
+            else if(cbSexo.Text == "")
+            {
+
+            }
+            else if(tbEndereco.Text == "")
+            {
+
+            }
+            else if(tbCidade.Text == "")
+            {
+
+            }
+            else if(cbUF.Text == "")
+            {
+
+            }
+            else if(tbCep.Text == "")
+            {
+
+            }
+            else if(tbTelefone.Text == "")
+            {
+
+            }
+            else
+            {
+                if (cbSexo.SelectedItem.ToString() == "Masculino")
+                    sexo = 'M';
+                else
+                    sexo = 'F';
+                if (!ControlPac.GravarPaciente(tbNome.Text, sexo, dtpNascimento.Value.Date, tbEndereco.Text,
+                                      tbCidade.Text, cbUF.Text, tbCep.Text, tbTelefone.Text))
+                {
+                    MessageBox.Show("Não foi possível gravar o paciente. Verifique os dados");
+                }
+            }
 		}
 
-		private void BAdicionarDep_Click(object sender, EventArgs e)
-		{
+        
 
-		}
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
 
-		private void bNovo_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void bSalvar_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void bPesquisar_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void bExcluir_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void bAlterar_Click(object sender, EventArgs e)
-		{
-
-		}
-	}
+        }
+    }
 }
