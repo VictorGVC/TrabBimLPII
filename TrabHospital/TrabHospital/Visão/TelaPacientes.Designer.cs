@@ -30,6 +30,7 @@
 		{
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cbUF = new System.Windows.Forms.ComboBox();
             this.cbSexo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpNascimento = new System.Windows.Forms.DateTimePicker();
@@ -58,7 +59,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.tbPesqNome = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.cbUF = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -105,6 +105,43 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cadastro";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cbUF
+            // 
+            this.cbUF.FormattingEnabled = true;
+            this.cbUF.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AM",
+            "AP",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MG",
+            "MS",
+            "MT",
+            "PA",
+            "PB",
+            "PE",
+            "PI",
+            "PR",
+            "RJ",
+            "RN",
+            "RO",
+            "RR",
+            "RS",
+            "SC",
+            "SE",
+            "SP",
+            "TO",
+            ""});
+            this.cbUF.Location = new System.Drawing.Point(236, 112);
+            this.cbUF.Name = "cbUF";
+            this.cbUF.Size = new System.Drawing.Size(39, 21);
+            this.cbUF.TabIndex = 51;
             // 
             // cbSexo
             // 
@@ -156,6 +193,7 @@
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnNovo
             // 
@@ -167,6 +205,7 @@
             this.btnNovo.TabIndex = 9;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
             // btnSalvar
             // 
@@ -345,6 +384,7 @@
             this.btnExcluir.TabIndex = 59;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -372,43 +412,6 @@
             this.label8.Size = new System.Drawing.Size(95, 13);
             this.label8.TabIndex = 56;
             this.label8.Text = "Nome do Paciente";
-            // 
-            // cbUF
-            // 
-            this.cbUF.FormattingEnabled = true;
-            this.cbUF.Items.AddRange(new object[] {
-            "AC",
-            "AL",
-            "AM",
-            "AP",
-            "BA",
-            "CE",
-            "DF",
-            "ES",
-            "GO",
-            "MA",
-            "MG",
-            "MS",
-            "MT",
-            "PA",
-            "PB",
-            "PE",
-            "PI",
-            "PR",
-            "RJ",
-            "RN",
-            "RO",
-            "RR",
-            "RS",
-            "SC",
-            "SE",
-            "SP",
-            "TO",
-            ""});
-            this.cbUF.Location = new System.Drawing.Point(236, 112);
-            this.cbUF.Name = "cbUF";
-            this.cbUF.Size = new System.Drawing.Size(39, 21);
-            this.cbUF.TabIndex = 51;
             // 
             // TelaPacientes
             // 

@@ -23,37 +23,40 @@ namespace TrabHospital.Visão
 		private void BtnSalvar_Click(object sender, EventArgs e)
 		{
 			char sexo;
-            if(tbCodigo.Text == "")
-            {
-
-            }
             else if(tbNome.Text == "")
             {
-
+                MessageBox.Show("O Nome deve ser informado");
+                tbCodigo.Focus();
             }
             else if(cbSexo.Text == "")
             {
-
+                MessageBox.Show("O sexo deve ser informado");
+                tbCodigo.Focus();
             }
             else if(tbEndereco.Text == "")
             {
-
+                MessageBox.Show("O endereço deve ser informado");
+                tbCodigo.Focus();
             }
             else if(tbCidade.Text == "")
             {
-
+                MessageBox.Show("O cidade deve ser informado");
+                tbCodigo.Focus();
             }
             else if(cbUF.Text == "")
             {
-
+                MessageBox.Show("O UF deve ser informado");
+                tbCodigo.Focus();
             }
             else if(tbCep.Text == "")
             {
-
+                MessageBox.Show("O CEP deve ser informado");
+                tbCodigo.Focus();
             }
             else if(tbTelefone.Text == "")
             {
-
+                MessageBox.Show("O telefone deve ser informado");
+                tbCodigo.Focus();
             }
             else
             {
@@ -69,9 +72,22 @@ namespace TrabHospital.Visão
             }
 		}
 
-        
-
         private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnNovo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnExcluir_Click(object sender, EventArgs e)
         {
 
         }

@@ -35,5 +35,19 @@ namespace TrabHospital.Controladora
 
 			return (result);
 		}
+
+        public bool ExcluirPaciente(int codigo)
+        {
+            bco.Conecta();
+
+            PacienteBD Pac = new PacienteBD(bco);
+
+            if (Pac.Apagar(codigo))
+                return true;
+            else
+                return false;
+
+            bco.Desconecta();
+        }
 	}
 }
