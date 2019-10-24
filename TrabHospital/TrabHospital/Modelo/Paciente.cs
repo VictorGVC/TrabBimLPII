@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrabHospital.Modelo;
 
 namespace TrabHospital.Modelo
 {
@@ -12,10 +13,11 @@ namespace TrabHospital.Modelo
 		private String nome, endereco, cidade, uf, cep, fone;
 		private char sexo;
 		private DateTime dtnasc;
+        private Planos_de_saude plano;
 
 		public Paciente() { }
 
-		public Paciente(int codigo, string nome, string endereco, string cidade, string uf, string cep, string fone, char sexo, DateTime dtnasc)
+		public Paciente(int codigo, string nome, string endereco, string cidade, string uf, string cep, string fone, char sexo, DateTime dtnasc,Planos_de_saude plano)
 		{
 			this.Codigo = codigo;
 			this.Nome = nome;
@@ -26,6 +28,7 @@ namespace TrabHospital.Modelo
 			this.Fone = fone;
 			this.Sexo = sexo;
 			this.Dtnasc = dtnasc;
+            this.plano = plano;
 		}
 
 		public int Codigo { get => codigo; set => codigo = value; }
@@ -37,5 +40,6 @@ namespace TrabHospital.Modelo
 		public string Fone { get => fone; set => fone = value; }
 		public char Sexo { get => sexo; set => sexo = value; }
 		public DateTime Dtnasc { get => dtnasc; set => dtnasc = value; }
-	}
+        internal Planos_de_saude Plano { get => plano; set => plano = value; }
+    }
 }

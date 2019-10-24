@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabs = new System.Windows.Forms.TabControl();
+            this.painel = new System.Windows.Forms.TabPage();
             this.cbUF = new System.Windows.Forms.ComboBox();
             this.cbSexo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,59 +52,44 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPesquisa = new System.Windows.Forms.TabPage();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.tbPesqNome = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.pnDados = new System.Windows.Forms.Panel();
+            this.tabs.SuspendLayout();
+            this.painel.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
+            this.pnDados.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabs
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(549, 346);
-            this.tabControl1.TabIndex = 35;
+            this.tabs.Controls.Add(this.painel);
+            this.tabs.Controls.Add(this.tabPesquisa);
+            this.tabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabs.Location = new System.Drawing.Point(0, 0);
+            this.tabs.Name = "tabs";
+            this.tabs.SelectedIndex = 0;
+            this.tabs.Size = new System.Drawing.Size(549, 346);
+            this.tabs.TabIndex = 35;
             // 
-            // tabPage1
+            // painel
             // 
-            this.tabPage1.Controls.Add(this.cbUF);
-            this.tabPage1.Controls.Add(this.cbSexo);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.dtpNascimento);
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Controls.Add(this.tbCidade);
-            this.tabPage1.Controls.Add(this.tbTelefone);
-            this.tabPage1.Controls.Add(this.tbNome);
-            this.tabPage1.Controls.Add(this.tbEndereco);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.tbCep);
-            this.tabPage1.Controls.Add(this.tbCodigo);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(541, 320);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Cadastro";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.painel.Controls.Add(this.pnDados);
+            this.painel.Controls.Add(this.panel1);
+            this.painel.Location = new System.Drawing.Point(4, 22);
+            this.painel.Name = "painel";
+            this.painel.Padding = new System.Windows.Forms.Padding(3);
+            this.painel.Size = new System.Drawing.Size(541, 320);
+            this.painel.TabIndex = 0;
+            this.painel.Text = "Cadastro";
+            this.painel.UseVisualStyleBackColor = true;
             // 
             // cbUF
             // 
@@ -138,7 +123,7 @@
             "SP",
             "TO",
             ""});
-            this.cbUF.Location = new System.Drawing.Point(236, 112);
+            this.cbUF.Location = new System.Drawing.Point(219, 99);
             this.cbUF.Name = "cbUF";
             this.cbUF.Size = new System.Drawing.Size(39, 21);
             this.cbUF.TabIndex = 51;
@@ -149,7 +134,7 @@
             this.cbSexo.Items.AddRange(new object[] {
             "Maculino",
             "Feminino"});
-            this.cbSexo.Location = new System.Drawing.Point(21, 72);
+            this.cbSexo.Location = new System.Drawing.Point(4, 59);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(86, 21);
             this.cbSexo.TabIndex = 50;
@@ -157,7 +142,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 60);
+            this.label6.Location = new System.Drawing.Point(1, 47);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 49;
@@ -166,7 +151,7 @@
             // dtpNascimento
             // 
             this.dtpNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNascimento.Location = new System.Drawing.Point(113, 74);
+            this.dtpNascimento.Location = new System.Drawing.Point(96, 61);
             this.dtpNascimento.Name = "dtpNascimento";
             this.dtpNascimento.Size = new System.Drawing.Size(108, 20);
             this.dtpNascimento.TabIndex = 43;
@@ -221,28 +206,28 @@
             // 
             // tbCidade
             // 
-            this.tbCidade.Location = new System.Drawing.Point(21, 112);
+            this.tbCidade.Location = new System.Drawing.Point(4, 99);
             this.tbCidade.Name = "tbCidade";
             this.tbCidade.Size = new System.Drawing.Size(209, 20);
             this.tbCidade.TabIndex = 45;
             // 
             // tbTelefone
             // 
-            this.tbTelefone.Location = new System.Drawing.Point(373, 112);
+            this.tbTelefone.Location = new System.Drawing.Point(356, 99);
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(155, 20);
             this.tbTelefone.TabIndex = 45;
             // 
             // tbNome
             // 
-            this.tbNome.Location = new System.Drawing.Point(113, 37);
+            this.tbNome.Location = new System.Drawing.Point(96, 24);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(415, 20);
             this.tbNome.TabIndex = 42;
             // 
             // tbEndereco
             // 
-            this.tbEndereco.Location = new System.Drawing.Point(227, 73);
+            this.tbEndereco.Location = new System.Drawing.Point(210, 60);
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(301, 20);
             this.tbEndereco.TabIndex = 41;
@@ -250,7 +235,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 97);
+            this.label7.Location = new System.Drawing.Point(2, 84);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 38;
@@ -258,14 +243,14 @@
             // 
             // tbCep
             // 
-            this.tbCep.Location = new System.Drawing.Point(281, 112);
+            this.tbCep.Location = new System.Drawing.Point(264, 99);
             this.tbCep.Name = "tbCep";
             this.tbCep.Size = new System.Drawing.Size(86, 20);
             this.tbCep.TabIndex = 41;
             // 
             // tbCodigo
             // 
-            this.tbCodigo.Location = new System.Drawing.Point(21, 37);
+            this.tbCodigo.Location = new System.Drawing.Point(4, 24);
             this.tbCodigo.Name = "tbCodigo";
             this.tbCodigo.Size = new System.Drawing.Size(86, 20);
             this.tbCodigo.TabIndex = 41;
@@ -273,7 +258,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(370, 95);
+            this.label5.Location = new System.Drawing.Point(353, 82);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 38;
@@ -282,7 +267,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(110, 59);
+            this.label3.Location = new System.Drawing.Point(93, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 36;
@@ -291,7 +276,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(224, 57);
+            this.label4.Location = new System.Drawing.Point(207, 44);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 34;
@@ -300,7 +285,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(110, 22);
+            this.label2.Location = new System.Drawing.Point(93, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 13);
             this.label2.TabIndex = 35;
@@ -309,7 +294,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(283, 95);
+            this.label10.Location = new System.Drawing.Point(266, 82);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(28, 13);
             this.label10.TabIndex = 34;
@@ -318,7 +303,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(233, 95);
+            this.label9.Location = new System.Drawing.Point(216, 82);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(21, 13);
             this.label9.TabIndex = 34;
@@ -327,27 +312,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 22);
+            this.label1.Location = new System.Drawing.Point(1, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 34;
             this.label1.Text = "Código";
             // 
-            // tabPage2
+            // tabPesquisa
             // 
-            this.tabPage2.Controls.Add(this.dgvPacientes);
-            this.tabPage2.Controls.Add(this.btnPesquisar);
-            this.tabPage2.Controls.Add(this.btnExcluir);
-            this.tabPage2.Controls.Add(this.btnAlterar);
-            this.tabPage2.Controls.Add(this.tbPesqNome);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(541, 320);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Pesquisa";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPesquisa.Controls.Add(this.dgvPacientes);
+            this.tabPesquisa.Controls.Add(this.btnPesquisar);
+            this.tabPesquisa.Controls.Add(this.btnExcluir);
+            this.tabPesquisa.Controls.Add(this.btnAlterar);
+            this.tabPesquisa.Controls.Add(this.tbPesqNome);
+            this.tabPesquisa.Controls.Add(this.label8);
+            this.tabPesquisa.Location = new System.Drawing.Point(4, 22);
+            this.tabPesquisa.Name = "tabPesquisa";
+            this.tabPesquisa.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPesquisa.Size = new System.Drawing.Size(541, 320);
+            this.tabPesquisa.TabIndex = 1;
+            this.tabPesquisa.Text = "Pesquisa";
+            this.tabPesquisa.UseVisualStyleBackColor = true;
             // 
             // dgvPacientes
             // 
@@ -396,6 +381,7 @@
             this.btnAlterar.TabIndex = 58;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // tbPesqNome
             // 
@@ -413,29 +399,56 @@
             this.label8.TabIndex = 56;
             this.label8.Text = "Nome do Paciente";
             // 
+            // pnDados
+            // 
+            this.pnDados.Controls.Add(this.tbNome);
+            this.pnDados.Controls.Add(this.cbUF);
+            this.pnDados.Controls.Add(this.label1);
+            this.pnDados.Controls.Add(this.cbSexo);
+            this.pnDados.Controls.Add(this.label9);
+            this.pnDados.Controls.Add(this.label6);
+            this.pnDados.Controls.Add(this.label10);
+            this.pnDados.Controls.Add(this.dtpNascimento);
+            this.pnDados.Controls.Add(this.label2);
+            this.pnDados.Controls.Add(this.label4);
+            this.pnDados.Controls.Add(this.tbCidade);
+            this.pnDados.Controls.Add(this.label3);
+            this.pnDados.Controls.Add(this.tbTelefone);
+            this.pnDados.Controls.Add(this.label5);
+            this.pnDados.Controls.Add(this.tbCodigo);
+            this.pnDados.Controls.Add(this.tbEndereco);
+            this.pnDados.Controls.Add(this.tbCep);
+            this.pnDados.Controls.Add(this.label7);
+            this.pnDados.Enabled = false;
+            this.pnDados.Location = new System.Drawing.Point(6, 6);
+            this.pnDados.Name = "pnDados";
+            this.pnDados.Size = new System.Drawing.Size(524, 140);
+            this.pnDados.TabIndex = 52;
+            // 
             // TelaPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 346);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabs);
             this.Name = "TelaPacientes";
             this.Text = "Cadastro de Pacientes";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabs.ResumeLayout(false);
+            this.painel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPesquisa.ResumeLayout(false);
+            this.tabPesquisa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
+            this.pnDados.ResumeLayout(false);
+            this.pnDados.PerformLayout();
             this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.TabPage tabPage1;
+		private System.Windows.Forms.TabControl tabs;
+		private System.Windows.Forms.TabPage painel;
 		private System.Windows.Forms.DateTimePicker dtpNascimento;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button btnCancelar;
@@ -448,7 +461,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TabPage tabPage2;
+		private System.Windows.Forms.TabPage tabPesquisa;
 		private System.Windows.Forms.DataGridView dgvPacientes;
 		private System.Windows.Forms.Button btnPesquisar;
 		private System.Windows.Forms.Button btnExcluir;
@@ -465,5 +478,6 @@
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbUF;
+        private System.Windows.Forms.Panel pnDados;
     }
 }

@@ -30,7 +30,7 @@ namespace TrabHospital.Controladora
 
 			PacienteBD Pac = new PacienteBD(bco);
 
-			result = Pac.Gravar(PacienteAtual);
+			result = Pac.GravarPaciente(PacienteAtual);
 			bco.Desconecta();
 
 			return (result);
@@ -42,12 +42,19 @@ namespace TrabHospital.Controladora
 
             PacienteBD Pac = new PacienteBD(bco);
 
-            if (Pac.Apagar(codigo))
+            if (Pac.ApagarPaciente(codigo))
                 return true;
             else
                 return false;
 
             bco.Desconecta();
+        }
+
+        public bool AlterarPaciente(int cod, string nome, char sexo, DateTime dtnasc, string endereco,
+                                  string cidade, string uf, string cep, string fone)
+        {
+
+
         }
 	}
 }
