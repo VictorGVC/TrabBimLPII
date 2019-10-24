@@ -30,28 +30,29 @@
 		{
             this.tabs = new System.Windows.Forms.TabControl();
             this.painel = new System.Windows.Forms.TabPage();
+            this.pnDados = new System.Windows.Forms.Panel();
+            this.tbNome = new System.Windows.Forms.TextBox();
             this.cbUF = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbSexo = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.dtpNascimento = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbCidade = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbTelefone = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbCodigo = new System.Windows.Forms.TextBox();
+            this.tbEndereco = new System.Windows.Forms.TextBox();
+            this.tbCep = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.tbCidade = new System.Windows.Forms.TextBox();
-            this.tbTelefone = new System.Windows.Forms.TextBox();
-            this.tbNome = new System.Windows.Forms.TextBox();
-            this.tbEndereco = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbCep = new System.Windows.Forms.TextBox();
-            this.tbCodigo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabPesquisa = new System.Windows.Forms.TabPage();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
             this.btnPesquisar = new System.Windows.Forms.Button();
@@ -59,13 +60,14 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.tbPesqNome = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.pnDados = new System.Windows.Forms.Panel();
+            this.cbPlano = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabs.SuspendLayout();
             this.painel.SuspendLayout();
+            this.pnDados.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
-            this.pnDados.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
@@ -90,6 +92,41 @@
             this.painel.TabIndex = 0;
             this.painel.Text = "Cadastro";
             this.painel.UseVisualStyleBackColor = true;
+            // 
+            // pnDados
+            // 
+            this.pnDados.Controls.Add(this.label11);
+            this.pnDados.Controls.Add(this.cbPlano);
+            this.pnDados.Controls.Add(this.tbNome);
+            this.pnDados.Controls.Add(this.cbUF);
+            this.pnDados.Controls.Add(this.label1);
+            this.pnDados.Controls.Add(this.cbSexo);
+            this.pnDados.Controls.Add(this.label9);
+            this.pnDados.Controls.Add(this.label6);
+            this.pnDados.Controls.Add(this.label10);
+            this.pnDados.Controls.Add(this.dtpNascimento);
+            this.pnDados.Controls.Add(this.label2);
+            this.pnDados.Controls.Add(this.label4);
+            this.pnDados.Controls.Add(this.tbCidade);
+            this.pnDados.Controls.Add(this.label3);
+            this.pnDados.Controls.Add(this.tbTelefone);
+            this.pnDados.Controls.Add(this.label5);
+            this.pnDados.Controls.Add(this.tbCodigo);
+            this.pnDados.Controls.Add(this.tbEndereco);
+            this.pnDados.Controls.Add(this.tbCep);
+            this.pnDados.Controls.Add(this.label7);
+            this.pnDados.Enabled = false;
+            this.pnDados.Location = new System.Drawing.Point(6, 6);
+            this.pnDados.Name = "pnDados";
+            this.pnDados.Size = new System.Drawing.Size(524, 176);
+            this.pnDados.TabIndex = 52;
+            // 
+            // tbNome
+            // 
+            this.tbNome.Location = new System.Drawing.Point(96, 24);
+            this.tbNome.Name = "tbNome";
+            this.tbNome.Size = new System.Drawing.Size(415, 20);
+            this.tbNome.TabIndex = 42;
             // 
             // cbUF
             // 
@@ -128,6 +165,15 @@
             this.cbUF.Size = new System.Drawing.Size(39, 21);
             this.cbUF.TabIndex = 51;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Código";
+            // 
             // cbSexo
             // 
             this.cbSexo.FormattingEnabled = true;
@@ -139,6 +185,15 @@
             this.cbSexo.Size = new System.Drawing.Size(86, 21);
             this.cbSexo.TabIndex = 50;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(216, 82);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(21, 13);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "UF";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -148,6 +203,15 @@
             this.label6.TabIndex = 49;
             this.label6.Text = "Sexo";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(266, 82);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(28, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "CEP";
+            // 
             // dtpNascimento
             // 
             this.dtpNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -155,6 +219,86 @@
             this.dtpNascimento.Name = "dtpNascimento";
             this.dtpNascimento.Size = new System.Drawing.Size(108, 20);
             this.dtpNascimento.TabIndex = 43;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(93, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Nome do Paciente";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(207, 44);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 34;
+            this.label4.Text = "Endereço";
+            // 
+            // tbCidade
+            // 
+            this.tbCidade.Location = new System.Drawing.Point(4, 99);
+            this.tbCidade.Name = "tbCidade";
+            this.tbCidade.Size = new System.Drawing.Size(209, 20);
+            this.tbCidade.TabIndex = 45;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(93, 46);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 13);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Dt. Nascimento";
+            // 
+            // tbTelefone
+            // 
+            this.tbTelefone.Location = new System.Drawing.Point(356, 99);
+            this.tbTelefone.Name = "tbTelefone";
+            this.tbTelefone.Size = new System.Drawing.Size(155, 20);
+            this.tbTelefone.TabIndex = 45;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(353, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Telefone";
+            // 
+            // tbCodigo
+            // 
+            this.tbCodigo.Location = new System.Drawing.Point(4, 24);
+            this.tbCodigo.Name = "tbCodigo";
+            this.tbCodigo.Size = new System.Drawing.Size(86, 20);
+            this.tbCodigo.TabIndex = 41;
+            // 
+            // tbEndereco
+            // 
+            this.tbEndereco.Location = new System.Drawing.Point(210, 60);
+            this.tbEndereco.Name = "tbEndereco";
+            this.tbEndereco.Size = new System.Drawing.Size(301, 20);
+            this.tbEndereco.TabIndex = 41;
+            // 
+            // tbCep
+            // 
+            this.tbCep.Location = new System.Drawing.Point(264, 99);
+            this.tbCep.Name = "tbCep";
+            this.tbCep.Size = new System.Drawing.Size(86, 20);
+            this.tbCep.TabIndex = 41;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(2, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.TabIndex = 38;
+            this.label7.Text = "Cidade";
             // 
             // panel1
             // 
@@ -203,120 +347,6 @@
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
-            // 
-            // tbCidade
-            // 
-            this.tbCidade.Location = new System.Drawing.Point(4, 99);
-            this.tbCidade.Name = "tbCidade";
-            this.tbCidade.Size = new System.Drawing.Size(209, 20);
-            this.tbCidade.TabIndex = 45;
-            // 
-            // tbTelefone
-            // 
-            this.tbTelefone.Location = new System.Drawing.Point(356, 99);
-            this.tbTelefone.Name = "tbTelefone";
-            this.tbTelefone.Size = new System.Drawing.Size(155, 20);
-            this.tbTelefone.TabIndex = 45;
-            // 
-            // tbNome
-            // 
-            this.tbNome.Location = new System.Drawing.Point(96, 24);
-            this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(415, 20);
-            this.tbNome.TabIndex = 42;
-            // 
-            // tbEndereco
-            // 
-            this.tbEndereco.Location = new System.Drawing.Point(210, 60);
-            this.tbEndereco.Name = "tbEndereco";
-            this.tbEndereco.Size = new System.Drawing.Size(301, 20);
-            this.tbEndereco.TabIndex = 41;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(2, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 13);
-            this.label7.TabIndex = 38;
-            this.label7.Text = "Cidade";
-            // 
-            // tbCep
-            // 
-            this.tbCep.Location = new System.Drawing.Point(264, 99);
-            this.tbCep.Name = "tbCep";
-            this.tbCep.Size = new System.Drawing.Size(86, 20);
-            this.tbCep.TabIndex = 41;
-            // 
-            // tbCodigo
-            // 
-            this.tbCodigo.Location = new System.Drawing.Point(4, 24);
-            this.tbCodigo.Name = "tbCodigo";
-            this.tbCodigo.Size = new System.Drawing.Size(86, 20);
-            this.tbCodigo.TabIndex = 41;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(353, 82);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Telefone";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(93, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 13);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Dt. Nascimento";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(207, 44);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "Endereço";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Nome do Paciente";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(266, 82);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(28, 13);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "CEP";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(216, 82);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(21, 13);
-            this.label9.TabIndex = 34;
-            this.label9.Text = "UF";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Código";
             // 
             // tabPesquisa
             // 
@@ -399,31 +429,22 @@
             this.label8.TabIndex = 56;
             this.label8.Text = "Nome do Paciente";
             // 
-            // pnDados
+            // cbPlano
             // 
-            this.pnDados.Controls.Add(this.tbNome);
-            this.pnDados.Controls.Add(this.cbUF);
-            this.pnDados.Controls.Add(this.label1);
-            this.pnDados.Controls.Add(this.cbSexo);
-            this.pnDados.Controls.Add(this.label9);
-            this.pnDados.Controls.Add(this.label6);
-            this.pnDados.Controls.Add(this.label10);
-            this.pnDados.Controls.Add(this.dtpNascimento);
-            this.pnDados.Controls.Add(this.label2);
-            this.pnDados.Controls.Add(this.label4);
-            this.pnDados.Controls.Add(this.tbCidade);
-            this.pnDados.Controls.Add(this.label3);
-            this.pnDados.Controls.Add(this.tbTelefone);
-            this.pnDados.Controls.Add(this.label5);
-            this.pnDados.Controls.Add(this.tbCodigo);
-            this.pnDados.Controls.Add(this.tbEndereco);
-            this.pnDados.Controls.Add(this.tbCep);
-            this.pnDados.Controls.Add(this.label7);
-            this.pnDados.Enabled = false;
-            this.pnDados.Location = new System.Drawing.Point(6, 6);
-            this.pnDados.Name = "pnDados";
-            this.pnDados.Size = new System.Drawing.Size(524, 140);
-            this.pnDados.TabIndex = 52;
+            this.cbPlano.FormattingEnabled = true;
+            this.cbPlano.Location = new System.Drawing.Point(5, 138);
+            this.cbPlano.Name = "cbPlano";
+            this.cbPlano.Size = new System.Drawing.Size(121, 21);
+            this.cbPlano.TabIndex = 52;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 122);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(81, 13);
+            this.label11.TabIndex = 53;
+            this.label11.Text = "Plano de saúde";
             // 
             // TelaPacientes
             // 
@@ -435,12 +456,12 @@
             this.Text = "Cadastro de Pacientes";
             this.tabs.ResumeLayout(false);
             this.painel.ResumeLayout(false);
+            this.pnDados.ResumeLayout(false);
+            this.pnDados.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.tabPesquisa.ResumeLayout(false);
             this.tabPesquisa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
-            this.pnDados.ResumeLayout(false);
-            this.pnDados.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -479,5 +500,7 @@
 		private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbUF;
         private System.Windows.Forms.Panel pnDados;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbPlano;
     }
 }

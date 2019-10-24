@@ -14,11 +14,12 @@ namespace TrabHospital.Visão
 	public partial class TelaPacientes : Form
 	{
 		private CtrlPacientes ControlPac = new CtrlPacientes();
+        private CtrlPlano ctrlplano = new CtrlPlano();
 
 		public TelaPacientes()
 		{
 			InitializeComponent();
-            
+            cbPlano.DataSource = ctrlplano.BuscarPlanos(-1);
 		}
 
 		private void BtnSalvar_Click(object sender, EventArgs e)
@@ -79,7 +80,7 @@ namespace TrabHospital.Visão
                     sexo = 'M';
                 else
                     sexo = 'F';
-                if (!ControlPac.AlterarPaciente((int)tbCodigo.Text,tbNome.Text, sexo, dtpNascimento.Value.Date, tbEndereco.Text,
+                if (!ControlPac.AlterarPaciente(Convert.ToInt32(tbCodigo.Text),tbNome.Text, sexo, dtpNascimento.Value.Date, tbEndereco.Text,
                                         tbCidade.Text, cbUF.Text, tbCep.Text, tbTelefone.Text))
                 {
                     MessageBox.Show("Não foi possível alterar o paciente. Verifique os dados");

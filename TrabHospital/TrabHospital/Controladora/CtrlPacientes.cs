@@ -53,7 +53,7 @@ namespace TrabHospital.Controladora
         public bool AlterarPaciente(int cod, string nome, char sexo, DateTime dtnasc, string endereco,
                                   string cidade, string uf, string cep, string fone)
         {
-
+            return true;
 
         }
 	}
