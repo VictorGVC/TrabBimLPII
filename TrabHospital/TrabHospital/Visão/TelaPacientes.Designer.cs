@@ -60,12 +60,6 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.tabPesquisa = new System.Windows.Forms.TabPage();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.tbPesqNome = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pnlImage = new System.Windows.Forms.Panel();
             this.cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +70,12 @@
             this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.tbPesqNome = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pnlImage = new System.Windows.Forms.Panel();
             this.pnlFuncoes.SuspendLayout();
             this.tabs.SuspendLayout();
             this.painel.SuspendLayout();
@@ -162,7 +162,7 @@
             this.cbPlano.Location = new System.Drawing.Point(5, 181);
             this.cbPlano.Name = "cbPlano";
             this.cbPlano.Size = new System.Drawing.Size(121, 21);
-            this.cbPlano.TabIndex = 52;
+            this.cbPlano.TabIndex = 10;
             // 
             // tbNome
             // 
@@ -206,7 +206,7 @@
             this.cbUF.Location = new System.Drawing.Point(234, 136);
             this.cbUF.Name = "cbUF";
             this.cbUF.Size = new System.Drawing.Size(39, 21);
-            this.cbUF.TabIndex = 51;
+            this.cbUF.TabIndex = 8;
             // 
             // label1
             // 
@@ -226,7 +226,7 @@
             this.cbSexo.Location = new System.Drawing.Point(5, 136);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(86, 21);
-            this.cbSexo.TabIndex = 50;
+            this.cbSexo.TabIndex = 6;
             // 
             // label9
             // 
@@ -261,7 +261,7 @@
             this.dtpNascimento.Location = new System.Drawing.Point(96, 137);
             this.dtpNascimento.Name = "dtpNascimento";
             this.dtpNascimento.Size = new System.Drawing.Size(132, 20);
-            this.dtpNascimento.TabIndex = 43;
+            this.dtpNascimento.TabIndex = 7;
             // 
             // label2
             // 
@@ -286,7 +286,7 @@
             this.tbCidade.Location = new System.Drawing.Point(4, 99);
             this.tbCidade.Name = "tbCidade";
             this.tbCidade.Size = new System.Drawing.Size(209, 20);
-            this.tbCidade.TabIndex = 45;
+            this.tbCidade.TabIndex = 4;
             // 
             // label3
             // 
@@ -302,7 +302,7 @@
             this.tbTelefone.Location = new System.Drawing.Point(219, 99);
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(145, 20);
-            this.tbTelefone.TabIndex = 45;
+            this.tbTelefone.TabIndex = 5;
             // 
             // label5
             // 
@@ -333,7 +333,8 @@
             this.tbCep.Location = new System.Drawing.Point(279, 136);
             this.tbCep.Name = "tbCep";
             this.tbCep.Size = new System.Drawing.Size(85, 20);
-            this.tbCep.TabIndex = 41;
+            this.tbCep.TabIndex = 9;
+            this.tbCep.TextChanged += new System.EventHandler(this.tbCep_TextChanged);
             // 
             // label7
             // 
@@ -457,76 +458,6 @@
             this.dgvPacientes.TabIndex = 61;
             this.dgvPacientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPacientes_CellContentClick);
             // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPesquisar.Location = new System.Drawing.Point(6, 55);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(89, 23);
-            this.btnPesquisar.TabIndex = 60;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
-            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(287, 55);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(89, 23);
-            this.btnExcluir.TabIndex = 59;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
-            this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlterar.Location = new System.Drawing.Point(151, 55);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(89, 23);
-            this.btnAlterar.TabIndex = 58;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
-            // 
-            // tbPesqNome
-            // 
-            this.tbPesqNome.Location = new System.Drawing.Point(6, 29);
-            this.tbPesqNome.Name = "tbPesqNome";
-            this.tbPesqNome.Size = new System.Drawing.Size(370, 20);
-            this.tbPesqNome.TabIndex = 57;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 13);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 13);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "Nome do Paciente";
-            // 
-            // pnlImage
-            // 
-            this.pnlImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(121)))), ((int)(((byte)(158)))));
-            this.pnlImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlImage.BackgroundImage")));
-            this.pnlImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlImage.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlImage.Location = new System.Drawing.Point(0, 0);
-            this.pnlImage.Name = "pnlImage";
-            this.pnlImage.Size = new System.Drawing.Size(390, 461);
-            this.pnlImage.TabIndex = 3;
-            // 
             // cod
             // 
             this.cod.DataPropertyName = "pac_codigo";
@@ -597,6 +528,76 @@
             this.nasc.HeaderText = "Data Nascimento";
             this.nasc.Name = "nasc";
             this.nasc.ReadOnly = true;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
+            this.btnPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPesquisar.Location = new System.Drawing.Point(6, 55);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(89, 23);
+            this.btnPesquisar.TabIndex = 60;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
+            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcluir.Location = new System.Drawing.Point(287, 55);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(89, 23);
+            this.btnExcluir.TabIndex = 59;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
+            this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlterar.Location = new System.Drawing.Point(151, 55);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(89, 23);
+            this.btnAlterar.TabIndex = 58;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
+            // 
+            // tbPesqNome
+            // 
+            this.tbPesqNome.Location = new System.Drawing.Point(6, 29);
+            this.tbPesqNome.Name = "tbPesqNome";
+            this.tbPesqNome.Size = new System.Drawing.Size(370, 20);
+            this.tbPesqNome.TabIndex = 57;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 13);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "Nome do Paciente";
+            // 
+            // pnlImage
+            // 
+            this.pnlImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(121)))), ((int)(((byte)(158)))));
+            this.pnlImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlImage.BackgroundImage")));
+            this.pnlImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlImage.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlImage.Location = new System.Drawing.Point(0, 0);
+            this.pnlImage.Name = "pnlImage";
+            this.pnlImage.Size = new System.Drawing.Size(390, 461);
+            this.pnlImage.TabIndex = 3;
             // 
             // TelaPacientes
             // 

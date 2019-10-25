@@ -75,7 +75,7 @@ namespace TrabHospital.Controladora
 
             PacienteBD Pac = new PacienteBD(bco);
 
-            result = Pac.Alterar(PacienteAtual);
+            result = Pac.AlterarPaciente(PacienteAtual);
             if (!result)
                 MessageBox.Show("erro control");
             bco.Desconecta();

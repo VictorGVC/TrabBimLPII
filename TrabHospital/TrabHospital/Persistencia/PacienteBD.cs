@@ -55,11 +55,6 @@ namespace TrabHospital.Persistencia
                 return false;
         }
 
-        public bool Alterar(Paciente pac)
-        {
-            return true;
-        }
-
         public List<object> PesquisarPaciente(string nome)
         {
             List<object> pacientes = new List<object>();

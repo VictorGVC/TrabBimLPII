@@ -166,5 +166,10 @@ namespace TrabHospital.Visão
         {
             dgvPacientes.DataSource = ControlPac.BuscarPaciente("");
         }
+
+        private void tbCep_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
