@@ -66,6 +66,10 @@
             this.tbPesqNome = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlImage = new System.Windows.Forms.Panel();
+            this.cod_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cep_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plano_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlFuncoes.SuspendLayout();
             this.tabs.SuspendLayout();
             this.painel.SuspendLayout();
@@ -109,6 +113,7 @@
             // 
             // pnDados
             // 
+            this.pnDados.BackColor = System.Drawing.Color.PowderBlue;
             this.pnDados.Controls.Add(this.label11);
             this.pnDados.Controls.Add(this.cbPlano);
             this.pnDados.Controls.Add(this.tbNome);
@@ -333,7 +338,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(121)))), ((int)(((byte)(158)))));
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.btnNovo);
@@ -372,7 +377,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click_1);
             // 
             // btnNovo
             // 
@@ -386,7 +390,6 @@
             this.btnNovo.TabIndex = 9;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click_1);
             // 
             // btnSalvar
             // 
@@ -401,10 +404,10 @@
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click_1);
             // 
             // tabPesquisa
             // 
+            this.tabPesquisa.BackColor = System.Drawing.Color.PowderBlue;
             this.tabPesquisa.Controls.Add(this.dgvPacientes);
             this.tabPesquisa.Controls.Add(this.btnPesquisar);
             this.tabPesquisa.Controls.Add(this.btnExcluir);
@@ -417,13 +420,17 @@
             this.tabPesquisa.Size = new System.Drawing.Size(382, 435);
             this.tabPesquisa.TabIndex = 1;
             this.tabPesquisa.Text = "Pesquisa";
-            this.tabPesquisa.UseVisualStyleBackColor = true;
             // 
             // dgvPacientes
             // 
             this.dgvPacientes.AllowUserToAddRows = false;
             this.dgvPacientes.AllowUserToDeleteRows = false;
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPacientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cod_pac,
+            this.nome_pac,
+            this.cep_pac,
+            this.plano_pac});
             this.dgvPacientes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvPacientes.Location = new System.Drawing.Point(3, 177);
             this.dgvPacientes.Name = "dgvPacientes";
@@ -445,7 +452,6 @@
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click_1);
             // 
             // btnExcluir
             // 
@@ -472,7 +478,6 @@
             this.btnAlterar.TabIndex = 58;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click_1);
             // 
             // tbPesqNome
             // 
@@ -500,6 +505,33 @@
             this.pnlImage.Name = "pnlImage";
             this.pnlImage.Size = new System.Drawing.Size(390, 461);
             this.pnlImage.TabIndex = 3;
+            // 
+            // cod_pac
+            // 
+            this.cod_pac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.cod_pac.HeaderText = "Cod";
+            this.cod_pac.Name = "cod_pac";
+            this.cod_pac.ReadOnly = true;
+            this.cod_pac.Width = 51;
+            // 
+            // nome_pac
+            // 
+            this.nome_pac.HeaderText = "Nome";
+            this.nome_pac.Name = "nome_pac";
+            this.nome_pac.ReadOnly = true;
+            this.nome_pac.Width = 150;
+            // 
+            // cep_pac
+            // 
+            this.cep_pac.HeaderText = "CEP";
+            this.cep_pac.Name = "cep_pac";
+            this.cep_pac.ReadOnly = true;
+            // 
+            // plano_pac
+            // 
+            this.plano_pac.HeaderText = "Convênio";
+            this.plano_pac.Name = "plano_pac";
+            this.plano_pac.ReadOnly = true;
             // 
             // TelaPacientes
             // 
@@ -564,5 +596,9 @@
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Panel pnlImage;
 		private System.Windows.Forms.Button btnVoltar;
-	}
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_pac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome_pac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cep_pac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plano_pac;
+    }
 }
