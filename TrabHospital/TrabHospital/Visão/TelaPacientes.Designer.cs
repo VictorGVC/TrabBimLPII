@@ -31,6 +31,8 @@
             this.tabs = new System.Windows.Forms.TabControl();
             this.painel = new System.Windows.Forms.TabPage();
             this.pnDados = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cbPlano = new System.Windows.Forms.ComboBox();
             this.tbNome = new System.Windows.Forms.TextBox();
             this.cbUF = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,8 +62,6 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.tbPesqNome = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.cbPlano = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.tabs.SuspendLayout();
             this.painel.SuspendLayout();
             this.pnDados.SuspendLayout();
@@ -120,6 +120,23 @@
             this.pnDados.Name = "pnDados";
             this.pnDados.Size = new System.Drawing.Size(524, 176);
             this.pnDados.TabIndex = 52;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 122);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(81, 13);
+            this.label11.TabIndex = 53;
+            this.label11.Text = "Plano de saúde";
+            // 
+            // cbPlano
+            // 
+            this.cbPlano.FormattingEnabled = true;
+            this.cbPlano.Location = new System.Drawing.Point(5, 138);
+            this.cbPlano.Name = "cbPlano";
+            this.cbPlano.Size = new System.Drawing.Size(121, 21);
+            this.cbPlano.TabIndex = 52;
             // 
             // tbNome
             // 
@@ -429,23 +446,6 @@
             this.label8.TabIndex = 56;
             this.label8.Text = "Nome do Paciente";
             // 
-            // cbPlano
-            // 
-            this.cbPlano.FormattingEnabled = true;
-            this.cbPlano.Location = new System.Drawing.Point(5, 138);
-            this.cbPlano.Name = "cbPlano";
-            this.cbPlano.Size = new System.Drawing.Size(121, 21);
-            this.cbPlano.TabIndex = 52;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 122);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 13);
-            this.label11.TabIndex = 53;
-            this.label11.Text = "Plano de saúde";
-            // 
             // TelaPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -454,6 +454,7 @@
             this.Controls.Add(this.tabs);
             this.Name = "TelaPacientes";
             this.Text = "Cadastro de Pacientes";
+            this.Load += new System.EventHandler(this.TelaPacientes_Load);
             this.tabs.ResumeLayout(false);
             this.painel.ResumeLayout(false);
             this.pnDados.ResumeLayout(false);

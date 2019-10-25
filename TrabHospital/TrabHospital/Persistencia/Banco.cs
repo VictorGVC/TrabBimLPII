@@ -10,7 +10,7 @@ namespace TrabHospital.Persistencia
 {
 	class Banco
 	{
-        private String strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Trabs de LP II\Hospital\TrabHospital\TrabHospital\Banco\BancoHospital.mdf;Integrated Security=True;Connect Timeout=30";
+        private String strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\BancoHospital.mdf;Integrated Security=True;Connect Timeout=30";
         //private String strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mateus\Downloads\TrabHospital\TrabHospital\Banco\BancoHospital.mdf;Integrated Security=True;Connect Timeout=30";
 		//private String strcon = @"";
 

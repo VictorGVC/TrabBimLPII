@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TrabHospital.Modelo;
 
 namespace TrabHospital.Persistencia
@@ -20,7 +22,9 @@ namespace TrabHospital.Persistencia
 		{
             Paciente pac = (Paciente)Objeto;
 
-            string SQL = @"INSERT INTO pacientes (pac_nome,pac_sexo,pac_dtnasc,pac_endereco,pac_cidade,pac_uf,pac_cep,pac_fone,pla_codigo) 
+            string SQL = @"INSERT INTO pacientes (pac_nome,pac_sexo,pac_dtnasc,
+                                                    pac_endereco,pac_cidade,pac_uf,
+                                                    pac_cep,pac_fone,pla_codigo) 
                             VALUES(@nome,@sexo,@nasc,@endereco,@cidade,@uf,@cep,@fone,@plano)";
             if (bco.ExecuteNonQuery(SQL, "@nome", pac.Nome,
                                         "@sexo", pac.Sexo,
@@ -29,11 +33,15 @@ namespace TrabHospital.Persistencia
                                         "@cidade", pac.Cidade,
                                         "@uf", pac.Uf,
                                         "@cep", pac.Cep,
-                                        "@cop", pac.Fone,
+                                        "@fone", pac.Fone,
                                         "@plano",pac.Plano.Codigo))
                 return true;
             else
+            {
+                MessageBox.Show("erro pacientebd");
                 return false;
+            }
+                
 		}
 
         public bool ApagarPaciente(int codigo)
@@ -54,11 +62,36 @@ namespace TrabHospital.Persistencia
 
         public List<object> PesquisarPaciente(string nome)
         {
-            List<object> paciente = new List<object>();
+            List<object> pacientes = new List<object>();
+            DataTable dtaux = new DataTable();
+            string SQL = @"SELECT * FROM pacientes INNER JOIN planosaude
+                            ON pacientes.pla_codigo = planosaude.pla_codigo
+                            WHERE pac_nome like @nome";
+            nome += "%";
+            bco.ExecuteQuery(SQL, out dtaux, "@nome", nome);
+            if(dtaux.Rows.Count > 0)
+            {
+                PlanoDB pdb = new PlanoDB(bco);
+                for(int i = 0; i < dtaux.Rows.Count;i++)
+                {
+                    Paciente p = new Paciente();
 
+                    p.Codigo = Convert.ToInt32(dtaux.Rows[i]["pac_codigo"]);
+                    p.Nome = dtaux.Rows[i]["pac_nome"].ToString();
+                    p.Sexo = Convert.ToChar(dtaux.Rows[i]["pac_sexo"]);
+                    p.Dtnasc = Convert.ToDateTime(dtaux.Rows[i]["pac_denasc"]);
+                    p.Endereco = dtaux.Rows[i]["pac_endereco"].ToString();
+                    p.Cidade = dtaux.Rows[i]["pac_cidade"].ToString();
+                    p.Uf = dtaux.Rows[i]["pac_uf"].ToString();
+                    p.Cep = dtaux.Rows[i]["pac_cep"].ToString();
+                    p.Fone = dtaux.Rows[i]["pac_fone"].ToString();
+                    p.Plano = (Planos_de_saude)pdb.BuscarPlanos(Convert.ToInt32(dtaux.Rows[i]["pla_codigo"]));
+                    pacientes.Add(p);
+                }
+            }
             
 
-            return paciente;
+            return pacientes;
         }
 
         public bool AlterarPaciente(object Objeto)
@@ -85,6 +118,8 @@ namespace TrabHospital.Persistencia
             else
                 return false;
         }
+
+        
 
     }
 }

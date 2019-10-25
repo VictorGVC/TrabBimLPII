@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladora\CtrlPacientes.cs" />
-    <Compile Include="Controladora\CtrlPlano.cs" />
     <Compile Include="Modelo\Paciente.cs" />
     <Compile Include="Modelo\Plano de saude.cs" />
     <Compile Include="Persistencia\Banco.cs" />
     <Compile Include="Persistencia\PacienteBD.cs" />
+    <Compile Include="Persistencia\PlanoDB.cs" />
     <Compile Include="Visão\TelaPacientes.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -14,12 +14,11 @@ namespace TrabHospital.Visão
 	public partial class TelaPacientes : Form
 	{
 		private CtrlPacientes ControlPac = new CtrlPacientes();
-        private CtrlPlano ctrlplano = new CtrlPlano();
 
 		public TelaPacientes()
 		{
 			InitializeComponent();
-            cbPlano.DataSource = ctrlplano.BuscarPlanos(-1);
+            
 		}
 
 		private void BtnSalvar_Click(object sender, EventArgs e)
@@ -68,7 +67,7 @@ namespace TrabHospital.Visão
                 else
                     sexo = 'F';
                 if (!ControlPac.GravarPaciente(tbNome.Text, sexo, dtpNascimento.Value.Date, tbEndereco.Text,
-                                        tbCidade.Text, cbUF.Text, tbCep.Text, tbTelefone.Text))
+                                        tbCidade.Text, cbUF.Text, tbCep.Text, tbTelefone.Text,(int)cbPlano.SelectedValue))
                 {
                     MessageBox.Show("Não foi possível gravar o paciente. Verifique os dados");
                 }
@@ -81,7 +80,7 @@ namespace TrabHospital.Visão
                 else
                     sexo = 'F';
                 if (!ControlPac.AlterarPaciente(Convert.ToInt32(tbCodigo.Text),tbNome.Text, sexo, dtpNascimento.Value.Date, tbEndereco.Text,
-                                        tbCidade.Text, cbUF.Text, tbCep.Text, tbTelefone.Text))
+                                        tbCidade.Text, cbUF.Text, tbCep.Text, tbTelefone.Text,(int)cbPlano.SelectedValue))
                 {
                     MessageBox.Show("Não foi possível alterar o paciente. Verifique os dados");
                 }
@@ -90,17 +89,23 @@ namespace TrabHospital.Visão
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-
+            ControlPac.BuscarClientes(tbPesqNome.Text);
         }
 
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             pnDados.Enabled = true;
+            btnNovo.Enabled = false;
+            btnSalvar.Enabled = true;
+            btnCancelar.Enabled = true;
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             pnDados.Enabled = false;
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
+            btnCancelar.Enabled = false;
         }
 
         private void BtnExcluir_Click(object sender, EventArgs e)
@@ -112,6 +117,15 @@ namespace TrabHospital.Visão
         {
             btnSalvar.Text = "Alterar";
             tabs.SelectedTab = tabPesquisa;
+        }
+
+        private void TelaPacientes_Load(object sender, EventArgs e)
+        {
+            cbPlano.DisplayMember = "pla_descricao";
+            cbPlano.ValueMember = "pla_codigo";
+            cbPlano.DataSource = ControlPac.BuscarPlanos();
+            btnSalvar.Enabled = false;
+            btnCancelar.Enabled = false;
         }
     }
 }
