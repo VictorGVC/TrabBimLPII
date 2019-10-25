@@ -127,5 +127,10 @@ namespace TrabHospital.Visão
             btnSalvar.Enabled = false;
             btnCancelar.Enabled = false;
         }
-    }
+
+		private void BtnVoltar_Click(object sender, EventArgs e)
+		{
+			Close();
+		}
+	}
 }

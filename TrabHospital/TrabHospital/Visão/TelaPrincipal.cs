@@ -21,8 +21,25 @@ namespace TrabHospital
 		private void ClientesToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			TelaPacientes tela = new TelaPacientes();
+			Hide();
 			tela.ShowDialog();
 			tela.Dispose();
+			Show();
 		}
+
+		private void BtnPacientes_Click(object sender, EventArgs e)
+		{
+			TelaPacientes tela = new TelaPacientes();
+			Hide();
+			tela.ShowDialog();
+			tela.Dispose();
+			Show();
+		}
+
+		private void BtnFechar_Click(object sender, EventArgs e)
+		{
+			Close();
+		}
+
 	}
 }
