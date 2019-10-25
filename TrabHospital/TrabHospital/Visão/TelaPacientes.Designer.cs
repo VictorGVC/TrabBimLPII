@@ -377,6 +377,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnNovo
             // 
@@ -390,6 +391,7 @@
             this.btnNovo.TabIndex = 9;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
             // btnSalvar
             // 
@@ -404,6 +406,7 @@
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
             // tabPesquisa
             // 
@@ -438,6 +441,7 @@
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPacientes.Size = new System.Drawing.Size(376, 255);
             this.dgvPacientes.TabIndex = 61;
+            this.dgvPacientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPacientes_CellContentClick);
             // 
             // btnPesquisar
             // 
@@ -452,6 +456,7 @@
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
             // 
             // btnExcluir
             // 
@@ -465,6 +470,7 @@
             this.btnExcluir.TabIndex = 59;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -478,6 +484,7 @@
             this.btnAlterar.TabIndex = 58;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // tbPesqNome
             // 
@@ -509,6 +516,7 @@
             // cod_pac
             // 
             this.cod_pac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.cod_pac.DataPropertyName = "pac_codigo";
             this.cod_pac.HeaderText = "Cod";
             this.cod_pac.Name = "cod_pac";
             this.cod_pac.ReadOnly = true;
@@ -516,6 +524,7 @@
             // 
             // nome_pac
             // 
+            this.nome_pac.DataPropertyName = "pac_nome";
             this.nome_pac.HeaderText = "Nome";
             this.nome_pac.Name = "nome_pac";
             this.nome_pac.ReadOnly = true;
@@ -523,12 +532,14 @@
             // 
             // cep_pac
             // 
+            this.cep_pac.DataPropertyName = "pac_cep";
             this.cep_pac.HeaderText = "CEP";
             this.cep_pac.Name = "cep_pac";
             this.cep_pac.ReadOnly = true;
             // 
             // plano_pac
             // 
+            this.plano_pac.DataPropertyName = "pla_codigo";
             this.plano_pac.HeaderText = "Convênio";
             this.plano_pac.Name = "plano_pac";
             this.plano_pac.ReadOnly = true;

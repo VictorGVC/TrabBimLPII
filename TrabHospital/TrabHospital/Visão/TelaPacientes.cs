@@ -35,7 +35,29 @@ namespace TrabHospital.Visão
 			Close();
 		}
 
-        private void BtnNovo_Click_1(object sender, EventArgs e)
+        private void DgvPacientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            dgvPacientes.DataSource = ControlPac.BuscarPaciente(tbPesqNome.Text);
+        }
+
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+            btnSalvar.Text = "Alterar";
+            tabs.SelectedTab = painel;
+
+        }
+
+        private void BtnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnNovo_Click(object sender, EventArgs e)
         {
             pnDados.Enabled = true;
             btnNovo.Enabled = false;
@@ -43,7 +65,7 @@ namespace TrabHospital.Visão
             btnCancelar.Enabled = true;
         }
 
-        private void BtnSalvar_Click_1(object sender, EventArgs e)
+        private void BtnSalvar_Click(object sender, EventArgs e)
         {
             char sexo;
 
@@ -109,23 +131,12 @@ namespace TrabHospital.Visão
             }
         }
 
-        private void BtnCancelar_Click_1(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             pnDados.Enabled = false;
             btnNovo.Enabled = true;
             btnSalvar.Enabled = false;
             btnCancelar.Enabled = false;
-        }
-
-        private void BtnAlterar_Click_1(object sender, EventArgs e)
-        {
-            btnSalvar.Text = "Alterar";
-            tabs.SelectedTab = tabPesquisa;
-        }
-
-        private void BtnPesquisar_Click_1(object sender, EventArgs e)
-        {
-            dgvPacientes.DataSource = ControlPac.BuscarClientes(tbPesqNome.Text);
         }
     }
 }

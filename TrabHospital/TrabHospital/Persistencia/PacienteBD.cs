@@ -69,17 +69,17 @@ namespace TrabHospital.Persistencia
                             WHERE pac_nome like @nome";
             nome += "%";
             bco.ExecuteQuery(SQL, out dtaux, "@nome", nome);
-            if(dtaux.Rows.Count > 0)
+            if (dtaux.Rows.Count > 0)
             {
                 PlanoDB pdb = new PlanoDB(bco);
-                for(int i = 0; i < dtaux.Rows.Count;i++)
+                for (int i = 0; i < dtaux.Rows.Count; i++)
                 {
                     Paciente p = new Paciente();
 
                     p.Codigo = Convert.ToInt32(dtaux.Rows[i]["pac_codigo"]);
                     p.Nome = dtaux.Rows[i]["pac_nome"].ToString();
                     p.Sexo = Convert.ToChar(dtaux.Rows[i]["pac_sexo"]);
-                    p.Dtnasc = Convert.ToDateTime(dtaux.Rows[i]["pac_denasc"]);
+                    p.Dtnasc = Convert.ToDateTime(dtaux.Rows[i]["pac_dtnasc"]);
                     p.Endereco = dtaux.Rows[i]["pac_endereco"].ToString();
                     p.Cidade = dtaux.Rows[i]["pac_cidade"].ToString();
                     p.Uf = dtaux.Rows[i]["pac_uf"].ToString();
@@ -89,6 +89,8 @@ namespace TrabHospital.Persistencia
                     pacientes.Add(p);
                 }
             }
+            else
+                MessageBox.Show("erro pacienteDB");
             
 
             return pacientes;
