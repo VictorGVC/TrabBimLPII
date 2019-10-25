@@ -89,10 +89,7 @@ namespace TrabHospital.Persistencia
                     pacientes.Add(p);
                 }
             }
-            else
-                MessageBox.Show("erro pacienteDB");
             
-
             return pacientes;
         }
 
@@ -118,7 +115,10 @@ namespace TrabHospital.Persistencia
                                         "@cod", pac.Codigo))
                 return true;
             else
+            { 
                 return false;
+            }
+                
         }
 
         

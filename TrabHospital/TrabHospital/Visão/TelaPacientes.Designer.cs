@@ -66,10 +66,16 @@
             this.tbPesqNome = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlImage = new System.Windows.Forms.Panel();
-            this.cod_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cep_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plano_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlFuncoes.SuspendLayout();
             this.tabs.SuspendLayout();
             this.painel.SuspendLayout();
@@ -98,6 +104,7 @@
             this.tabs.SelectedIndex = 0;
             this.tabs.Size = new System.Drawing.Size(390, 461);
             this.tabs.TabIndex = 36;
+            this.tabs.SelectedIndexChanged += new System.EventHandler(this.Tabs_SelectedIndexChanged);
             // 
             // painel
             // 
@@ -162,7 +169,7 @@
             this.tbNome.Location = new System.Drawing.Point(4, 61);
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(360, 20);
-            this.tbNome.TabIndex = 42;
+            this.tbNome.TabIndex = 3;
             // 
             // cbUF
             // 
@@ -308,17 +315,18 @@
             // 
             // tbCodigo
             // 
+            this.tbCodigo.Enabled = false;
             this.tbCodigo.Location = new System.Drawing.Point(4, 24);
             this.tbCodigo.Name = "tbCodigo";
             this.tbCodigo.Size = new System.Drawing.Size(86, 20);
-            this.tbCodigo.TabIndex = 41;
+            this.tbCodigo.TabIndex = 1;
             // 
             // tbEndereco
             // 
             this.tbEndereco.Location = new System.Drawing.Point(96, 24);
             this.tbEndereco.Name = "tbEndereco";
             this.tbEndereco.Size = new System.Drawing.Size(268, 20);
-            this.tbEndereco.TabIndex = 41;
+            this.tbEndereco.TabIndex = 2;
             // 
             // tbCep
             // 
@@ -430,10 +438,16 @@
             this.dgvPacientes.AllowUserToDeleteRows = false;
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cod_pac,
+            this.cod,
+            this.cidade,
             this.nome_pac,
+            this.fone,
+            this.endereco,
             this.cep_pac,
-            this.plano_pac});
+            this.plano_pac,
+            this.uf,
+            this.sexo,
+            this.nasc});
             this.dgvPacientes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvPacientes.Location = new System.Drawing.Point(3, 177);
             this.dgvPacientes.Name = "dgvPacientes";
@@ -513,14 +527,19 @@
             this.pnlImage.Size = new System.Drawing.Size(390, 461);
             this.pnlImage.TabIndex = 3;
             // 
-            // cod_pac
+            // cod
             // 
-            this.cod_pac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.cod_pac.DataPropertyName = "pac_codigo";
-            this.cod_pac.HeaderText = "Cod";
-            this.cod_pac.Name = "cod_pac";
-            this.cod_pac.ReadOnly = true;
-            this.cod_pac.Width = 51;
+            this.cod.DataPropertyName = "pac_codigo";
+            this.cod.HeaderText = "Codigo";
+            this.cod.Name = "cod";
+            this.cod.ReadOnly = true;
+            // 
+            // cidade
+            // 
+            this.cidade.DataPropertyName = "pac_cidade";
+            this.cidade.HeaderText = "Cidade";
+            this.cidade.Name = "cidade";
+            this.cidade.ReadOnly = true;
             // 
             // nome_pac
             // 
@@ -529,6 +548,20 @@
             this.nome_pac.Name = "nome_pac";
             this.nome_pac.ReadOnly = true;
             this.nome_pac.Width = 150;
+            // 
+            // fone
+            // 
+            this.fone.DataPropertyName = "pac_fone";
+            this.fone.HeaderText = "Telefone";
+            this.fone.Name = "fone";
+            this.fone.ReadOnly = true;
+            // 
+            // endereco
+            // 
+            this.endereco.DataPropertyName = "pac_endereco";
+            this.endereco.HeaderText = "Endereco";
+            this.endereco.Name = "endereco";
+            this.endereco.ReadOnly = true;
             // 
             // cep_pac
             // 
@@ -543,6 +576,27 @@
             this.plano_pac.HeaderText = "Convênio";
             this.plano_pac.Name = "plano_pac";
             this.plano_pac.ReadOnly = true;
+            // 
+            // uf
+            // 
+            this.uf.DataPropertyName = "pac_uf";
+            this.uf.HeaderText = "UF";
+            this.uf.Name = "uf";
+            this.uf.ReadOnly = true;
+            // 
+            // sexo
+            // 
+            this.sexo.DataPropertyName = "pac_sexo";
+            this.sexo.HeaderText = "Sexo";
+            this.sexo.Name = "sexo";
+            this.sexo.ReadOnly = true;
+            // 
+            // nasc
+            // 
+            this.nasc.DataPropertyName = "pac_dtnasc";
+            this.nasc.HeaderText = "Data Nascimento";
+            this.nasc.Name = "nasc";
+            this.nasc.ReadOnly = true;
             // 
             // TelaPacientes
             // 
@@ -607,9 +661,15 @@
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Panel pnlImage;
 		private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cod_pac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome_pac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endereco;
         private System.Windows.Forms.DataGridViewTextBoxColumn cep_pac;
         private System.Windows.Forms.DataGridViewTextBoxColumn plano_pac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sexo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nasc;
     }
 }

@@ -58,7 +58,29 @@ namespace TrabHospital.Controladora
         public bool AlterarPaciente(int cod, string nome, char sexo, DateTime dtnasc, string endereco,
                                   string cidade, string uf, string cep, string fone,int codplano)
         {
-            return true;
+            bool result = true;
+
+            bco.Conecta();
+            PacienteAtual.Nome = nome;
+            PacienteAtual.Sexo = sexo;
+            PacienteAtual.Codigo = cod;
+            PacienteAtual.Dtnasc = dtnasc;
+            PacienteAtual.Endereco = endereco;
+            PacienteAtual.Cidade = cidade;
+            PacienteAtual.Uf = uf;
+            PacienteAtual.Cep = cep;
+            PacienteAtual.Fone = fone;
+            PlanoDB pbd = new PlanoDB(bco);
+            PacienteAtual.Plano = (Planos_de_saude)pbd.BuscarPlanos(codplano);
+
+            PacienteBD Pac = new PacienteBD(bco);
+
+            result = Pac.Alterar(PacienteAtual);
+            if (!result)
+                MessageBox.Show("erro control");
+            bco.Desconecta();
+
+            return (result);
 
         }
 
@@ -112,8 +134,6 @@ namespace TrabHospital.Controladora
                 dtpac.Rows.Add(row);
             }
             bco.Desconecta();
-            if (dtpac.Rows.Count == 0)
-                MessageBox.Show("erro Controle");
 
             return dtpac;
         }
