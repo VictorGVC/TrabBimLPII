@@ -60,12 +60,6 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.tabPesquisa = new System.Windows.Forms.TabPage();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.tbPesqNome = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pnlImage = new System.Windows.Forms.Panel();
             this.cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +70,12 @@
             this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cep_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.tbPesqNome = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pnlImage = new System.Windows.Forms.Panel();
             this.pnlFuncoes.SuspendLayout();
             this.tabs.SuspendLayout();
             this.painel.SuspendLayout();
@@ -351,7 +351,7 @@
             // 
             // pnlBotoes
             // 
-            this.pnlBotoes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(121)))), ((int)(((byte)(158)))));
+            this.pnlBotoes.BackColor = System.Drawing.Color.PowderBlue;
             this.pnlBotoes.Controls.Add(this.btnVoltar);
             this.pnlBotoes.Controls.Add(this.btnCancelar);
             this.pnlBotoes.Controls.Add(this.btnNovo);
@@ -441,6 +441,7 @@
             // 
             this.dgvPacientes.AllowUserToAddRows = false;
             this.dgvPacientes.AllowUserToDeleteRows = false;
+            this.dgvPacientes.BackgroundColor = System.Drawing.Color.White;
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cod,
@@ -460,76 +461,6 @@
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPacientes.Size = new System.Drawing.Size(376, 255);
             this.dgvPacientes.TabIndex = 61;
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPesquisar.Location = new System.Drawing.Point(6, 55);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(89, 23);
-            this.btnPesquisar.TabIndex = 60;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
-            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(287, 55);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(89, 23);
-            this.btnExcluir.TabIndex = 59;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
-            this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlterar.Location = new System.Drawing.Point(151, 55);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(89, 23);
-            this.btnAlterar.TabIndex = 58;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
-            // 
-            // tbPesqNome
-            // 
-            this.tbPesqNome.Location = new System.Drawing.Point(6, 29);
-            this.tbPesqNome.Name = "tbPesqNome";
-            this.tbPesqNome.Size = new System.Drawing.Size(370, 20);
-            this.tbPesqNome.TabIndex = 57;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 13);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 13);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "Nome do Paciente";
-            // 
-            // pnlImage
-            // 
-            this.pnlImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(121)))), ((int)(((byte)(158)))));
-            this.pnlImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlImage.BackgroundImage")));
-            this.pnlImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlImage.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlImage.Location = new System.Drawing.Point(0, 0);
-            this.pnlImage.Name = "pnlImage";
-            this.pnlImage.Size = new System.Drawing.Size(390, 461);
-            this.pnlImage.TabIndex = 3;
             // 
             // cod
             // 
@@ -608,6 +539,76 @@
             this.uf.Name = "uf";
             this.uf.ReadOnly = true;
             this.uf.Width = 40;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
+            this.btnPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPesquisar.Location = new System.Drawing.Point(6, 55);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(89, 36);
+            this.btnPesquisar.TabIndex = 60;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
+            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcluir.Location = new System.Drawing.Point(287, 55);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(89, 36);
+            this.btnExcluir.TabIndex = 59;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
+            this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlterar.Location = new System.Drawing.Point(151, 55);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(89, 36);
+            this.btnAlterar.TabIndex = 58;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
+            // 
+            // tbPesqNome
+            // 
+            this.tbPesqNome.Location = new System.Drawing.Point(6, 29);
+            this.tbPesqNome.Name = "tbPesqNome";
+            this.tbPesqNome.Size = new System.Drawing.Size(370, 20);
+            this.tbPesqNome.TabIndex = 57;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 13);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "Nome do Paciente";
+            // 
+            // pnlImage
+            // 
+            this.pnlImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(121)))), ((int)(((byte)(158)))));
+            this.pnlImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlImage.BackgroundImage")));
+            this.pnlImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlImage.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlImage.Location = new System.Drawing.Point(0, 0);
+            this.pnlImage.Name = "pnlImage";
+            this.pnlImage.Size = new System.Drawing.Size(390, 461);
+            this.pnlImage.TabIndex = 3;
             // 
             // TelaPacientes
             // 

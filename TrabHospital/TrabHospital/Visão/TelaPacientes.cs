@@ -20,7 +20,7 @@ namespace TrabHospital.Visão
 			InitializeComponent();
 		}
 
-        public void limpa()
+        private void limpa()
         {
             tbCep.Clear();
             tbCidade.Clear();
@@ -40,46 +40,13 @@ namespace TrabHospital.Visão
             btnCancelar.Enabled = false;
         }
 
-		private void BtnVoltar_Click(object sender, EventArgs e)
-		{
-			Close();
-		}
-
-        private void BtnPesquisar_Click(object sender, EventArgs e)
-        {
-            dgvPacientes.DataSource = ControlPac.BuscarPaciente(tbPesqNome.Text);
-        }
-
-        private void BtnAlterar_Click(object sender, EventArgs e)
-        {
-            btnSalvar.Text = "Alterar";
-            tabs.SelectedTab = painel;
-            tbCodigo.Text = dgvPacientes.SelectedRows[0].Cells["cod"].Value.ToString();
-            tbNome.Text = dgvPacientes.SelectedRows[0].Cells["nome_pac"].Value.ToString();
-            tbEndereco.Text = dgvPacientes.SelectedRows[0].Cells["endereco"].Value.ToString();
-            tbCidade.Text = dgvPacientes.SelectedRows[0].Cells["cidade"].Value.ToString();
-            tbCep.Text = dgvPacientes.SelectedRows[0].Cells["cep_pac"].Value.ToString();
-            tbTelefone.Text = dgvPacientes.SelectedRows[0].Cells["fone"].Value.ToString();
-            pnDados.Enabled = true;
-            btnNovo.Enabled = false;
-            btnSalvar.Enabled = true;
-            btnCancelar.Enabled = true;
-
-        }
-
-        private void BtnExcluir_Click(object sender, EventArgs e)
-        {
-            ControlPac.ExcluirPaciente((int)dgvPacientes.SelectedRows[0].Cells["cod"].Value);
-            dgvPacientes.DataSource = ControlPac.BuscarPaciente("");
-        }
-
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             pnDados.Enabled = true;
             btnNovo.Enabled = false;
             btnSalvar.Enabled = true;
             btnCancelar.Enabled = true;
-			tbNome.Focus();
+            tbNome.Focus();
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
@@ -116,7 +83,7 @@ namespace TrabHospital.Visão
                 MessageBox.Show("O CEP deve ser informado");
                 tbCodigo.Focus();
             }
-            else if(cbPlano.Text == "")
+            else if (cbPlano.Text == "")
             {
                 MessageBox.Show("O Plano deve ser informado");
                 tbCodigo.Focus();
@@ -161,6 +128,39 @@ namespace TrabHospital.Visão
             btnNovo.Enabled = true;
             btnSalvar.Enabled = false;
             btnCancelar.Enabled = false;
+        }
+
+        private void BtnVoltar_Click(object sender, EventArgs e)
+		{
+			Close();
+		}
+
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            dgvPacientes.DataSource = ControlPac.BuscarPaciente(tbPesqNome.Text);
+        }
+
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+            btnSalvar.Text = "Alterar";
+            tabs.SelectedTab = painel;
+            tbCodigo.Text = dgvPacientes.SelectedRows[0].Cells["cod"].Value.ToString();
+            tbNome.Text = dgvPacientes.SelectedRows[0].Cells["nome_pac"].Value.ToString();
+            tbEndereco.Text = dgvPacientes.SelectedRows[0].Cells["endereco"].Value.ToString();
+            tbCidade.Text = dgvPacientes.SelectedRows[0].Cells["cidade"].Value.ToString();
+            tbCep.Text = dgvPacientes.SelectedRows[0].Cells["cep_pac"].Value.ToString();
+            tbTelefone.Text = dgvPacientes.SelectedRows[0].Cells["fone"].Value.ToString();
+            pnDados.Enabled = true;
+            btnNovo.Enabled = false;
+            btnSalvar.Enabled = true;
+            btnCancelar.Enabled = true;
+
+        }
+
+        private void BtnExcluir_Click(object sender, EventArgs e)
+        {
+            ControlPac.ExcluirPaciente((int)dgvPacientes.SelectedRows[0].Cells["cod"].Value);
+            dgvPacientes.DataSource = ControlPac.BuscarPaciente("");
         }
 
         private void Tabs_SelectedIndexChanged(object sender, EventArgs e)

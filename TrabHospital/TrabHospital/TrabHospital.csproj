@@ -46,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controladora\CtrlAtendimentos.cs" />
     <Compile Include="Controladora\CtrlPacientes.cs" />
+    <Compile Include="Modelo\Atendimento.cs" />
+    <Compile Include="Modelo\Medico.cs" />
     <Compile Include="Modelo\Paciente.cs" />
     <Compile Include="Modelo\Plano de saude.cs" />
     <Compile Include="Persistencia\Banco.cs" />
