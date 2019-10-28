@@ -116,6 +116,11 @@ namespace TrabHospital.Visão
                 MessageBox.Show("O CEP deve ser informado");
                 tbCodigo.Focus();
             }
+            else if(cbPlano.Text == "")
+            {
+                MessageBox.Show("O Plano deve ser informado");
+                tbCodigo.Focus();
+            }
             else if (tbTelefone.Text == "")
             {
                 MessageBox.Show("O telefone deve ser informado");

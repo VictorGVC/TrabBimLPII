@@ -115,7 +115,7 @@ namespace TrabHospital.Controladora
             dtpac.Columns.Add("pac_uf");
             dtpac.Columns.Add("pac_cep");
             dtpac.Columns.Add("pac_fone");
-            dtpac.Columns.Add("pla_codigo");
+            dtpac.Columns.Add("pla_nome");
             bco.Conecta();
             PacienteBD pbd = new PacienteBD(bco);
             foreach(Paciente pac in pbd.PesquisarPaciente(desc))
@@ -130,7 +130,7 @@ namespace TrabHospital.Controladora
                 row["pac_uf"] = pac.Uf;
                 row["pac_cep"] = pac.Cep;
                 row["pac_fone"] = pac.Fone;
-                row["pla_codigo"] = pac.Plano.Codigo;
+                row["pla_nome"] = pac.Plano.Desc;
                 dtpac.Rows.Add(row);
             }
             bco.Desconecta();

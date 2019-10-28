@@ -16,5 +16,6 @@ namespace TrabHospital.Visão
 		{
 			InitializeComponent();
 		}
-	}
+
+    }
 }
