@@ -45,11 +45,6 @@ namespace TrabHospital.Visão
 			Close();
 		}
 
-        private void DgvPacientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             dgvPacientes.DataSource = ControlPac.BuscarPaciente(tbPesqNome.Text);
@@ -84,6 +79,7 @@ namespace TrabHospital.Visão
             btnNovo.Enabled = false;
             btnSalvar.Enabled = true;
             btnCancelar.Enabled = true;
+			tbNome.Focus();
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
@@ -167,9 +163,5 @@ namespace TrabHospital.Visão
             dgvPacientes.DataSource = ControlPac.BuscarPaciente("");
         }
 
-        private void tbCep_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

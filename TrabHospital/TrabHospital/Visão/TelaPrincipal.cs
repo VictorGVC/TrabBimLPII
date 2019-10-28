@@ -36,10 +36,27 @@ namespace TrabHospital
 			Show();
 		}
 
+		private void BtnAtendimentos_Click(object sender, EventArgs e)
+		{
+			TelaAtendimentos tela = new TelaAtendimentos();
+			Hide();
+			tela.ShowDialog();
+			tela.Dispose();
+			Show();
+		}
+
 		private void BtnFechar_Click(object sender, EventArgs e)
 		{
 			Close();
 		}
 
+		private void AtendimentosToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			TelaAtendimentos tela = new TelaAtendimentos();
+			Hide();
+			tela.ShowDialog();
+			tela.Dispose();
+			Show();
+		}
 	}
 }

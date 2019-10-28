@@ -52,6 +52,12 @@
     <Compile Include="Persistencia\Banco.cs" />
     <Compile Include="Persistencia\PacienteBD.cs" />
     <Compile Include="Persistencia\PlanoDB.cs" />
+    <Compile Include="Visão\TelaAtendimentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visão\TelaAtendimentos.Designer.cs">
+      <DependentUpon>TelaAtendimentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visão\TelaPacientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Visão\TelaAtendimentos.resx">
+      <DependentUpon>TelaAtendimentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visão\TelaPacientes.resx">
       <DependentUpon>TelaPacientes.cs</DependentUpon>
     </EmbeddedResource>
