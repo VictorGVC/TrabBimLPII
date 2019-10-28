@@ -11,8 +11,9 @@ namespace TrabHospital.Controladora
     class CtrlAtendimentos
     {
         Banco bco = new Banco();
-        private Atendimento AtendimentoAtual = new Atendimento();
-        private Paciente Paciente = new Paciente();
-        private Medico Medico = new Medico();
+        private Atendimento atendimentoAtual = new Atendimento();
+        private Diagnostico diagnostico = new Diagnostico();
+        private Medico medico = new Medico();
+        private Paciente paciente = new Paciente();
     }
 }
