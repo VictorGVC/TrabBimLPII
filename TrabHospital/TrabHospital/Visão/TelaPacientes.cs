@@ -149,7 +149,7 @@ namespace TrabHospital.Visão
             tbEndereco.Text = dgvPacientes.SelectedRows[0].Cells["endereco"].Value.ToString();
             tbCidade.Text = dgvPacientes.SelectedRows[0].Cells["cidade"].Value.ToString();
             tbCep.Text = dgvPacientes.SelectedRows[0].Cells["cep_pac"].Value.ToString();
-            tbTelefone.Text = dgvPacientes.SelectedRows[0].Cells["fone"].Value.ToString();
+			tbTelefone.Text = dgvPacientes.SelectedRows[0].Cells["fone"].Value.ToString();
             pnDados.Enabled = true;
             btnNovo.Enabled = false;
             btnSalvar.Enabled = true;
@@ -167,6 +167,5 @@ namespace TrabHospital.Visão
         {
             dgvPacientes.DataSource = ControlPac.BuscarPaciente("");
         }
-
-    }
+	}
 }
