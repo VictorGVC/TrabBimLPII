@@ -36,7 +36,25 @@ namespace TrabHospital
             Show();
         }
 
-        private void BtnPacientes_Click(object sender, EventArgs e)
+		private void PacientesToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			TelaRelatórios tela = new TelaRelatórios();
+			Hide();
+			tela.ShowDialog();
+			tela.Dispose();
+			Show();
+		}
+
+		private void AtendimentosToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			TelaRelatórios tela = new TelaRelatórios();
+			Hide();
+			tela.ShowDialog();
+			tela.Dispose();
+			Show();
+		}
+
+		private void BtnPacientes_Click(object sender, EventArgs e)
 		{
 			TelaPacientes tela = new TelaPacientes();
 			Hide();
@@ -56,7 +74,11 @@ namespace TrabHospital
 
         private void BtnRelatorios_Click(object sender, EventArgs e)
         {
-
+			TelaRelatórios tela = new TelaRelatórios();
+			Hide();
+			tela.ShowDialog();
+			tela.Dispose();
+			Show();
         }
 
         private void BtnFechar_Click(object sender, EventArgs e)
@@ -64,5 +86,5 @@ namespace TrabHospital
 			Close();
 		}
 
-    }
+	}
 }
