@@ -34,6 +34,21 @@
 			this.tabs = new System.Windows.Forms.TabControl();
 			this.painel = new System.Windows.Forms.TabPage();
 			this.pnDados = new System.Windows.Forms.Panel();
+			this.gbConta = new System.Windows.Forms.GroupBox();
+			this.btRemover = new System.Windows.Forms.Button();
+			this.btAdd = new System.Windows.Forms.Button();
+			this.label14 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.dtpDataConta = new System.Windows.Forms.DateTimePicker();
+			this.cbProcede = new System.Windows.Forms.ComboBox();
+			this.dgvProcedimentos = new System.Windows.Forms.DataGridView();
+			this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.label6 = new System.Windows.Forms.Label();
 			this.tbAnamnese = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
@@ -66,36 +81,21 @@
 			this.tbPesqNomePac = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.tabFechaAtt = new System.Windows.Forms.TabPage();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.btSeleciona = new System.Windows.Forms.Button();
-			this.gbConta = new System.Windows.Forms.GroupBox();
-			this.dgvProcedimentos = new System.Windows.Forms.DataGridView();
-			this.cbProcede = new System.Windows.Forms.ComboBox();
-			this.dtpDataConta = new System.Windows.Forms.DateTimePicker();
-			this.tbValor = new System.Windows.Forms.TextBox();
-			this.tbQtde = new System.Windows.Forms.TextBox();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label13 = new System.Windows.Forms.Label();
-			this.label14 = new System.Windows.Forms.Label();
-			this.btAdd = new System.Windows.Forms.Button();
-			this.btRemover = new System.Windows.Forms.Button();
-			this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.tbQtde = new System.Windows.Forms.MaskedTextBox();
+			this.tbValor = new System.Windows.Forms.MaskedTextBox();
 			this.panel2.SuspendLayout();
 			this.tabs.SuspendLayout();
 			this.painel.SuspendLayout();
 			this.pnDados.SuspendLayout();
+			this.gbConta.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvProcedimentos)).BeginInit();
 			this.pnlBotoes.SuspendLayout();
 			this.tabPesquisa.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvAtendimentos)).BeginInit();
 			this.tabFechaAtt.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-			this.gbConta.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvProcedimentos)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -163,6 +163,160 @@
 			this.pnDados.Name = "pnDados";
 			this.pnDados.Size = new System.Drawing.Size(458, 379);
 			this.pnDados.TabIndex = 52;
+			// 
+			// gbConta
+			// 
+			this.gbConta.BackColor = System.Drawing.Color.Transparent;
+			this.gbConta.Controls.Add(this.tbValor);
+			this.gbConta.Controls.Add(this.tbQtde);
+			this.gbConta.Controls.Add(this.btRemover);
+			this.gbConta.Controls.Add(this.btAdd);
+			this.gbConta.Controls.Add(this.label14);
+			this.gbConta.Controls.Add(this.label13);
+			this.gbConta.Controls.Add(this.label12);
+			this.gbConta.Controls.Add(this.label10);
+			this.gbConta.Controls.Add(this.dtpDataConta);
+			this.gbConta.Controls.Add(this.cbProcede);
+			this.gbConta.Controls.Add(this.dgvProcedimentos);
+			this.gbConta.Location = new System.Drawing.Point(4, 129);
+			this.gbConta.Name = "gbConta";
+			this.gbConta.Size = new System.Drawing.Size(451, 247);
+			this.gbConta.TabIndex = 41;
+			this.gbConta.TabStop = false;
+			this.gbConta.Text = "Conta";
+			// 
+			// btRemover
+			// 
+			this.btRemover.BackColor = System.Drawing.Color.White;
+			this.btRemover.Image = ((System.Drawing.Image)(resources.GetObject("btRemover.Image")));
+			this.btRemover.Location = new System.Drawing.Point(233, 58);
+			this.btRemover.Name = "btRemover";
+			this.btRemover.Size = new System.Drawing.Size(78, 23);
+			this.btRemover.TabIndex = 48;
+			this.btRemover.Text = "Remover";
+			this.btRemover.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.btRemover.UseVisualStyleBackColor = false;
+			// 
+			// btAdd
+			// 
+			this.btAdd.BackColor = System.Drawing.Color.White;
+			this.btAdd.Image = ((System.Drawing.Image)(resources.GetObject("btAdd.Image")));
+			this.btAdd.Location = new System.Drawing.Point(142, 58);
+			this.btAdd.Name = "btAdd";
+			this.btAdd.Size = new System.Drawing.Size(78, 23);
+			this.btAdd.TabIndex = 47;
+			this.btAdd.Text = "Adicionar";
+			this.btAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.btAdd.UseVisualStyleBackColor = false;
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.Location = new System.Drawing.Point(345, 16);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(31, 13);
+			this.label14.TabIndex = 46;
+			this.label14.Text = "Valor";
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Location = new System.Drawing.Point(133, 16);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(62, 13);
+			this.label13.TabIndex = 46;
+			this.label13.Text = "Quantidade";
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(239, 16);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(30, 13);
+			this.label12.TabIndex = 46;
+			this.label12.Text = "Data";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(6, 16);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(72, 13);
+			this.label10.TabIndex = 46;
+			this.label10.Text = "Procedimento";
+			// 
+			// dtpDataConta
+			// 
+			this.dtpDataConta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtpDataConta.Location = new System.Drawing.Point(238, 32);
+			this.dtpDataConta.Name = "dtpDataConta";
+			this.dtpDataConta.Size = new System.Drawing.Size(101, 20);
+			this.dtpDataConta.TabIndex = 8;
+			// 
+			// cbProcede
+			// 
+			this.cbProcede.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.cbProcede.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.cbProcede.FormattingEnabled = true;
+			this.cbProcede.Location = new System.Drawing.Point(6, 32);
+			this.cbProcede.Name = "cbProcede";
+			this.cbProcede.Size = new System.Drawing.Size(121, 21);
+			this.cbProcede.TabIndex = 6;
+			// 
+			// dgvProcedimentos
+			// 
+			this.dgvProcedimentos.AllowUserToAddRows = false;
+			this.dgvProcedimentos.AllowUserToDeleteRows = false;
+			this.dgvProcedimentos.BackgroundColor = System.Drawing.Color.White;
+			this.dgvProcedimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvProcedimentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.procedimento,
+            this.data,
+            this.qtde,
+            this.valor,
+            this.total});
+			this.dgvProcedimentos.Location = new System.Drawing.Point(6, 87);
+			this.dgvProcedimentos.Name = "dgvProcedimentos";
+			this.dgvProcedimentos.ReadOnly = true;
+			this.dgvProcedimentos.Size = new System.Drawing.Size(439, 154);
+			this.dgvProcedimentos.TabIndex = 42;
+			// 
+			// procedimento
+			// 
+			this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.procedimento.HeaderText = "Procedimento";
+			this.procedimento.Name = "procedimento";
+			this.procedimento.ReadOnly = true;
+			// 
+			// data
+			// 
+			this.data.HeaderText = "Data";
+			this.data.Name = "data";
+			this.data.ReadOnly = true;
+			// 
+			// qtde
+			// 
+			this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+			this.qtde.HeaderText = "Qtde";
+			this.qtde.Name = "qtde";
+			this.qtde.ReadOnly = true;
+			this.qtde.Width = 55;
+			// 
+			// valor
+			// 
+			this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+			this.valor.HeaderText = "Valor";
+			this.valor.Name = "valor";
+			this.valor.ReadOnly = true;
+			this.valor.Width = 56;
+			// 
+			// total
+			// 
+			this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+			this.total.HeaderText = "Total";
+			this.total.Name = "total";
+			this.total.ReadOnly = true;
+			this.total.Width = 56;
 			// 
 			// label6
 			// 
@@ -521,6 +675,18 @@
 			this.tabFechaAtt.TabIndex = 2;
 			this.tabFechaAtt.Text = "Fechar Atendimento";
 			// 
+			// btSeleciona
+			// 
+			this.btSeleciona.BackColor = System.Drawing.Color.White;
+			this.btSeleciona.Image = ((System.Drawing.Image)(resources.GetObject("btSeleciona.Image")));
+			this.btSeleciona.Location = new System.Drawing.Point(323, 166);
+			this.btSeleciona.Name = "btSeleciona";
+			this.btSeleciona.Size = new System.Drawing.Size(141, 23);
+			this.btSeleciona.TabIndex = 1;
+			this.btSeleciona.Text = "Selecionar Paciente";
+			this.btSeleciona.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.btSeleciona.UseVisualStyleBackColor = false;
+			// 
 			// dataGridView1
 			// 
 			this.dataGridView1.AllowUserToAddRows = false;
@@ -534,179 +700,23 @@
 			this.dataGridView1.Size = new System.Drawing.Size(472, 240);
 			this.dataGridView1.TabIndex = 0;
 			// 
-			// btSeleciona
+			// tbQtde
 			// 
-			this.btSeleciona.BackColor = System.Drawing.Color.White;
-			this.btSeleciona.Location = new System.Drawing.Point(348, 166);
-			this.btSeleciona.Name = "btSeleciona";
-			this.btSeleciona.Size = new System.Drawing.Size(116, 23);
-			this.btSeleciona.TabIndex = 1;
-			this.btSeleciona.Text = "Selecionar Paciente";
-			this.btSeleciona.UseVisualStyleBackColor = false;
-			// 
-			// gbConta
-			// 
-			this.gbConta.BackColor = System.Drawing.Color.Transparent;
-			this.gbConta.Controls.Add(this.btRemover);
-			this.gbConta.Controls.Add(this.btAdd);
-			this.gbConta.Controls.Add(this.label14);
-			this.gbConta.Controls.Add(this.label13);
-			this.gbConta.Controls.Add(this.label12);
-			this.gbConta.Controls.Add(this.label10);
-			this.gbConta.Controls.Add(this.tbQtde);
-			this.gbConta.Controls.Add(this.tbValor);
-			this.gbConta.Controls.Add(this.dtpDataConta);
-			this.gbConta.Controls.Add(this.cbProcede);
-			this.gbConta.Controls.Add(this.dgvProcedimentos);
-			this.gbConta.Location = new System.Drawing.Point(4, 129);
-			this.gbConta.Name = "gbConta";
-			this.gbConta.Size = new System.Drawing.Size(451, 247);
-			this.gbConta.TabIndex = 41;
-			this.gbConta.TabStop = false;
-			this.gbConta.Text = "Conta";
-			// 
-			// dgvProcedimentos
-			// 
-			this.dgvProcedimentos.AllowUserToAddRows = false;
-			this.dgvProcedimentos.AllowUserToDeleteRows = false;
-			this.dgvProcedimentos.BackgroundColor = System.Drawing.Color.White;
-			this.dgvProcedimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvProcedimentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.procedimento,
-            this.data,
-            this.qtde,
-            this.valor,
-            this.total});
-			this.dgvProcedimentos.Location = new System.Drawing.Point(6, 87);
-			this.dgvProcedimentos.Name = "dgvProcedimentos";
-			this.dgvProcedimentos.ReadOnly = true;
-			this.dgvProcedimentos.Size = new System.Drawing.Size(439, 154);
-			this.dgvProcedimentos.TabIndex = 42;
-			// 
-			// cbProcede
-			// 
-			this.cbProcede.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.cbProcede.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.cbProcede.FormattingEnabled = true;
-			this.cbProcede.Location = new System.Drawing.Point(6, 32);
-			this.cbProcede.Name = "cbProcede";
-			this.cbProcede.Size = new System.Drawing.Size(121, 21);
-			this.cbProcede.TabIndex = 43;
-			// 
-			// dtpDataConta
-			// 
-			this.dtpDataConta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtpDataConta.Location = new System.Drawing.Point(238, 32);
-			this.dtpDataConta.Name = "dtpDataConta";
-			this.dtpDataConta.Size = new System.Drawing.Size(101, 20);
-			this.dtpDataConta.TabIndex = 44;
+			this.tbQtde.Location = new System.Drawing.Point(134, 32);
+			this.tbQtde.Mask = "00000";
+			this.tbQtde.Name = "tbQtde";
+			this.tbQtde.Size = new System.Drawing.Size(98, 20);
+			this.tbQtde.TabIndex = 49;
+			this.tbQtde.ValidatingType = typeof(int);
 			// 
 			// tbValor
 			// 
 			this.tbValor.Location = new System.Drawing.Point(345, 32);
+			this.tbValor.Mask = "0000000";
 			this.tbValor.Name = "tbValor";
 			this.tbValor.Size = new System.Drawing.Size(100, 20);
-			this.tbValor.TabIndex = 45;
-			// 
-			// tbQtde
-			// 
-			this.tbQtde.Location = new System.Drawing.Point(133, 32);
-			this.tbQtde.Name = "tbQtde";
-			this.tbQtde.Size = new System.Drawing.Size(99, 20);
-			this.tbQtde.TabIndex = 45;
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(6, 16);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(72, 13);
-			this.label10.TabIndex = 46;
-			this.label10.Text = "Procedimento";
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(239, 16);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(30, 13);
-			this.label12.TabIndex = 46;
-			this.label12.Text = "Data";
-			// 
-			// label13
-			// 
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(133, 16);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(62, 13);
-			this.label13.TabIndex = 46;
-			this.label13.Text = "Quantidade";
-			// 
-			// label14
-			// 
-			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(345, 16);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(31, 13);
-			this.label14.TabIndex = 46;
-			this.label14.Text = "Valor";
-			// 
-			// btAdd
-			// 
-			this.btAdd.BackColor = System.Drawing.Color.White;
-			this.btAdd.Location = new System.Drawing.Point(151, 58);
-			this.btAdd.Name = "btAdd";
-			this.btAdd.Size = new System.Drawing.Size(67, 23);
-			this.btAdd.TabIndex = 47;
-			this.btAdd.Text = "Adicionar";
-			this.btAdd.UseVisualStyleBackColor = false;
-			// 
-			// btRemover
-			// 
-			this.btRemover.BackColor = System.Drawing.Color.White;
-			this.btRemover.Location = new System.Drawing.Point(224, 58);
-			this.btRemover.Name = "btRemover";
-			this.btRemover.Size = new System.Drawing.Size(67, 23);
-			this.btRemover.TabIndex = 48;
-			this.btRemover.Text = "Remover";
-			this.btRemover.UseVisualStyleBackColor = false;
-			// 
-			// procedimento
-			// 
-			this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-			this.procedimento.HeaderText = "Procedimento";
-			this.procedimento.Name = "procedimento";
-			this.procedimento.ReadOnly = true;
-			// 
-			// data
-			// 
-			this.data.HeaderText = "Data";
-			this.data.Name = "data";
-			this.data.ReadOnly = true;
-			// 
-			// qtde
-			// 
-			this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-			this.qtde.HeaderText = "Qtde";
-			this.qtde.Name = "qtde";
-			this.qtde.ReadOnly = true;
-			this.qtde.Width = 55;
-			// 
-			// valor
-			// 
-			this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-			this.valor.HeaderText = "Valor";
-			this.valor.Name = "valor";
-			this.valor.ReadOnly = true;
-			this.valor.Width = 56;
-			// 
-			// total
-			// 
-			this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-			this.total.HeaderText = "Total";
-			this.total.Name = "total";
-			this.total.ReadOnly = true;
-			this.total.Width = 56;
+			this.tbValor.TabIndex = 49;
+			this.tbValor.ValidatingType = typeof(int);
 			// 
 			// TelaAtendimentos
 			// 
@@ -723,15 +733,15 @@
 			this.painel.ResumeLayout(false);
 			this.pnDados.ResumeLayout(false);
 			this.pnDados.PerformLayout();
+			this.gbConta.ResumeLayout(false);
+			this.gbConta.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvProcedimentos)).EndInit();
 			this.pnlBotoes.ResumeLayout(false);
 			this.tabPesquisa.ResumeLayout(false);
 			this.tabPesquisa.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvAtendimentos)).EndInit();
 			this.tabFechaAtt.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-			this.gbConta.ResumeLayout(false);
-			this.gbConta.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvProcedimentos)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -783,8 +793,6 @@
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.TextBox tbQtde;
-		private System.Windows.Forms.TextBox tbValor;
 		private System.Windows.Forms.DateTimePicker dtpDataConta;
 		private System.Windows.Forms.ComboBox cbProcede;
 		private System.Windows.Forms.DataGridView dgvProcedimentos;
@@ -794,5 +802,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn qtde;
 		private System.Windows.Forms.DataGridViewTextBoxColumn valor;
 		private System.Windows.Forms.DataGridViewTextBoxColumn total;
+		private System.Windows.Forms.MaskedTextBox tbValor;
+		private System.Windows.Forms.MaskedTextBox tbQtde;
 	}
 }
