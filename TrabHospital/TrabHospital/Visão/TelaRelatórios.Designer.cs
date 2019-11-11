@@ -32,13 +32,7 @@
 			this.tabs = new System.Windows.Forms.TabControl();
 			this.tbPacientes = new System.Windows.Forms.TabPage();
 			this.tabAtendimento = new System.Windows.Forms.TabPage();
-			this.dgvPacientes = new System.Windows.Forms.DataGridView();
-			this.dgvAtendimentos = new System.Windows.Forms.DataGridView();
 			this.tabs.SuspendLayout();
-			this.tbPacientes.SuspendLayout();
-			this.tabAtendimento.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgvAtendimentos)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabs
@@ -54,7 +48,6 @@
 			// 
 			// tbPacientes
 			// 
-			this.tbPacientes.Controls.Add(this.dgvPacientes);
 			this.tbPacientes.Location = new System.Drawing.Point(4, 22);
 			this.tbPacientes.Name = "tbPacientes";
 			this.tbPacientes.Padding = new System.Windows.Forms.Padding(3);
@@ -65,7 +58,6 @@
 			// 
 			// tabAtendimento
 			// 
-			this.tabAtendimento.Controls.Add(this.dgvAtendimentos);
 			this.tabAtendimento.Location = new System.Drawing.Point(4, 22);
 			this.tabAtendimento.Name = "tabAtendimento";
 			this.tabAtendimento.Padding = new System.Windows.Forms.Padding(3);
@@ -73,32 +65,6 @@
 			this.tabAtendimento.TabIndex = 1;
 			this.tabAtendimento.Text = "Atendimentos";
 			this.tabAtendimento.UseVisualStyleBackColor = true;
-			// 
-			// dgvPacientes
-			// 
-			this.dgvPacientes.AllowUserToAddRows = false;
-			this.dgvPacientes.AllowUserToDeleteRows = false;
-			this.dgvPacientes.BackgroundColor = System.Drawing.Color.PowderBlue;
-			this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvPacientes.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvPacientes.Location = new System.Drawing.Point(3, 3);
-			this.dgvPacientes.Name = "dgvPacientes";
-			this.dgvPacientes.ReadOnly = true;
-			this.dgvPacientes.Size = new System.Drawing.Size(770, 429);
-			this.dgvPacientes.TabIndex = 0;
-			// 
-			// dgvAtendimentos
-			// 
-			this.dgvAtendimentos.AllowUserToAddRows = false;
-			this.dgvAtendimentos.AllowUserToDeleteRows = false;
-			this.dgvAtendimentos.BackgroundColor = System.Drawing.Color.PowderBlue;
-			this.dgvAtendimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvAtendimentos.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvAtendimentos.Location = new System.Drawing.Point(3, 3);
-			this.dgvAtendimentos.Name = "dgvAtendimentos";
-			this.dgvAtendimentos.ReadOnly = true;
-			this.dgvAtendimentos.Size = new System.Drawing.Size(770, 429);
-			this.dgvAtendimentos.TabIndex = 0;
 			// 
 			// TelaRelatórios
 			// 
@@ -110,10 +76,6 @@
 			this.Name = "TelaRelatórios";
 			this.Text = "Relatórios";
 			this.tabs.ResumeLayout(false);
-			this.tbPacientes.ResumeLayout(false);
-			this.tabAtendimento.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgvAtendimentos)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -123,7 +85,5 @@
 		private System.Windows.Forms.TabControl tabs;
 		private System.Windows.Forms.TabPage tbPacientes;
 		private System.Windows.Forms.TabPage tabAtendimento;
-		private System.Windows.Forms.DataGridView dgvPacientes;
-		private System.Windows.Forms.DataGridView dgvAtendimentos;
 	}
 }

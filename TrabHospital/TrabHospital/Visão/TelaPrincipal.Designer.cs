@@ -34,6 +34,8 @@
 			this.PacientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.atendimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pacientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.atendimentosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pnlImage = new System.Windows.Forms.Panel();
 			this.pnlButtons = new System.Windows.Forms.Panel();
@@ -42,8 +44,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.btnPacientes = new System.Windows.Forms.Button();
 			this.btnFechar = new System.Windows.Forms.Button();
-			this.pacientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.atendimentosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.pnlButtons.SuspendLayout();
 			this.SuspendLayout();
@@ -91,6 +91,20 @@
 			this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
 			this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
 			this.relatóriosToolStripMenuItem.Text = "Relatórios";
+			// 
+			// pacientesToolStripMenuItem1
+			// 
+			this.pacientesToolStripMenuItem1.Name = "pacientesToolStripMenuItem1";
+			this.pacientesToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
+			this.pacientesToolStripMenuItem1.Text = "Pacientes";
+			this.pacientesToolStripMenuItem1.Click += new System.EventHandler(this.PacientesToolStripMenuItem1_Click);
+			// 
+			// atendimentosToolStripMenuItem1
+			// 
+			this.atendimentosToolStripMenuItem1.Name = "atendimentosToolStripMenuItem1";
+			this.atendimentosToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
+			this.atendimentosToolStripMenuItem1.Text = "Atendimentos";
+			this.atendimentosToolStripMenuItem1.Click += new System.EventHandler(this.AtendimentosToolStripMenuItem1_Click);
 			// 
 			// sobreToolStripMenuItem
 			// 
@@ -187,20 +201,6 @@
 			this.btnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnFechar.UseVisualStyleBackColor = false;
 			this.btnFechar.Click += new System.EventHandler(this.BtnFechar_Click);
-			// 
-			// pacientesToolStripMenuItem1
-			// 
-			this.pacientesToolStripMenuItem1.Name = "pacientesToolStripMenuItem1";
-			this.pacientesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-			this.pacientesToolStripMenuItem1.Text = "Pacientes";
-			this.pacientesToolStripMenuItem1.Click += new System.EventHandler(this.PacientesToolStripMenuItem1_Click);
-			// 
-			// atendimentosToolStripMenuItem1
-			// 
-			this.atendimentosToolStripMenuItem1.Name = "atendimentosToolStripMenuItem1";
-			this.atendimentosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-			this.atendimentosToolStripMenuItem1.Text = "Atendimentos";
-			this.atendimentosToolStripMenuItem1.Click += new System.EventHandler(this.AtendimentosToolStripMenuItem1_Click);
 			// 
 			// TelaPrincipal
 			// 
