@@ -21,7 +21,7 @@ namespace TrabHospital.Controladora
         {
             DataTable dtdiags = new DataTable();
 
-            dtdiags.Columns.Add("dia_codigo");
+            dtdiags.Columns.Add("dia_codigo", typeof (int));
             dtdiags.Columns.Add("dia_descricao");
 
             bco.Conecta();
@@ -33,13 +33,33 @@ namespace TrabHospital.Controladora
                 row["dia_descricao"] = diag.Descricao;
                 dtdiags.Rows.Add(row);
             }
-
+            bco.Desconecta();
             return dtdiags;
         }
 
         public DataTable BuscaMedicos()
         {
             DataTable dtmed = new DataTable();
+
+            dtmed.Columns.Add("med_codigo",typeof (int));
+            dtmed.Columns.Add("pla_codigo");
+            dtmed.Columns.Add("med_nome");
+            dtmed.Columns.Add("med_crm");
+            dtmed.Columns.Add("med_fone");
+            dtmed.Columns.Add("med_celular");
+            bco.Conecta();
+            MedicoBD mdb = new MedicoBD(bco);
+            foreach (Medico med in mdb.BuscarMedicos(""))
+            {
+                DataRow row = dtmed.NewRow();
+                row["med_codigo"] = med.Codigo;
+                row["pla_codigo"] = med.Plano.Codigo;
+                row["med_nome"] = med.Nome;
+                row["med_crm"] = med.Crm;
+                row["med_fone"] = med.Fone;
+                row["med_celular"] = med.Celular;
+                dtmed.Rows.Add(row);
+            }
 
             return dtmed;
         }

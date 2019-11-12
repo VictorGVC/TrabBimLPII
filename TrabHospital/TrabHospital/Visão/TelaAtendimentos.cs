@@ -29,6 +29,12 @@ namespace TrabHospital.Visão
             cbPaciente.DataSource = ControlAte.BuscaPacientes();
             cbPaciente.ValueMember = "pac_codigo";
             cbPaciente.DisplayMember = "pac_nome";
+            cbMedico.DataSource = ControlAte.BuscaMedicos();
+            cbMedico2 = cbMedico;
+            cbMedico.ValueMember = "med_codigo";
+            cbMedico.DisplayMember = "med_nome";
+            cbMedico2.ValueMember = "med_codigo";
+            cbMedico2.DisplayMember = "med_nome";
         }
 
         public void limpa()
