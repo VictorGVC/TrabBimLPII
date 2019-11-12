@@ -85,6 +85,17 @@
 			this.tabFechaAtt = new System.Windows.Forms.TabPage();
 			this.btSeleciona = new System.Windows.Forms.Button();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.gbPagamento = new System.Windows.Forms.GroupBox();
+			this.label15 = new System.Windows.Forms.Label();
+			this.tbParcela = new System.Windows.Forms.TextBox();
+			this.label16 = new System.Windows.Forms.Label();
+			this.tbValorPg = new System.Windows.Forms.MaskedTextBox();
+			this.label17 = new System.Windows.Forms.Label();
+			this.tbCheque = new System.Windows.Forms.TextBox();
+			this.label18 = new System.Windows.Forms.Label();
+			this.dtpDataComp = new System.Windows.Forms.DateTimePicker();
+			this.label19 = new System.Windows.Forms.Label();
+			this.tbValorConta = new System.Windows.Forms.MaskedTextBox();
 			this.panel2.SuspendLayout();
 			this.tabs.SuspendLayout();
 			this.painel.SuspendLayout();
@@ -96,6 +107,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvAtendimentos)).BeginInit();
 			this.tabFechaAtt.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			this.gbPagamento.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -686,6 +698,7 @@
 			// tabFechaAtt
 			// 
 			this.tabFechaAtt.BackColor = System.Drawing.Color.PowderBlue;
+			this.tabFechaAtt.Controls.Add(this.gbPagamento);
 			this.tabFechaAtt.Controls.Add(this.btSeleciona);
 			this.tabFechaAtt.Controls.Add(this.dataGridView1);
 			this.tabFechaAtt.Location = new System.Drawing.Point(4, 22);
@@ -698,7 +711,7 @@
 			// 
 			this.btSeleciona.BackColor = System.Drawing.Color.White;
 			this.btSeleciona.Image = ((System.Drawing.Image)(resources.GetObject("btSeleciona.Image")));
-			this.btSeleciona.Location = new System.Drawing.Point(323, 166);
+			this.btSeleciona.Location = new System.Drawing.Point(323, 122);
 			this.btSeleciona.Name = "btSeleciona";
 			this.btSeleciona.Size = new System.Drawing.Size(141, 23);
 			this.btSeleciona.TabIndex = 1;
@@ -713,11 +726,116 @@
 			this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.dataGridView1.Location = new System.Drawing.Point(0, 195);
+			this.dataGridView1.Location = new System.Drawing.Point(0, 151);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(472, 240);
+			this.dataGridView1.Size = new System.Drawing.Size(472, 284);
 			this.dataGridView1.TabIndex = 0;
+			// 
+			// gbPagamento
+			// 
+			this.gbPagamento.Controls.Add(this.tbValorConta);
+			this.gbPagamento.Controls.Add(this.label19);
+			this.gbPagamento.Controls.Add(this.dtpDataComp);
+			this.gbPagamento.Controls.Add(this.label18);
+			this.gbPagamento.Controls.Add(this.tbCheque);
+			this.gbPagamento.Controls.Add(this.label17);
+			this.gbPagamento.Controls.Add(this.tbValorPg);
+			this.gbPagamento.Controls.Add(this.label16);
+			this.gbPagamento.Controls.Add(this.tbParcela);
+			this.gbPagamento.Controls.Add(this.label15);
+			this.gbPagamento.Location = new System.Drawing.Point(3, 3);
+			this.gbPagamento.Name = "gbPagamento";
+			this.gbPagamento.Size = new System.Drawing.Size(461, 113);
+			this.gbPagamento.TabIndex = 2;
+			this.gbPagamento.TabStop = false;
+			this.gbPagamento.Text = "Pagamento";
+			// 
+			// label15
+			// 
+			this.label15.AutoSize = true;
+			this.label15.Location = new System.Drawing.Point(7, 20);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(43, 13);
+			this.label15.TabIndex = 0;
+			this.label15.Text = "Parcela";
+			// 
+			// tbParcela
+			// 
+			this.tbParcela.Enabled = false;
+			this.tbParcela.Location = new System.Drawing.Point(10, 37);
+			this.tbParcela.Name = "tbParcela";
+			this.tbParcela.Size = new System.Drawing.Size(56, 20);
+			this.tbParcela.TabIndex = 1;
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Location = new System.Drawing.Point(7, 65);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(31, 13);
+			this.label16.TabIndex = 2;
+			this.label16.Text = "Valor";
+			// 
+			// tbValorPg
+			// 
+			this.tbValorPg.Location = new System.Drawing.Point(10, 82);
+			this.tbValorPg.Mask = "0000000";
+			this.tbValorPg.Name = "tbValorPg";
+			this.tbValorPg.Size = new System.Drawing.Size(77, 20);
+			this.tbValorPg.TabIndex = 3;
+			this.tbValorPg.ValidatingType = typeof(int);
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Location = new System.Drawing.Point(94, 65);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(44, 13);
+			this.label17.TabIndex = 4;
+			this.label17.Text = "Cheque";
+			// 
+			// tbCheque
+			// 
+			this.tbCheque.Location = new System.Drawing.Point(97, 81);
+			this.tbCheque.Name = "tbCheque";
+			this.tbCheque.Size = new System.Drawing.Size(129, 20);
+			this.tbCheque.TabIndex = 5;
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(229, 65);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(116, 13);
+			this.label18.TabIndex = 6;
+			this.label18.Text = "Data de Compensação";
+			// 
+			// dtpDataComp
+			// 
+			this.dtpDataComp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtpDataComp.Location = new System.Drawing.Point(232, 81);
+			this.dtpDataComp.Name = "dtpDataComp";
+			this.dtpDataComp.Size = new System.Drawing.Size(133, 20);
+			this.dtpDataComp.TabIndex = 7;
+			// 
+			// label19
+			// 
+			this.label19.AutoSize = true;
+			this.label19.Location = new System.Drawing.Point(368, 65);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(77, 13);
+			this.label19.TabIndex = 8;
+			this.label19.Text = "Valor da Conta";
+			// 
+			// tbValorConta
+			// 
+			this.tbValorConta.Enabled = false;
+			this.tbValorConta.Location = new System.Drawing.Point(372, 82);
+			this.tbValorConta.Mask = "$";
+			this.tbValorConta.Name = "tbValorConta";
+			this.tbValorConta.Size = new System.Drawing.Size(83, 20);
+			this.tbValorConta.TabIndex = 10;
 			// 
 			// TelaAtendimentos
 			// 
@@ -743,6 +861,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvAtendimentos)).EndInit();
 			this.tabFechaAtt.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.gbPagamento.ResumeLayout(false);
+			this.gbPagamento.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -805,5 +925,16 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn total;
 		private System.Windows.Forms.MaskedTextBox tbValor;
 		private System.Windows.Forms.MaskedTextBox tbQtde;
+		private System.Windows.Forms.GroupBox gbPagamento;
+		private System.Windows.Forms.MaskedTextBox tbValorConta;
+		private System.Windows.Forms.Label label19;
+		private System.Windows.Forms.DateTimePicker dtpDataComp;
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.TextBox tbCheque;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.MaskedTextBox tbValorPg;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.TextBox tbParcela;
+		private System.Windows.Forms.Label label15;
 	}
 }
