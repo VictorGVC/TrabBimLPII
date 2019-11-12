@@ -59,8 +59,7 @@ namespace TrabHospital.Persistencia
         {
             List<object> pacientes = new List<object>();
             DataTable dtaux = new DataTable();
-            string SQL = @"SELECT * FROM pacientes INNER JOIN planosaude
-                            ON pacientes.pla_codigo = planosaude.pla_codigo
+            string SQL = @"SELECT * FROM pacientes
                             WHERE pac_nome like @nome";
             nome += "%";
             bco.ExecuteQuery(SQL, out dtaux, "@nome", nome);

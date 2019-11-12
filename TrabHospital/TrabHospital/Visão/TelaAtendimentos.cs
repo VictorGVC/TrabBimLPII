@@ -18,7 +18,18 @@ namespace TrabHospital.Visão
         public TelaAtendimentos()
 		{
 			InitializeComponent();
+
 		}
+
+        private void TelaAtendimentos_Load(object sender, EventArgs e)
+        {
+            cbDiagnostico.DataSource = ControlAte.BuscaDiagnosticos();
+            cbDiagnostico.ValueMember = "dia_codigo";
+            cbDiagnostico.DisplayMember = "dia_descricao";
+            cbPaciente.DataSource = ControlAte.BuscaPacientes();
+            cbPaciente.ValueMember = "pac_codigo";
+            cbPaciente.DisplayMember = "pac_nome";
+        }
 
         public void limpa()
         {
@@ -74,5 +85,6 @@ namespace TrabHospital.Visão
         {
 
         }
+
     }
 }

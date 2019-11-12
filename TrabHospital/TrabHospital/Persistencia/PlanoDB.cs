@@ -22,7 +22,7 @@ namespace TrabHospital.Persistencia
             List<object> planos = new List<object>();
             DataTable dtaux = new DataTable();
             string SQL = @"SELECT * FROM planosaude
-                            WHERE pla_descricao like @desc";
+                            WHERE pla_descricao LIKE @desc";
             desc += "%";
             banco.ExecuteQuery(SQL, out dtaux, "@desc", desc);
 

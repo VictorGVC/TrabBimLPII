@@ -10,7 +10,7 @@ namespace TrabHospital.Persistencia
     {
         private Banco bco = null;
 
-        private MedicoBD(Banco bco)
+        public MedicoBD(Banco bco)
         {
             this.bco = bco;
         }
