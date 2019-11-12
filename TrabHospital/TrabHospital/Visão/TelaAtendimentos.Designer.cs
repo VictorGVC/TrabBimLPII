@@ -35,6 +35,8 @@
 			this.painel = new System.Windows.Forms.TabPage();
 			this.pnDados = new System.Windows.Forms.Panel();
 			this.gbConta = new System.Windows.Forms.GroupBox();
+			this.tbValor = new System.Windows.Forms.MaskedTextBox();
+			this.tbQtde = new System.Windows.Forms.MaskedTextBox();
 			this.btRemover = new System.Windows.Forms.Button();
 			this.btAdd = new System.Windows.Forms.Button();
 			this.label14 = new System.Windows.Forms.Label();
@@ -83,8 +85,6 @@
 			this.tabFechaAtt = new System.Windows.Forms.TabPage();
 			this.btSeleciona = new System.Windows.Forms.Button();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.tbQtde = new System.Windows.Forms.MaskedTextBox();
-			this.tbValor = new System.Windows.Forms.MaskedTextBox();
 			this.panel2.SuspendLayout();
 			this.tabs.SuspendLayout();
 			this.painel.SuspendLayout();
@@ -178,12 +178,31 @@
 			this.gbConta.Controls.Add(this.dtpDataConta);
 			this.gbConta.Controls.Add(this.cbProcede);
 			this.gbConta.Controls.Add(this.dgvProcedimentos);
+			this.gbConta.ForeColor = System.Drawing.Color.Black;
 			this.gbConta.Location = new System.Drawing.Point(4, 129);
 			this.gbConta.Name = "gbConta";
 			this.gbConta.Size = new System.Drawing.Size(451, 247);
 			this.gbConta.TabIndex = 41;
 			this.gbConta.TabStop = false;
 			this.gbConta.Text = "Conta";
+			// 
+			// tbValor
+			// 
+			this.tbValor.Location = new System.Drawing.Point(345, 32);
+			this.tbValor.Mask = "0000000";
+			this.tbValor.Name = "tbValor";
+			this.tbValor.Size = new System.Drawing.Size(100, 20);
+			this.tbValor.TabIndex = 49;
+			this.tbValor.ValidatingType = typeof(int);
+			// 
+			// tbQtde
+			// 
+			this.tbQtde.Location = new System.Drawing.Point(134, 32);
+			this.tbQtde.Mask = "00000";
+			this.tbQtde.Name = "tbQtde";
+			this.tbQtde.Size = new System.Drawing.Size(98, 20);
+			this.tbQtde.TabIndex = 49;
+			this.tbQtde.ValidatingType = typeof(int);
 			// 
 			// btRemover
 			// 
@@ -699,24 +718,6 @@
 			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.Size = new System.Drawing.Size(472, 240);
 			this.dataGridView1.TabIndex = 0;
-			// 
-			// tbQtde
-			// 
-			this.tbQtde.Location = new System.Drawing.Point(134, 32);
-			this.tbQtde.Mask = "00000";
-			this.tbQtde.Name = "tbQtde";
-			this.tbQtde.Size = new System.Drawing.Size(98, 20);
-			this.tbQtde.TabIndex = 49;
-			this.tbQtde.ValidatingType = typeof(int);
-			// 
-			// tbValor
-			// 
-			this.tbValor.Location = new System.Drawing.Point(345, 32);
-			this.tbValor.Mask = "0000000";
-			this.tbValor.Name = "tbValor";
-			this.tbValor.Size = new System.Drawing.Size(100, 20);
-			this.tbValor.TabIndex = 49;
-			this.tbValor.ValidatingType = typeof(int);
 			// 
 			// TelaAtendimentos
 			// 

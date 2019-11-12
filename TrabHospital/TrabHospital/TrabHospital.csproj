@@ -49,10 +49,13 @@
     <Compile Include="Controladora\CtrlAtendimentos.cs" />
     <Compile Include="Controladora\CtrlPacientes.cs" />
     <Compile Include="Modelo\Atendimento.cs" />
+    <Compile Include="Modelo\Conta.cs" />
+    <Compile Include="Modelo\Deposito.cs" />
     <Compile Include="Modelo\Diagnostico.cs" />
     <Compile Include="Modelo\Medico.cs" />
     <Compile Include="Modelo\Paciente.cs" />
     <Compile Include="Modelo\Plano de saude.cs" />
+    <Compile Include="Modelo\Procedimento.cs" />
     <Compile Include="Persistencia\AtendimentoBD.cs" />
     <Compile Include="Persistencia\Banco.cs" />
     <Compile Include="Persistencia\DiagnosticoBD.cs" />
