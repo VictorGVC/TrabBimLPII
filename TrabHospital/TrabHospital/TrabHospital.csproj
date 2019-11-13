@@ -62,6 +62,7 @@
     <Compile Include="Persistencia\MedicoBD.cs" />
     <Compile Include="Persistencia\PacienteBD.cs" />
     <Compile Include="Persistencia\PlanoDB.cs" />
+    <Compile Include="Persistencia\ProcedimentoDB.cs" />
     <Compile Include="Visão\TelaAtendimentos.cs">
       <SubType>Form</SubType>
     </Compile>

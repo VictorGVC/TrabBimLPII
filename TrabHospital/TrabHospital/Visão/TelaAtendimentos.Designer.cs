@@ -200,7 +200,7 @@
             // 
             // tbValor
             // 
-            this.tbValor.Location = new System.Drawing.Point(345, 32);
+            this.tbValor.Location = new System.Drawing.Point(345, 40);
             this.tbValor.Mask = "0000000";
             this.tbValor.Name = "tbValor";
             this.tbValor.Size = new System.Drawing.Size(100, 20);
@@ -209,7 +209,7 @@
             // 
             // tbQtde
             // 
-            this.tbQtde.Location = new System.Drawing.Point(134, 32);
+            this.tbQtde.Location = new System.Drawing.Point(134, 40);
             this.tbQtde.Mask = "00000";
             this.tbQtde.Name = "tbQtde";
             this.tbQtde.Size = new System.Drawing.Size(98, 20);
@@ -220,7 +220,7 @@
             // 
             this.btRemover.BackColor = System.Drawing.Color.White;
             this.btRemover.Image = ((System.Drawing.Image)(resources.GetObject("btRemover.Image")));
-            this.btRemover.Location = new System.Drawing.Point(233, 58);
+            this.btRemover.Location = new System.Drawing.Point(233, 66);
             this.btRemover.Name = "btRemover";
             this.btRemover.Size = new System.Drawing.Size(78, 23);
             this.btRemover.TabIndex = 48;
@@ -232,7 +232,7 @@
             // 
             this.btAdd.BackColor = System.Drawing.Color.White;
             this.btAdd.Image = ((System.Drawing.Image)(resources.GetObject("btAdd.Image")));
-            this.btAdd.Location = new System.Drawing.Point(142, 58);
+            this.btAdd.Location = new System.Drawing.Point(142, 66);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(78, 23);
             this.btAdd.TabIndex = 47;
@@ -243,7 +243,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(345, 16);
+            this.label14.Location = new System.Drawing.Point(345, 24);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(31, 13);
             this.label14.TabIndex = 46;
@@ -252,7 +252,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(133, 16);
+            this.label13.Location = new System.Drawing.Point(133, 24);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(62, 13);
             this.label13.TabIndex = 46;
@@ -261,7 +261,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(239, 16);
+            this.label12.Location = new System.Drawing.Point(239, 24);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(30, 13);
             this.label12.TabIndex = 46;
@@ -270,7 +270,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 16);
+            this.label10.Location = new System.Drawing.Point(6, 24);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 46;
@@ -279,7 +279,7 @@
             // dtpDataConta
             // 
             this.dtpDataConta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataConta.Location = new System.Drawing.Point(238, 32);
+            this.dtpDataConta.Location = new System.Drawing.Point(238, 40);
             this.dtpDataConta.Name = "dtpDataConta";
             this.dtpDataConta.Size = new System.Drawing.Size(101, 20);
             this.dtpDataConta.TabIndex = 8;
@@ -289,7 +289,7 @@
             this.cbProcede.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbProcede.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbProcede.FormattingEnabled = true;
-            this.cbProcede.Location = new System.Drawing.Point(6, 32);
+            this.cbProcede.Location = new System.Drawing.Point(6, 40);
             this.cbProcede.Name = "cbProcede";
             this.cbProcede.Size = new System.Drawing.Size(121, 21);
             this.cbProcede.TabIndex = 6;
@@ -306,10 +306,10 @@
             this.qtde,
             this.valor,
             this.total});
-            this.dgvProcedimentos.Location = new System.Drawing.Point(6, 87);
+            this.dgvProcedimentos.Location = new System.Drawing.Point(6, 102);
             this.dgvProcedimentos.Name = "dgvProcedimentos";
             this.dgvProcedimentos.ReadOnly = true;
-            this.dgvProcedimentos.Size = new System.Drawing.Size(439, 154);
+            this.dgvProcedimentos.Size = new System.Drawing.Size(439, 139);
             this.dgvProcedimentos.TabIndex = 42;
             // 
             // procedimento

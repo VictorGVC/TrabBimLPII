@@ -9,7 +9,7 @@ namespace TrabHospital.Modelo
 	class Procedimento
 	{
 		private int codigo;
-		private float valor;
+		private double valor;
 		private String descricao;
 
 		public Procedimento() { }
@@ -22,7 +22,7 @@ namespace TrabHospital.Modelo
 		}
 
 		public int Codigo { get => codigo; set => codigo = value; }
-		public float Valor { get => valor; set => valor = value; }
+		public double Valor { get => valor; set => valor = value; }
 		public string Descricao { get => descricao; set => descricao = value; }
 	}
 }

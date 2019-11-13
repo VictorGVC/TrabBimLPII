@@ -35,6 +35,9 @@ namespace TrabHospital.Visão
             cbMedico.DisplayMember = "med_nome";
             cbMedico2.ValueMember = "med_codigo";
             cbMedico2.DisplayMember = "med_nome";
+            cbProcede.DataSource = ControlAte.BuscarProcedimentos();
+            cbProcede.ValueMember = "pro_codigo";
+            cbProcede.DisplayMember = "pro_descricao";
         }
 
         public void limpa()

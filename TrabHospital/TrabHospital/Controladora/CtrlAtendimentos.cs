@@ -99,5 +99,25 @@ namespace TrabHospital.Controladora
             return dtpac;
         }
 
+        public DataTable BuscarProcedimentos()
+        {
+            DataTable dtprocs = new DataTable();
+            dtprocs.Columns.Add("pro_codigo",typeof(int));
+            dtprocs.Columns.Add("pro_descricao");
+            dtprocs.Columns.Add("pro_valor");
+            bco.Conecta();
+            ProcedimentoDB pdb = new ProcedimentoDB(bco);
+            foreach  (Procedimento proc in pdb.BuscaProcedimentos(""))
+            {
+                DataRow row = dtprocs.NewRow();
+                row["pro_codigo"] = proc.Codigo;
+                row["pro_descricao"] = proc.Descricao;
+                row["pro_valor"] = proc.Valor;
+                dtprocs.Rows.Add(row);
+            }
+            bco.Desconecta();
+            return dtprocs;
+        }
+
     }
 }
