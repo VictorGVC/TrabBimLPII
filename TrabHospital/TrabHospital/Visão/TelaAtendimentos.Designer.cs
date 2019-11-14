@@ -46,11 +46,6 @@
             this.dtpDataConta = new System.Windows.Forms.DateTimePicker();
             this.cbProcede = new System.Windows.Forms.ComboBox();
             this.dgvProcedimentos = new System.Windows.Forms.DataGridView();
-            this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.tbAnamnese = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -96,6 +91,11 @@
             this.label15 = new System.Windows.Forms.Label();
             this.btSeleciona = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.tabs.SuspendLayout();
             this.painel.SuspendLayout();
@@ -214,7 +214,6 @@
             this.tbQtde.Name = "tbQtde";
             this.tbQtde.Size = new System.Drawing.Size(98, 20);
             this.tbQtde.TabIndex = 49;
-            this.tbQtde.ValidatingType = typeof(int);
             // 
             // btRemover
             // 
@@ -227,6 +226,7 @@
             this.btRemover.Text = "Remover";
             this.btRemover.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btRemover.UseVisualStyleBackColor = false;
+            this.btRemover.Click += new System.EventHandler(this.BtRemover_Click);
             // 
             // btAdd
             // 
@@ -239,6 +239,7 @@
             this.btAdd.Text = "Adicionar";
             this.btAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btAdd.UseVisualStyleBackColor = false;
+            this.btAdd.Click += new System.EventHandler(this.BtAdd_Click);
             // 
             // label14
             // 
@@ -311,43 +312,6 @@
             this.dgvProcedimentos.ReadOnly = true;
             this.dgvProcedimentos.Size = new System.Drawing.Size(439, 139);
             this.dgvProcedimentos.TabIndex = 42;
-            // 
-            // procedimento
-            // 
-            this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.procedimento.HeaderText = "Procedimento";
-            this.procedimento.Name = "procedimento";
-            this.procedimento.ReadOnly = true;
-            // 
-            // data
-            // 
-            this.data.HeaderText = "Data";
-            this.data.Name = "data";
-            this.data.ReadOnly = true;
-            // 
-            // qtde
-            // 
-            this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.qtde.HeaderText = "Qtde";
-            this.qtde.Name = "qtde";
-            this.qtde.ReadOnly = true;
-            this.qtde.Width = 55;
-            // 
-            // valor
-            // 
-            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            this.valor.Width = 56;
-            // 
-            // total
-            // 
-            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 56;
             // 
             // label6
             // 
@@ -837,6 +801,48 @@
             this.dataGridView1.Size = new System.Drawing.Size(472, 284);
             this.dataGridView1.TabIndex = 0;
             // 
+            // procedimento
+            // 
+            this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.procedimento.DataPropertyName = "pro_descricao";
+            this.procedimento.HeaderText = "Procedimento";
+            this.procedimento.Name = "procedimento";
+            this.procedimento.ReadOnly = true;
+            // 
+            // data
+            // 
+            this.data.DataPropertyName = "pro_data";
+            this.data.HeaderText = "Data";
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            // 
+            // qtde
+            // 
+            this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.qtde.DataPropertyName = "pro_qtde";
+            this.qtde.HeaderText = "Qtde";
+            this.qtde.Name = "qtde";
+            this.qtde.ReadOnly = true;
+            this.qtde.Width = 55;
+            // 
+            // valor
+            // 
+            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.valor.DataPropertyName = "pro_valor";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            this.valor.Width = 56;
+            // 
+            // total
+            // 
+            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.total.DataPropertyName = "pro_total";
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 56;
+            // 
             // TelaAtendimentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -919,11 +925,6 @@
 		private System.Windows.Forms.ComboBox cbProcede;
 		private System.Windows.Forms.DataGridView dgvProcedimentos;
 		private System.Windows.Forms.Button btRemover;
-		private System.Windows.Forms.DataGridViewTextBoxColumn procedimento;
-		private System.Windows.Forms.DataGridViewTextBoxColumn data;
-		private System.Windows.Forms.DataGridViewTextBoxColumn qtde;
-		private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-		private System.Windows.Forms.DataGridViewTextBoxColumn total;
 		private System.Windows.Forms.MaskedTextBox tbValor;
 		private System.Windows.Forms.MaskedTextBox tbQtde;
 		private System.Windows.Forms.GroupBox gbPagamento;
@@ -937,5 +938,10 @@
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.TextBox tbParcela;
 		private System.Windows.Forms.Label label15;
-	}
+        private System.Windows.Forms.DataGridViewTextBoxColumn procedimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+    }
 }

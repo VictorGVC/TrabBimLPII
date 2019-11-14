@@ -14,12 +14,30 @@ namespace TrabHospital.Visão
 	public partial class TelaAtendimentos : Form
 	{
         private CtrlAtendimentos ControlAte = new CtrlAtendimentos();
+        private DataTable dtConta = new DataTable();
 
         public TelaAtendimentos()
 		{
 			InitializeComponent();
+            dtConta.Columns.Add("pro_descricao");
+            dtConta.Columns.Add("pro_data");
+            dtConta.Columns.Add("pro_qtde");
+            dtConta.Columns.Add("pro_valor");
+            dtConta.Columns.Add("pro_total");
+        }
 
-		}
+        private void BtAdd_Click(object sender, EventArgs e)
+        {
+            DataRow row = dtConta.NewRow();
+
+            row["pro_descricao"] = cbProcede.SelectedItem.ToString();
+            row["pro_data"] = dtpDataConta.Value;
+            row["pro_qtde"] = tbQtde.Text;
+            row["pro_valor"] = tbValor.Text;
+            row["pro_total"] = Convert.ToDouble(tbValor.Text) * Convert.ToDouble(tbQtde.Text);
+
+            dtConta.Rows.Add(row);
+        }
 
         private void TelaAtendimentos_Load(object sender, EventArgs e)
         {
@@ -95,5 +113,12 @@ namespace TrabHospital.Visão
 
         }
 
+        private void BtRemover_Click(object sender, EventArgs e)
+        {
+            if(dgvProcedimentos.SelectedRows.Count>0)
+            {
+                dgvProcedimentos.Rows.Remove(dgvProcedimentos.CurrentRow);
+            }
+        }
     }
 }
