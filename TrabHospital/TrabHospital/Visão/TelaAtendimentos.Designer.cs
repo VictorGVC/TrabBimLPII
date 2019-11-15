@@ -46,11 +46,6 @@
             this.dtpDataConta = new System.Windows.Forms.DateTimePicker();
             this.cbProcede = new System.Windows.Forms.ComboBox();
             this.dgvProcedimentos = new System.Windows.Forms.DataGridView();
-            this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.tbAnamnese = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -96,6 +91,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.btSeleciona = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.tabs.SuspendLayout();
             this.painel.SuspendLayout();
@@ -302,6 +304,8 @@
             this.dgvProcedimentos.BackgroundColor = System.Drawing.Color.White;
             this.dgvProcedimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProcedimentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigo,
+            this.num,
             this.procedimento,
             this.data,
             this.qtde,
@@ -310,50 +314,10 @@
             this.dgvProcedimentos.Location = new System.Drawing.Point(6, 102);
             this.dgvProcedimentos.Name = "dgvProcedimentos";
             this.dgvProcedimentos.ReadOnly = true;
+            this.dgvProcedimentos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dgvProcedimentos.RowHeadersVisible = false;
             this.dgvProcedimentos.Size = new System.Drawing.Size(439, 139);
             this.dgvProcedimentos.TabIndex = 42;
-            // 
-            // procedimento
-            // 
-            this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.procedimento.DataPropertyName = "pro_descricao";
-            this.procedimento.HeaderText = "Procedimento";
-            this.procedimento.Name = "procedimento";
-            this.procedimento.ReadOnly = true;
-            // 
-            // data
-            // 
-            this.data.DataPropertyName = "pro_data";
-            this.data.HeaderText = "Data";
-            this.data.Name = "data";
-            this.data.ReadOnly = true;
-            // 
-            // qtde
-            // 
-            this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.qtde.DataPropertyName = "pro_qtde";
-            this.qtde.HeaderText = "Qtde";
-            this.qtde.Name = "qtde";
-            this.qtde.ReadOnly = true;
-            this.qtde.Width = 55;
-            // 
-            // valor
-            // 
-            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.valor.DataPropertyName = "pro_valor";
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            this.valor.Width = 56;
-            // 
-            // total
-            // 
-            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.total.DataPropertyName = "pro_total";
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 56;
             // 
             // label6
             // 
@@ -844,6 +808,64 @@
             this.dataGridView1.Size = new System.Drawing.Size(472, 284);
             this.dataGridView1.TabIndex = 0;
             // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "pro_codigo";
+            this.codigo.FillWeight = 20F;
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Width = 50;
+            // 
+            // num
+            // 
+            this.num.DataPropertyName = "TL";
+            this.num.HeaderText = "";
+            this.num.Name = "num";
+            this.num.ReadOnly = true;
+            // 
+            // procedimento
+            // 
+            this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.procedimento.DataPropertyName = "pro_descricao";
+            this.procedimento.HeaderText = "Procedimento";
+            this.procedimento.Name = "procedimento";
+            this.procedimento.ReadOnly = true;
+            // 
+            // data
+            // 
+            this.data.DataPropertyName = "pro_data";
+            this.data.HeaderText = "Data";
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            // 
+            // qtde
+            // 
+            this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.qtde.DataPropertyName = "pro_qtde";
+            this.qtde.HeaderText = "Qtde";
+            this.qtde.Name = "qtde";
+            this.qtde.ReadOnly = true;
+            this.qtde.Width = 55;
+            // 
+            // valor
+            // 
+            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.valor.DataPropertyName = "pro_valor";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            this.valor.Width = 56;
+            // 
+            // total
+            // 
+            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.total.DataPropertyName = "pro_total";
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 56;
+            // 
             // TelaAtendimentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -939,6 +961,8 @@
 		private System.Windows.Forms.Label label16;
 		private System.Windows.Forms.TextBox tbParcela;
 		private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn num;
         private System.Windows.Forms.DataGridViewTextBoxColumn procedimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn data;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtde;

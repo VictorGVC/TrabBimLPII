@@ -39,5 +39,22 @@ namespace TrabHospital.Persistencia
 
             return procs;
         }
+
+        internal Procedimento BuscaProcedimentos(int codigo)
+        {
+            Procedimento proc = new Procedimento();
+            DataTable dtpro = new DataTable();
+            string SQL = @"SELECT * FROM procedimentos
+                            WHERE pro_codigo = @cod";
+            banco.ExecuteQuery(SQL, out dtpro, "@cod", codigo);
+            if (dtpro.Rows.Count > 0)
+            {
+                proc.Codigo = Convert.ToInt32(dtpro.Rows[0]["pro_codigo"]);
+                proc.Descricao = dtpro.Rows[0]["pro_descricao"].ToString();
+                proc.Valor = Convert.ToDouble(dtpro.Rows[0]["pro_valor"]);
+            }
+
+            return proc;
+        }
     }
 }

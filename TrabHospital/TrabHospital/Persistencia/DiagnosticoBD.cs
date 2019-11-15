@@ -40,5 +40,23 @@ namespace TrabHospital.Persistencia
 
             return diags;
         }
+
+        public object BuscarDiagnostico(int codigo)
+        {
+            DataTable dtdiags = new DataTable();
+            Diagnostico diag = new Diagnostico();
+
+            string SQL = @"SELECT * FROM diagnosticos 
+                            WHERE dia_codigo = @cod";
+            banco.ExecuteQuery(SQL, out dtdiags, "@cod", codigo);
+
+            if (dtdiags.Rows.Count > 0)
+            {
+                diag.Codigo = Convert.ToInt32(dtdiags.Rows[0]["dia_codigo"]);
+                diag.Descricao = dtdiags.Rows[0]["dia_descricao"].ToString();
+            }
+
+            return diag;
+        }
     }
 }

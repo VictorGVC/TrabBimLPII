@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TrabHospital.Modelo;
 using TrabHospital.Persistencia;
 
@@ -103,6 +104,19 @@ namespace TrabHospital.Controladora
             return dtpac;
         }
 
+        public void AddConta(DataRow row)
+        {
+            ProcedimentoDB pdb = new ProcedimentoDB(bco);
+            Conta c = new Conta();
+            bco.Conecta();
+            c.Data = Convert.ToDateTime(row["pro_data"]);
+            c.Procedimento = pdb.BuscaProcedimentos(Convert.ToInt32(row["pro_codigo"]));
+            bco.Desconecta();
+            c.Qtde = Convert.ToInt32(row["pro_qtde"]);
+            c.Valorconta = Convert.ToDouble(row["pro_valor"]);
+            atendimentoAtual.Conta.Add(c);
+        }
+
         public DataTable BuscarProcedimentos()
         {
             DataTable dtprocs = new DataTable();
@@ -121,6 +135,39 @@ namespace TrabHospital.Controladora
             }
             bco.Desconecta();
             return dtprocs;
+        }
+
+        public bool SalvarAtendimento(int coddiagn,int codpac,int codmed, DateTime data, string anamnese)
+        {
+            MedicoBD mbd = new MedicoBD(bco);
+            PacienteBD pbd = new PacienteBD(bco);
+            DiagnosticoBD dbd = new DiagnosticoBD(bco);
+            bool result;
+            bco.Conecta();
+            atendimentoAtual.Data = data;
+            atendimentoAtual.Diagnostico = (Diagnostico)dbd.BuscarDiagnostico(coddiagn);
+            atendimentoAtual.Paciente = (Paciente)pbd.PesquisarPaciente2(codpac);
+            atendimentoAtual.Medico = (Medico)mbd.BuscarMedico(codmed);
+            AtendimentoBD abd = new AtendimentoBD(bco);
+            result = abd.
+            bco.Desconecta();
+            return result;
+        }
+
+        public void RemoveConta(DataRow row)
+        {
+            Conta c = new Conta();
+            bool b = true;
+            for (int i = 0; i < atendimentoAtual.Conta.Count && b; i++)
+            {
+                c = atendimentoAtual.Conta[i];
+                if(c.Data == Convert.ToDateTime(row["pro_data"]) && 
+                    c.Qtde == (int)row["pro_qtde"] && c.Valorconta == (int)row["pro_valor"])
+                {
+                    atendimentoAtual.Conta.RemoveAt(i);
+                    b = false;
+                }
+            }
         }
 
     }

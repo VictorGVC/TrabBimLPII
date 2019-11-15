@@ -15,6 +15,7 @@ namespace TrabHospital.Visão
 	{
         private CtrlAtendimentos ControlAte = new CtrlAtendimentos();
         private DataTable dtConta = new DataTable();
+        private int TL = 0;
 
         public TelaAtendimentos()
 		{
@@ -24,19 +25,21 @@ namespace TrabHospital.Visão
             dtConta.Columns.Add("pro_qtde");
             dtConta.Columns.Add("pro_valor");
             dtConta.Columns.Add("pro_total");
+            dtConta.Columns.Add("pro_codigo");
         }
 
         private void BtAdd_Click(object sender, EventArgs e)
         {
             DataRow row = dtConta.NewRow();
-
             row["pro_descricao"] = cbProcede.Text;
             row["pro_data"] = dtpDataConta.Value;
             row["pro_qtde"] = tbQtde.Text;
             row["pro_valor"] = tbValor.Text;
+            row["pro_codigo"] = cbProcede.SelectedValue;
             row["pro_total"] = Convert.ToDouble(tbValor.Text) * Convert.ToDouble(tbQtde.Text);
 
             dtConta.Rows.Add(row);
+            ControlAte.AddConta(row);
         }
 
         private void TelaAtendimentos_Load(object sender, EventArgs e)
@@ -81,10 +84,18 @@ namespace TrabHospital.Visão
             {
                 MessageBox.Show("Campo anamnese deve ser preenchido!","Obrigatório!",
                                 MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                tbAnamnese.Focus();
             }
             else if(tbCodigo.Text.Length == 0)
             {
-                if()
+                //if(ControlAte.SalvarAtendimento())
+                {
+
+                }
+                //else
+                {
+
+                }
             }
             else
             {
@@ -130,6 +141,7 @@ namespace TrabHospital.Visão
         {
             if(dgvProcedimentos.SelectedRows.Count>0)
             {
+                ControlAte.RemoveConta(dtConta.Rows[dgvAtendimentos.CurrentRow.Index]);
                 dtConta.Rows[dgvProcedimentos.CurrentRow.Index].Delete();
             }
         }

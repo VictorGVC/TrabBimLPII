@@ -45,5 +45,28 @@ namespace TrabHospital.Persistencia
 
             return meds;
         }
+
+        public object BuscarMedico(int codigo)
+        {
+            DataTable dtmed = new DataTable();
+            Medico med = new Medico();
+
+            string SQL = @"SELECT * FROM Medicos
+                            AND med_codigo = @cod";
+            bco.ExecuteQuery(SQL, out dtmed, "@cod", codigo);
+            if (dtmed.Rows.Count > 0)
+            {
+                PlanoDB pdb = new PlanoDB(bco);
+                    
+                med.Codigo = Convert.ToInt32(dtmed.Rows[0]["med_codigo"]);
+                med.Celular = dtmed.Rows[0]["med_celular"].ToString();
+                med.Crm = dtmed.Rows[0]["med_crm"].ToString();
+                med.Nome = dtmed.Rows[0]["med_nome"].ToString();
+                med.Plano = (Planos_de_saude)pdb.BuscarPlanos(Convert.ToInt32(dtmed.Rows[0]["pla_codigo"]));
+                med.Fone = dtmed.Rows[0]["med_fone"].ToString();
+            }
+
+            return med;
+        }
     }
 }

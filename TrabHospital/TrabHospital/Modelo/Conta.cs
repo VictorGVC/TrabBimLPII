@@ -10,13 +10,13 @@ namespace TrabHospital.Modelo
 	{
 		private int codigo, qtde;
 		private DateTime data;
-		private float valorconta;
+		private double valorconta;
 		private Atendimento atendimento;
 		private Procedimento procedimento;
 
 		public Conta() { }
 
-		public Conta(int codigo, int qtde, DateTime data, float valorconta, Atendimento atendimento, Procedimento procedimento)
+		public Conta(int codigo, int qtde, DateTime data, double valorconta, Atendimento atendimento, Procedimento procedimento)
 		{
 			this.codigo = codigo;
 			this.qtde = qtde;
@@ -29,7 +29,7 @@ namespace TrabHospital.Modelo
 		public int Codigo { get => codigo; set => codigo = value; }
 		public int Qtde { get => qtde; set => qtde = value; }
 		public DateTime Data { get => data; set => data = value; }
-		public float Valorconta { get => valorconta; set => valorconta = value; }
+		public double Valorconta { get => valorconta; set => valorconta = value; }
 		internal Atendimento Atendimento { get => atendimento; set => atendimento = value; }
 		internal Procedimento Procedimento { get => procedimento; set => procedimento = value; }
 	}

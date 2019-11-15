@@ -12,14 +12,20 @@ namespace TrabHospital.Modelo
 		private DateTime data, dtretorno, dtalta, dtobito;
 		private String anamnase, causamortis;
 		private char contafechada;
-		private float valorconta, valordesc;
+		private double valorconta, valordesc;
 		private Diagnostico diagnostico;
 		private Medico medico;
 		private Paciente paciente;
+        private List<Conta> conta;
 
-		public Atendimento() { }
+		public Atendimento() 
+        {
+            conta = new List<Conta>();
+        }
 
-		public Atendimento(int codigo, DateTime data, DateTime dtretorno, DateTime dtalta, DateTime dtobito, string anamnase, string causamortis, char contafechada, float valorconta, float valordesc, Diagnostico diagnostico, Medico medico, Paciente paciente)
+		public Atendimento(int codigo, DateTime data, DateTime dtretorno, DateTime dtalta, DateTime dtobito, 
+            string anamnase, string causamortis, char contafechada, double valorconta, double valordesc, 
+            Diagnostico diagnostico, Medico medico, Paciente paciente, List<Conta>conta)
 		{
 			this.codigo = codigo;
 			this.data = data;
@@ -34,6 +40,7 @@ namespace TrabHospital.Modelo
 			this.diagnostico = diagnostico;
 			this.medico = medico;
 			this.paciente = paciente;
+            this.conta = conta;
 		}
 
 		public int Codigo { get => codigo; set => codigo = value; }
@@ -44,10 +51,11 @@ namespace TrabHospital.Modelo
 		public string Anamnase { get => anamnase; set => anamnase = value; }
 		public string Causamortis { get => causamortis; set => causamortis = value; }
 		public char Contafechada { get => contafechada; set => contafechada = value; }
-		public float Valorconta { get => valorconta; set => valorconta = value; }
-		public float Valordesc { get => valordesc; set => valordesc = value; }
+		public double Valorconta { get => valorconta; set => valorconta = value; }
+		public double Valordesc { get => valordesc; set => valordesc = value; }
 		internal Diagnostico Diagnostico { get => diagnostico; set => diagnostico = value; }
 		internal Medico Medico { get => medico; set => medico = value; }
 		internal Paciente Paciente { get => paciente; set => paciente = value; }
-	}
+        internal List<Conta> Conta { get => conta; set => conta = value; }
+    }
 }
