@@ -17,15 +17,16 @@ namespace TrabHospital.Persistencia
             this.bco = bco;
         }
 
-        public List<object> BuscarMedicos(string desc)
+        public List<object> BuscarMedicos(string desc,int plano)
         {
             List<object> meds = new List<object>();
             DataTable dtmed = new DataTable();
             
             string SQL = @"SELECT * FROM Medicos
-                            WHERE med_nome LIKE @desc";
+                            WHERE med_nome LIKE @desc
+                            AND pla_codigo = @plano";
             desc += "%";
-            bco.ExecuteQuery(SQL, out dtmed, "@desc",desc);
+            bco.ExecuteQuery(SQL, out dtmed, "@desc",desc,"@plano",plano);
             if(dtmed.Rows.Count>0)
             {
                 PlanoDB pdb = new PlanoDB(bco);

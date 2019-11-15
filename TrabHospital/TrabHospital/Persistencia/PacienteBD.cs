@@ -83,8 +83,33 @@ namespace TrabHospital.Persistencia
                     pacientes.Add(p);
                 }
             }
-            
+
             return pacientes;
+        }
+
+        public object PesquisarPaciente2(int codigo)
+        {
+            Paciente p = new Paciente();
+            DataTable dtaux = new DataTable();
+            string SQL = @"SELECT * FROM pacientes
+                            WHERE pac_codigo = @nome";
+            bco.ExecuteQuery(SQL, out dtaux, "@nome", codigo);
+            if (dtaux.Rows.Count > 0)
+            {
+                PlanoDB pdb = new PlanoDB(bco);
+                p.Codigo = Convert.ToInt32(dtaux.Rows[0]["pac_codigo"]);
+                p.Nome = dtaux.Rows[0]["pac_nome"].ToString();
+                p.Sexo = Convert.ToChar(dtaux.Rows[0]["pac_sexo"]);
+                p.Dtnasc = Convert.ToDateTime(dtaux.Rows[0]["pac_dtnasc"]);
+                p.Endereco = dtaux.Rows[0]["pac_endereco"].ToString();
+                p.Cidade = dtaux.Rows[0]["pac_cidade"].ToString();
+                p.Uf = dtaux.Rows[0]["pac_uf"].ToString();
+                p.Cep = dtaux.Rows[0]["pac_cep"].ToString();
+                p.Fone = dtaux.Rows[0]["pac_fone"].ToString();
+                p.Plano = (Planos_de_saude)pdb.BuscarPlanos(Convert.ToInt32(dtaux.Rows[0]["pla_codigo"]));
+            }
+
+            return p;
         }
 
         public bool AlterarPaciente(object Objeto)

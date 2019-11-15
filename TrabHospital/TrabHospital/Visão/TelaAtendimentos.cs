@@ -30,7 +30,7 @@ namespace TrabHospital.Visão
         {
             DataRow row = dtConta.NewRow();
 
-            row["pro_descricao"] = cbProcede.SelectedItem.ToString();
+            row["pro_descricao"] = cbProcede.Text;
             row["pro_data"] = dtpDataConta.Value;
             row["pro_qtde"] = tbQtde.Text;
             row["pro_valor"] = tbValor.Text;
@@ -44,18 +44,19 @@ namespace TrabHospital.Visão
             cbDiagnostico.DataSource = ControlAte.BuscaDiagnosticos();
             cbDiagnostico.ValueMember = "dia_codigo";
             cbDiagnostico.DisplayMember = "dia_descricao";
-            cbPaciente.DataSource = ControlAte.BuscaPacientes();
             cbPaciente.ValueMember = "pac_codigo";
             cbPaciente.DisplayMember = "pac_nome";
-            cbMedico.DataSource = ControlAte.BuscaMedicos();
-            cbMedico2 = cbMedico;
+            cbPaciente.DataSource = ControlAte.BuscaPacientes();
             cbMedico.ValueMember = "med_codigo";
             cbMedico.DisplayMember = "med_nome";
+            cbMedico.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
             cbMedico2.ValueMember = "med_codigo";
             cbMedico2.DisplayMember = "med_nome";
-            cbProcede.DataSource = ControlAte.BuscarProcedimentos();
+            cbMedico2.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
             cbProcede.ValueMember = "pro_codigo";
             cbProcede.DisplayMember = "pro_descricao";
+            cbProcede.DataSource = ControlAte.BuscarProcedimentos();
+            dgvProcedimentos.DataSource = dtConta;
         }
 
         public void limpa()
@@ -76,7 +77,19 @@ namespace TrabHospital.Visão
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
+            if(tbAnamnese.Text.Length == 0)
+            {
+                MessageBox.Show("Campo anamnese deve ser preenchido!","Obrigatório!",
+                                MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            else if(tbCodigo.Text.Length == 0)
+            {
+                if()
+            }
+            else
+            {
 
+            }
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -117,8 +130,14 @@ namespace TrabHospital.Visão
         {
             if(dgvProcedimentos.SelectedRows.Count>0)
             {
-                dgvProcedimentos.Rows.Remove(dgvProcedimentos.CurrentRow);
+                dtConta.Rows[dgvProcedimentos.CurrentRow.Index].Delete();
             }
+        }
+
+        private void cbPaciente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbMedico.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
+            cbMedico2.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
         }
     }
 }

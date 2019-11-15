@@ -46,6 +46,11 @@
             this.dtpDataConta = new System.Windows.Forms.DateTimePicker();
             this.cbProcede = new System.Windows.Forms.ComboBox();
             this.dgvProcedimentos = new System.Windows.Forms.DataGridView();
+            this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.tbAnamnese = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -53,8 +58,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbPaciente = new System.Windows.Forms.ComboBox();
             this.cbMedico = new System.Windows.Forms.ComboBox();
+            this.cbPaciente = new System.Windows.Forms.ComboBox();
             this.cbDiagnostico = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbCodigo = new System.Windows.Forms.TextBox();
@@ -91,11 +96,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.btSeleciona = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.tabs.SuspendLayout();
             this.painel.SuspendLayout();
@@ -165,8 +165,8 @@
             this.pnDados.Controls.Add(this.label4);
             this.pnDados.Controls.Add(this.label3);
             this.pnDados.Controls.Add(this.label2);
-            this.pnDados.Controls.Add(this.cbPaciente);
             this.pnDados.Controls.Add(this.cbMedico);
+            this.pnDados.Controls.Add(this.cbPaciente);
             this.pnDados.Controls.Add(this.cbDiagnostico);
             this.pnDados.Controls.Add(this.label1);
             this.pnDados.Controls.Add(this.tbCodigo);
@@ -313,6 +313,48 @@
             this.dgvProcedimentos.Size = new System.Drawing.Size(439, 139);
             this.dgvProcedimentos.TabIndex = 42;
             // 
+            // procedimento
+            // 
+            this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.procedimento.DataPropertyName = "pro_descricao";
+            this.procedimento.HeaderText = "Procedimento";
+            this.procedimento.Name = "procedimento";
+            this.procedimento.ReadOnly = true;
+            // 
+            // data
+            // 
+            this.data.DataPropertyName = "pro_data";
+            this.data.HeaderText = "Data";
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            // 
+            // qtde
+            // 
+            this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.qtde.DataPropertyName = "pro_qtde";
+            this.qtde.HeaderText = "Qtde";
+            this.qtde.Name = "qtde";
+            this.qtde.ReadOnly = true;
+            this.qtde.Width = 55;
+            // 
+            // valor
+            // 
+            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.valor.DataPropertyName = "pro_valor";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            this.valor.Width = 56;
+            // 
+            // total
+            // 
+            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.total.DataPropertyName = "pro_total";
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 56;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -350,7 +392,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(234, 47);
+            this.label4.Location = new System.Drawing.Point(128, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 36;
@@ -359,7 +401,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(128, 47);
+            this.label3.Location = new System.Drawing.Point(234, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 36;
@@ -374,25 +416,26 @@
             this.label2.TabIndex = 36;
             this.label2.Text = "Diagnóstico";
             // 
-            // cbPaciente
-            // 
-            this.cbPaciente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbPaciente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbPaciente.FormattingEnabled = true;
-            this.cbPaciente.Location = new System.Drawing.Point(237, 63);
-            this.cbPaciente.Name = "cbPaciente";
-            this.cbPaciente.Size = new System.Drawing.Size(95, 21);
-            this.cbPaciente.TabIndex = 4;
-            // 
             // cbMedico
             // 
             this.cbMedico.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbMedico.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbMedico.FormattingEnabled = true;
-            this.cbMedico.Location = new System.Drawing.Point(131, 63);
+            this.cbMedico.Location = new System.Drawing.Point(237, 63);
             this.cbMedico.Name = "cbMedico";
-            this.cbMedico.Size = new System.Drawing.Size(100, 21);
-            this.cbMedico.TabIndex = 3;
+            this.cbMedico.Size = new System.Drawing.Size(95, 21);
+            this.cbMedico.TabIndex = 4;
+            // 
+            // cbPaciente
+            // 
+            this.cbPaciente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbPaciente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbPaciente.FormattingEnabled = true;
+            this.cbPaciente.Location = new System.Drawing.Point(131, 63);
+            this.cbPaciente.Name = "cbPaciente";
+            this.cbPaciente.Size = new System.Drawing.Size(100, 21);
+            this.cbPaciente.TabIndex = 3;
+            this.cbPaciente.SelectedIndexChanged += new System.EventHandler(this.cbPaciente_SelectedIndexChanged);
             // 
             // cbDiagnostico
             // 
@@ -801,48 +844,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(472, 284);
             this.dataGridView1.TabIndex = 0;
             // 
-            // procedimento
-            // 
-            this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.procedimento.DataPropertyName = "pro_descricao";
-            this.procedimento.HeaderText = "Procedimento";
-            this.procedimento.Name = "procedimento";
-            this.procedimento.ReadOnly = true;
-            // 
-            // data
-            // 
-            this.data.DataPropertyName = "pro_data";
-            this.data.HeaderText = "Data";
-            this.data.Name = "data";
-            this.data.ReadOnly = true;
-            // 
-            // qtde
-            // 
-            this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.qtde.DataPropertyName = "pro_qtde";
-            this.qtde.HeaderText = "Qtde";
-            this.qtde.Name = "qtde";
-            this.qtde.ReadOnly = true;
-            this.qtde.Width = 55;
-            // 
-            // valor
-            // 
-            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.valor.DataPropertyName = "pro_valor";
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            this.valor.Width = 56;
-            // 
-            // total
-            // 
-            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.total.DataPropertyName = "pro_total";
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 56;
-            // 
             // TelaAtendimentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -895,8 +896,8 @@
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.TextBox tbPesqNomePac;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cbPaciente;
         private System.Windows.Forms.ComboBox cbMedico;
+        private System.Windows.Forms.ComboBox cbPaciente;
         private System.Windows.Forms.ComboBox cbDiagnostico;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
