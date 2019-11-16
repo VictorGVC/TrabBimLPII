@@ -148,8 +148,12 @@ namespace TrabHospital.Controladora
             atendimentoAtual.Diagnostico = (Diagnostico)dbd.BuscarDiagnostico(coddiagn);
             atendimentoAtual.Paciente = (Paciente)pbd.PesquisarPaciente2(codpac);
             atendimentoAtual.Medico = (Medico)mbd.BuscarMedico(codmed);
+            atendimentoAtual.Anamnase = anamnese;
             AtendimentoBD abd = new AtendimentoBD(bco);
-            result = abd.
+            atendimentoAtual.Valorconta = 0;
+            foreach (Conta conta in atendimentoAtual.Conta)
+                atendimentoAtual.Valorconta += conta.Valorconta*conta.Qtde;
+            result = abd.SalvarAtendimento(atendimentoAtual);
             bco.Desconecta();
             return result;
         }

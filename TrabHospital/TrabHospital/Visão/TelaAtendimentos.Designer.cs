@@ -92,7 +92,6 @@
             this.btSeleciona = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -143,6 +142,7 @@
             this.tabs.SelectedIndex = 0;
             this.tabs.Size = new System.Drawing.Size(480, 461);
             this.tabs.TabIndex = 37;
+            this.tabs.SelectedIndexChanged += new System.EventHandler(this.tabs_SelectedIndexChanged);
             // 
             // painel
             // 
@@ -305,7 +305,6 @@
             this.dgvProcedimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProcedimentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo,
-            this.num,
             this.procedimento,
             this.data,
             this.qtde,
@@ -817,13 +816,6 @@
             this.codigo.ReadOnly = true;
             this.codigo.Width = 50;
             // 
-            // num
-            // 
-            this.num.DataPropertyName = "TL";
-            this.num.HeaderText = "";
-            this.num.Name = "num";
-            this.num.ReadOnly = true;
-            // 
             // procedimento
             // 
             this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -962,7 +954,6 @@
 		private System.Windows.Forms.TextBox tbParcela;
 		private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn num;
         private System.Windows.Forms.DataGridViewTextBoxColumn procedimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn data;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtde;

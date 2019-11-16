@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TrabHospital.Persistencia
 {
@@ -113,7 +114,7 @@ namespace TrabHospital.Persistencia
 			catch (Exception e)
 			{
 				Console.Out.WriteLine("Erro execute nonquery" + e.Message);
-
+                MessageBox.Show(e.Message);
 				return false;
 			}
 		}

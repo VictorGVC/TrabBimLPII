@@ -52,7 +52,7 @@ namespace TrabHospital.Persistencia
             Medico med = new Medico();
 
             string SQL = @"SELECT * FROM Medicos
-                            AND med_codigo = @cod";
+                            WHERE med_codigo = @cod";
             bco.ExecuteQuery(SQL, out dtmed, "@cod", codigo);
             if (dtmed.Rows.Count > 0)
             {

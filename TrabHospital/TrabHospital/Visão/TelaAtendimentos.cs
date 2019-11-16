@@ -88,13 +88,14 @@ namespace TrabHospital.Visão
             }
             else if(tbCodigo.Text.Length == 0)
             {
-                //if(ControlAte.SalvarAtendimento())
+                if(ControlAte.SalvarAtendimento((int)cbDiagnostico.SelectedValue,(int)cbPaciente.SelectedValue,
+                                (int)cbMedico.SelectedValue,dtpAtendimento.Value,tbAnamnese.Text))
                 {
-
+                    limpa();
                 }
-                //else
+                else
                 {
-
+                    MessageBox.Show("Não foi possivel salvar");
                 }
             }
             else
@@ -150,6 +151,11 @@ namespace TrabHospital.Visão
         {
             cbMedico.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
             cbMedico2.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
+        }
+
+        private void tabs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbMedico2.SelectedIndex = -1;
         }
     }
 }
