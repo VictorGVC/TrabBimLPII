@@ -204,7 +204,7 @@ namespace TrabHospital.Persistencia
 
             try
             {
-                bco.ExecuteQuery(SQL, out dta, "@d1", d1, "@d2", d2, "@nome", nome, "@med", codigomed);
+                bco.ExecuteQuery(SQL, out dta, "@d1", d1, "@d2", d2, "@med", codmed);
             }
             catch (Exception e)
             {
