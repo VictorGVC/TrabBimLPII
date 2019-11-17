@@ -31,14 +31,14 @@ namespace TrabHospital.Persistencia
 
             if(result)
             {
-                int codgigo = bco.GetIdentity();
+                int codigo = bco.GetIdentity();
                 
                 SQL = @"INSERT INTO contas (pro_codigo,atn_codigo,con_qtde,con_data,con_vrconta)
                                             VALUES (@proc,@aten,@qtde,@data,@valor)";
                 foreach (Conta conta in at.Conta)
                 {
                     bco.ExecuteNonQuery(SQL, "@proc", conta.Procedimento.Codigo,
-                                            "@aten", conta.Atendimento.Codigo,
+                                            "@aten", codigo,
                                             "@qtde", conta.Qtde,"@data",conta.Data,
                                             "@valor", conta.Valorconta) ;
                 }

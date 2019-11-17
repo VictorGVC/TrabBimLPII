@@ -221,6 +221,14 @@ namespace TrabHospital.Controladora
             return dtatendimentos;
         }
 
+        public DataTable BuscarContas(int codigo)
+        {
+            DataTable dtc = new DataTable();
+            dtc.Columns.Add("");
+
+            return dtc;
+        }
+
         public void RemoveConta(DataRow row)
         {
             Conta c = new Conta();

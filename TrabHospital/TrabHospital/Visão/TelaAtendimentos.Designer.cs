@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaAtendimentos));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tabs = new System.Windows.Forms.TabControl();
+            this.tabsatendimento = new System.Windows.Forms.TabControl();
             this.painel = new System.Windows.Forms.TabPage();
             this.pnDados = new System.Windows.Forms.Panel();
             this.dtpretorno = new System.Windows.Forms.Label();
@@ -122,7 +122,7 @@
             this.dtatendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtobito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
-            this.tabs.SuspendLayout();
+            this.tabsatendimento.SuspendLayout();
             this.painel.SuspendLayout();
             this.pnDados.SuspendLayout();
             this.gbConta.SuspendLayout();
@@ -148,25 +148,25 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.tabs);
+            this.panel2.Controls.Add(this.tabsatendimento);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(304, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(480, 461);
             this.panel2.TabIndex = 1;
             // 
-            // tabs
+            // tabsatendimento
             // 
-            this.tabs.Controls.Add(this.painel);
-            this.tabs.Controls.Add(this.tabPesquisa);
-            this.tabs.Controls.Add(this.tabFechaAtt);
-            this.tabs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabs.Location = new System.Drawing.Point(0, 0);
-            this.tabs.Name = "tabs";
-            this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(480, 461);
-            this.tabs.TabIndex = 37;
-            this.tabs.SelectedIndexChanged += new System.EventHandler(this.tabs_SelectedIndexChanged);
+            this.tabsatendimento.Controls.Add(this.painel);
+            this.tabsatendimento.Controls.Add(this.tabPesquisa);
+            this.tabsatendimento.Controls.Add(this.tabFechaAtt);
+            this.tabsatendimento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabsatendimento.Location = new System.Drawing.Point(0, 0);
+            this.tabsatendimento.Name = "tabsatendimento";
+            this.tabsatendimento.SelectedIndex = 0;
+            this.tabsatendimento.Size = new System.Drawing.Size(480, 461);
+            this.tabsatendimento.TabIndex = 37;
+            this.tabsatendimento.SelectedIndexChanged += new System.EventHandler(this.tabs_SelectedIndexChanged);
             // 
             // painel
             // 
@@ -230,7 +230,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(213, 8);
+            this.label20.Location = new System.Drawing.Point(98, 8);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(82, 13);
             this.label20.TabIndex = 45;
@@ -239,7 +239,7 @@
             // 
             // tbcausamorte
             // 
-            this.tbcausamorte.Location = new System.Drawing.Point(213, 24);
+            this.tbcausamorte.Location = new System.Drawing.Point(98, 24);
             this.tbcausamorte.Name = "tbcausamorte";
             this.tbcausamorte.Size = new System.Drawing.Size(119, 20);
             this.tbcausamorte.TabIndex = 44;
@@ -248,7 +248,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(93, 9);
+            this.label11.Location = new System.Drawing.Point(220, 9);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(95, 13);
             this.label11.TabIndex = 43;
@@ -258,7 +258,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(96, 24);
+            this.dateTimePicker1.Location = new System.Drawing.Point(223, 24);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(109, 20);
             this.dateTimePicker1.TabIndex = 42;
@@ -1138,7 +1138,7 @@
             this.Text = "Gerenciar Atendimentos";
             this.Load += new System.EventHandler(this.TelaAtendimentos_Load);
             this.panel2.ResumeLayout(false);
-            this.tabs.ResumeLayout(false);
+            this.tabsatendimento.ResumeLayout(false);
             this.painel.ResumeLayout(false);
             this.pnDados.ResumeLayout(false);
             this.pnDados.PerformLayout();
@@ -1161,7 +1161,7 @@
 
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TabControl tabs;
+        private System.Windows.Forms.TabControl tabsatendimento;
         private System.Windows.Forms.TabPage painel;
         private System.Windows.Forms.Panel pnDados;
         private System.Windows.Forms.Label label1;
