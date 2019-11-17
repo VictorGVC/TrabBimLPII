@@ -46,6 +46,12 @@
             this.dtpDataConta = new System.Windows.Forms.DateTimePicker();
             this.cbProcede = new System.Windows.Forms.ComboBox();
             this.dgvProcedimentos = new System.Windows.Forms.DataGridView();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.tbAnamnese = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -64,9 +70,10 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.tabPesquisa = new System.Windows.Forms.TabPage();
+            this.rbatendimento = new System.Windows.Forms.RadioButton();
+            this.rbobito = new System.Windows.Forms.RadioButton();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.dtpPeriodoObito = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cbMedico2 = new System.Windows.Forms.ComboBox();
             this.dtpPeriodo = new System.Windows.Forms.DateTimePicker();
@@ -91,12 +98,29 @@
             this.label15 = new System.Windows.Forms.Label();
             this.btSeleciona = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbcausamorte = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpretorno = new System.Windows.Forms.Label();
+            this.codigoatn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codmed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cod_diag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cod_pac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.anamnese = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtalta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtretorno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.causamortis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorconta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valordesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diagnostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtatendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtobito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.tabs.SuspendLayout();
             this.painel.SuspendLayout();
@@ -159,6 +183,12 @@
             // pnDados
             // 
             this.pnDados.BackColor = System.Drawing.Color.PowderBlue;
+            this.pnDados.Controls.Add(this.dtpretorno);
+            this.pnDados.Controls.Add(this.dateTimePicker2);
+            this.pnDados.Controls.Add(this.label20);
+            this.pnDados.Controls.Add(this.tbcausamorte);
+            this.pnDados.Controls.Add(this.label11);
+            this.pnDados.Controls.Add(this.dateTimePicker1);
             this.pnDados.Controls.Add(this.gbConta);
             this.pnDados.Controls.Add(this.label6);
             this.pnDados.Controls.Add(this.tbAnamnese);
@@ -317,6 +347,57 @@
             this.dgvProcedimentos.RowHeadersVisible = false;
             this.dgvProcedimentos.Size = new System.Drawing.Size(439, 139);
             this.dgvProcedimentos.TabIndex = 42;
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "pro_codigo";
+            this.codigo.FillWeight = 20F;
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Width = 50;
+            // 
+            // procedimento
+            // 
+            this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.procedimento.DataPropertyName = "pro_descricao";
+            this.procedimento.HeaderText = "Procedimento";
+            this.procedimento.Name = "procedimento";
+            this.procedimento.ReadOnly = true;
+            // 
+            // data
+            // 
+            this.data.DataPropertyName = "pro_data";
+            this.data.HeaderText = "Data";
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            // 
+            // qtde
+            // 
+            this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.qtde.DataPropertyName = "pro_qtde";
+            this.qtde.HeaderText = "Qtde";
+            this.qtde.Name = "qtde";
+            this.qtde.ReadOnly = true;
+            this.qtde.Width = 55;
+            // 
+            // valor
+            // 
+            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.valor.DataPropertyName = "pro_valor";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            this.valor.Width = 56;
+            // 
+            // total
+            // 
+            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.total.DataPropertyName = "pro_total";
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 56;
             // 
             // label6
             // 
@@ -506,9 +587,10 @@
             // tabPesquisa
             // 
             this.tabPesquisa.BackColor = System.Drawing.Color.PowderBlue;
+            this.tabPesquisa.Controls.Add(this.rbatendimento);
+            this.tabPesquisa.Controls.Add(this.rbobito);
             this.tabPesquisa.Controls.Add(this.btnLimpar);
             this.tabPesquisa.Controls.Add(this.dtpPeriodoObito);
-            this.tabPesquisa.Controls.Add(this.label11);
             this.tabPesquisa.Controls.Add(this.label9);
             this.tabPesquisa.Controls.Add(this.cbMedico2);
             this.tabPesquisa.Controls.Add(this.dtpPeriodo);
@@ -526,10 +608,32 @@
             this.tabPesquisa.TabIndex = 1;
             this.tabPesquisa.Text = "Pesquisa";
             // 
+            // rbatendimento
+            // 
+            this.rbatendimento.AutoSize = true;
+            this.rbatendimento.Location = new System.Drawing.Point(51, 103);
+            this.rbatendimento.Name = "rbatendimento";
+            this.rbatendimento.Size = new System.Drawing.Size(84, 17);
+            this.rbatendimento.TabIndex = 70;
+            this.rbatendimento.TabStop = true;
+            this.rbatendimento.Text = "Atendimento";
+            this.rbatendimento.UseVisualStyleBackColor = true;
+            // 
+            // rbobito
+            // 
+            this.rbobito.AutoSize = true;
+            this.rbobito.Location = new System.Drawing.Point(201, 103);
+            this.rbobito.Name = "rbobito";
+            this.rbobito.Size = new System.Drawing.Size(50, 17);
+            this.rbobito.TabIndex = 70;
+            this.rbobito.TabStop = true;
+            this.rbobito.Text = "Óbito";
+            this.rbobito.UseVisualStyleBackColor = true;
+            // 
             // btnLimpar
             // 
             this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
-            this.btnLimpar.Location = new System.Drawing.Point(335, 93);
+            this.btnLimpar.Location = new System.Drawing.Point(335, 127);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(89, 36);
             this.btnLimpar.TabIndex = 69;
@@ -541,43 +645,36 @@
             // dtpPeriodoObito
             // 
             this.dtpPeriodoObito.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpPeriodoObito.Location = new System.Drawing.Point(300, 66);
+            this.dtpPeriodoObito.Location = new System.Drawing.Point(176, 73);
             this.dtpPeriodoObito.Name = "dtpPeriodoObito";
-            this.dtpPeriodoObito.Size = new System.Drawing.Size(121, 20);
+            this.dtpPeriodoObito.Size = new System.Drawing.Size(119, 20);
             this.dtpPeriodoObito.TabIndex = 68;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(297, 50);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(88, 13);
-            this.label11.TabIndex = 67;
-            this.label11.Text = "Óbito no Período";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(173, 50);
+            this.label9.Location = new System.Drawing.Point(303, 54);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 13);
             this.label9.TabIndex = 65;
             this.label9.Text = "Médico";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // cbMedico2
             // 
             this.cbMedico2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbMedico2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbMedico2.FormattingEnabled = true;
-            this.cbMedico2.Location = new System.Drawing.Point(176, 66);
+            this.cbMedico2.Location = new System.Drawing.Point(306, 73);
             this.cbMedico2.Name = "cbMedico2";
             this.cbMedico2.Size = new System.Drawing.Size(118, 21);
             this.cbMedico2.TabIndex = 64;
+            this.cbMedico2.SelectedIndexChanged += new System.EventHandler(this.cbMedico2_SelectedIndexChanged);
             // 
             // dtpPeriodo
             // 
             this.dtpPeriodo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpPeriodo.Location = new System.Drawing.Point(51, 67);
+            this.dtpPeriodo.Location = new System.Drawing.Point(51, 73);
             this.dtpPeriodo.Name = "dtpPeriodo";
             this.dtpPeriodo.Size = new System.Drawing.Size(119, 20);
             this.dtpPeriodo.TabIndex = 63;
@@ -585,7 +682,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(51, 51);
+            this.label7.Location = new System.Drawing.Point(151, 54);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 62;
@@ -595,14 +692,35 @@
             // 
             this.dgvAtendimentos.AllowUserToAddRows = false;
             this.dgvAtendimentos.AllowUserToDeleteRows = false;
+            this.dgvAtendimentos.AllowUserToResizeColumns = false;
+            this.dgvAtendimentos.AllowUserToResizeRows = false;
             this.dgvAtendimentos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAtendimentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAtendimentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigoatn,
+            this.codmed,
+            this.cod_diag,
+            this.cod_pac,
+            this.anamnese,
+            this.dtalta,
+            this.dtretorno,
+            this.causamortis,
+            this.valorconta,
+            this.valordesconto,
+            this.nome,
+            this.diagnostico,
+            this.medico,
+            this.fechada,
+            this.status,
+            this.dtatendimento,
+            this.dtobito});
             this.dgvAtendimentos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvAtendimentos.Location = new System.Drawing.Point(3, 135);
+            this.dgvAtendimentos.Location = new System.Drawing.Point(3, 169);
             this.dgvAtendimentos.Name = "dgvAtendimentos";
             this.dgvAtendimentos.ReadOnly = true;
+            this.dgvAtendimentos.RowHeadersVisible = false;
             this.dgvAtendimentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAtendimentos.Size = new System.Drawing.Size(466, 297);
+            this.dgvAtendimentos.Size = new System.Drawing.Size(466, 263);
             this.dgvAtendimentos.TabIndex = 61;
             // 
             // btnPesquisar
@@ -611,7 +729,7 @@
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
             this.btnPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPesquisar.Location = new System.Drawing.Point(51, 93);
+            this.btnPesquisar.Location = new System.Drawing.Point(51, 127);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(89, 36);
             this.btnPesquisar.TabIndex = 60;
@@ -626,7 +744,7 @@
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(240, 93);
+            this.btnExcluir.Location = new System.Drawing.Point(240, 127);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(89, 36);
             this.btnExcluir.TabIndex = 59;
@@ -640,7 +758,7 @@
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
             this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlterar.Location = new System.Drawing.Point(145, 93);
+            this.btnAlterar.Location = new System.Drawing.Point(145, 127);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(89, 36);
             this.btnAlterar.TabIndex = 58;
@@ -807,56 +925,206 @@
             this.dataGridView1.Size = new System.Drawing.Size(472, 284);
             this.dataGridView1.TabIndex = 0;
             // 
-            // codigo
+            // dateTimePicker1
             // 
-            this.codigo.DataPropertyName = "pro_codigo";
-            this.codigo.FillWeight = 20F;
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            this.codigo.Width = 50;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(96, 24);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(109, 20);
+            this.dateTimePicker1.TabIndex = 42;
+            this.dateTimePicker1.Visible = false;
             // 
-            // procedimento
+            // label11
             // 
-            this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.procedimento.DataPropertyName = "pro_descricao";
-            this.procedimento.HeaderText = "Procedimento";
-            this.procedimento.Name = "procedimento";
-            this.procedimento.ReadOnly = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(93, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(95, 13);
+            this.label11.TabIndex = 43;
+            this.label11.Text = "Data da alta/Óbito";
+            this.label11.Visible = false;
             // 
-            // data
+            // tbcausamorte
             // 
-            this.data.DataPropertyName = "pro_data";
-            this.data.HeaderText = "Data";
-            this.data.Name = "data";
-            this.data.ReadOnly = true;
+            this.tbcausamorte.Location = new System.Drawing.Point(213, 24);
+            this.tbcausamorte.Name = "tbcausamorte";
+            this.tbcausamorte.Size = new System.Drawing.Size(119, 20);
+            this.tbcausamorte.TabIndex = 44;
+            this.tbcausamorte.Visible = false;
             // 
-            // qtde
+            // label20
             // 
-            this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.qtde.DataPropertyName = "pro_qtde";
-            this.qtde.HeaderText = "Qtde";
-            this.qtde.Name = "qtde";
-            this.qtde.ReadOnly = true;
-            this.qtde.Width = 55;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(213, 8);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(82, 13);
+            this.label20.TabIndex = 45;
+            this.label20.Text = "Causa da Morte";
+            this.label20.Visible = false;
             // 
-            // valor
+            // dateTimePicker2
             // 
-            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.valor.DataPropertyName = "pro_valor";
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            this.valor.Width = 56;
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(338, 24);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(117, 20);
+            this.dateTimePicker2.TabIndex = 46;
+            this.dateTimePicker2.Visible = false;
             // 
-            // total
+            // dtpretorno
             // 
-            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.total.DataPropertyName = "pro_total";
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 56;
+            this.dtpretorno.AutoSize = true;
+            this.dtpretorno.Location = new System.Drawing.Point(335, 8);
+            this.dtpretorno.Name = "dtpretorno";
+            this.dtpretorno.Size = new System.Drawing.Size(86, 13);
+            this.dtpretorno.TabIndex = 47;
+            this.dtpretorno.Text = "Data do Retorno";
+            this.dtpretorno.Visible = false;
+            // 
+            // codigoatn
+            // 
+            this.codigoatn.DataPropertyName = "atn_codigo";
+            this.codigoatn.HeaderText = "Codigo";
+            this.codigoatn.Name = "codigoatn";
+            this.codigoatn.ReadOnly = true;
+            this.codigoatn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.codigoatn.Visible = false;
+            // 
+            // codmed
+            // 
+            this.codmed.DataPropertyName = "med_codigo";
+            this.codmed.HeaderText = "codmed";
+            this.codmed.Name = "codmed";
+            this.codmed.ReadOnly = true;
+            this.codmed.Visible = false;
+            // 
+            // cod_diag
+            // 
+            this.cod_diag.DataPropertyName = "dia_codigo";
+            this.cod_diag.HeaderText = "cod dia";
+            this.cod_diag.Name = "cod_diag";
+            this.cod_diag.ReadOnly = true;
+            this.cod_diag.Visible = false;
+            // 
+            // cod_pac
+            // 
+            this.cod_pac.DataPropertyName = "pac_codigo";
+            this.cod_pac.HeaderText = "cod paciente";
+            this.cod_pac.Name = "cod_pac";
+            this.cod_pac.ReadOnly = true;
+            this.cod_pac.Visible = false;
+            // 
+            // anamnese
+            // 
+            this.anamnese.DataPropertyName = "atn_anamnese";
+            this.anamnese.HeaderText = "Anamnese";
+            this.anamnese.Name = "anamnese";
+            this.anamnese.ReadOnly = true;
+            this.anamnese.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.anamnese.Visible = false;
+            // 
+            // dtalta
+            // 
+            this.dtalta.DataPropertyName = "atn_dtalta";
+            this.dtalta.HeaderText = "Data Alta";
+            this.dtalta.Name = "dtalta";
+            this.dtalta.ReadOnly = true;
+            this.dtalta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dtalta.Visible = false;
+            // 
+            // dtretorno
+            // 
+            this.dtretorno.DataPropertyName = "atn_dtretorno";
+            this.dtretorno.HeaderText = "Data Retorno";
+            this.dtretorno.Name = "dtretorno";
+            this.dtretorno.ReadOnly = true;
+            this.dtretorno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dtretorno.Visible = false;
+            // 
+            // causamortis
+            // 
+            this.causamortis.DataPropertyName = "atn_causamortis";
+            this.causamortis.HeaderText = "Causa da Morte";
+            this.causamortis.Name = "causamortis";
+            this.causamortis.ReadOnly = true;
+            this.causamortis.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.causamortis.Visible = false;
+            // 
+            // valorconta
+            // 
+            this.valorconta.DataPropertyName = "atn_vrconta";
+            this.valorconta.HeaderText = "Valor da Conta";
+            this.valorconta.Name = "valorconta";
+            this.valorconta.ReadOnly = true;
+            this.valorconta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.valorconta.Visible = false;
+            // 
+            // valordesconto
+            // 
+            this.valordesconto.DataPropertyName = "atn_vrdesconto";
+            this.valordesconto.HeaderText = "Valor do desconto";
+            this.valordesconto.Name = "valordesconto";
+            this.valordesconto.ReadOnly = true;
+            this.valordesconto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.valordesconto.Visible = false;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "pac_nome";
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // diagnostico
+            // 
+            this.diagnostico.DataPropertyName = "dia_descricao";
+            this.diagnostico.HeaderText = "Diagnostico";
+            this.diagnostico.Name = "diagnostico";
+            this.diagnostico.ReadOnly = true;
+            this.diagnostico.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // medico
+            // 
+            this.medico.DataPropertyName = "med_nome";
+            this.medico.HeaderText = "Medico";
+            this.medico.Name = "medico";
+            this.medico.ReadOnly = true;
+            this.medico.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // fechada
+            // 
+            this.fechada.DataPropertyName = "atn_contafechada";
+            this.fechada.HeaderText = "Fechada";
+            this.fechada.Name = "fechada";
+            this.fechada.ReadOnly = true;
+            this.fechada.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.fechada.Visible = false;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.status.Visible = false;
+            // 
+            // dtatendimento
+            // 
+            this.dtatendimento.DataPropertyName = "atn_data";
+            this.dtatendimento.HeaderText = "Data Atendimento";
+            this.dtatendimento.Name = "dtatendimento";
+            this.dtatendimento.ReadOnly = true;
+            this.dtatendimento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dtobito
+            // 
+            this.dtobito.DataPropertyName = "atn_dtobito";
+            this.dtobito.HeaderText = "Data Óbito";
+            this.dtobito.Name = "dtobito";
+            this.dtobito.ReadOnly = true;
+            this.dtobito.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // TelaAtendimentos
             // 
@@ -921,7 +1189,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbAnamnese;
         private System.Windows.Forms.DateTimePicker dtpPeriodoObito;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbMedico2;
         private System.Windows.Forms.DateTimePicker dtpPeriodo;
@@ -959,5 +1226,30 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn qtde;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.RadioButton rbatendimento;
+        private System.Windows.Forms.RadioButton rbobito;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox tbcausamorte;
+        private System.Windows.Forms.Label dtpretorno;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoatn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codmed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_diag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cod_pac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn anamnese;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtalta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtretorno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn causamortis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorconta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valordesconto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diagnostico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn medico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtatendimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtobito;
     }
 }

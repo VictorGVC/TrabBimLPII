@@ -18,6 +18,27 @@ namespace TrabHospital.Controladora
         private Medico medico = new Medico();
         private Paciente paciente = new Paciente();
 
+        public bool SalvarAtendimento(int coddiagn, int codpac, int codmed, DateTime data, string anamnese)
+        {
+            MedicoBD mbd = new MedicoBD(bco);
+            PacienteBD pbd = new PacienteBD(bco);
+            DiagnosticoBD dbd = new DiagnosticoBD(bco);
+            bool result;
+            bco.Conecta();
+            atendimentoAtual.Data = data;
+            atendimentoAtual.Diagnostico = (Diagnostico)dbd.BuscarDiagnostico(coddiagn);
+            atendimentoAtual.Paciente = (Paciente)pbd.PesquisarPaciente2(codpac);
+            atendimentoAtual.Medico = (Medico)mbd.BuscarMedico(codmed);
+            atendimentoAtual.Anamnase = anamnese;
+            AtendimentoBD abd = new AtendimentoBD(bco);
+            atendimentoAtual.Valorconta = 0;
+            foreach (Conta conta in atendimentoAtual.Conta)
+                atendimentoAtual.Valorconta += conta.Valorconta * conta.Qtde;
+            result = abd.SalvarAtendimento(atendimentoAtual);
+            bco.Desconecta();
+            return result;
+        }
+
         public DataTable BuscaDiagnosticos()
         {
             DataTable dtdiags = new DataTable();
@@ -36,6 +57,34 @@ namespace TrabHospital.Controladora
             }
             bco.Desconecta();
             return dtdiags;
+        }
+
+        internal object BuscaMedicos2(int v)
+        {
+            DataTable dtmed = new DataTable();
+            bco.Conecta();
+
+            dtmed.Columns.Add("med_codigo", typeof(int));
+            dtmed.Columns.Add("pla_codigo");
+            dtmed.Columns.Add("med_nome");
+            dtmed.Columns.Add("med_crm");
+            dtmed.Columns.Add("med_fone");
+            dtmed.Columns.Add("med_celular");
+
+            MedicoBD mdb = new MedicoBD(bco);
+            foreach (Medico med in mdb.BuscarMedicos2(""))
+            {
+                DataRow row = dtmed.NewRow();
+                row["med_codigo"] = med.Codigo;
+                row["pla_codigo"] = med.Plano.Codigo;
+                row["med_nome"] = med.Nome;
+                row["med_crm"] = med.Crm;
+                row["med_fone"] = med.Fone;
+                row["med_celular"] = med.Celular;
+                dtmed.Rows.Add(row);
+            }
+
+            return dtmed;
         }
 
         public DataTable BuscaMedicos(int paciente)
@@ -137,25 +186,28 @@ namespace TrabHospital.Controladora
             return dtprocs;
         }
 
-        public bool SalvarAtendimento(int coddiagn,int codpac,int codmed, DateTime data, string anamnese)
+        internal DataTable BuscaAtendimentosPNomeData(string nome, DateTime d1, DateTime d2,char ob)
         {
-            MedicoBD mbd = new MedicoBD(bco);
-            PacienteBD pbd = new PacienteBD(bco);
-            DiagnosticoBD dbd = new DiagnosticoBD(bco);
-            bool result;
+            DataTable dtatendimentos = new DataTable();
+
             bco.Conecta();
-            atendimentoAtual.Data = data;
-            atendimentoAtual.Diagnostico = (Diagnostico)dbd.BuscarDiagnostico(coddiagn);
-            atendimentoAtual.Paciente = (Paciente)pbd.PesquisarPaciente2(codpac);
-            atendimentoAtual.Medico = (Medico)mbd.BuscarMedico(codmed);
-            atendimentoAtual.Anamnase = anamnese;
-            AtendimentoBD abd = new AtendimentoBD(bco);
-            atendimentoAtual.Valorconta = 0;
-            foreach (Conta conta in atendimentoAtual.Conta)
-                atendimentoAtual.Valorconta += conta.Valorconta*conta.Qtde;
-            result = abd.SalvarAtendimento(atendimentoAtual);
+            AtendimentoBD adb = new AtendimentoBD(bco);
+            dtatendimentos = adb.BuscaAtendNomeData(nome, d1, d2,ob);
+
             bco.Desconecta();
-            return result;
+            return dtatendimentos;
+        }
+
+        internal DataTable BuscaAtendimentosPNomeDataMed(string nome, DateTime d1,DateTime d2,int codigomed,char ob)
+        {
+            DataTable dtatendimentos = new DataTable();
+
+            bco.Conecta();
+            AtendimentoBD adb = new AtendimentoBD(bco);
+            dtatendimentos = adb.BuscaAtendNomeDataMed(nome, d1, d2, codigomed, ob);
+
+            bco.Desconecta();
+            return dtatendimentos;
         }
 
         public void RemoveConta(DataRow row)
@@ -174,5 +226,28 @@ namespace TrabHospital.Controladora
             }
         }
 
+        internal DataTable BuscaAtendimentosPData(DateTime d1, DateTime d2,char ob)
+        {
+            DataTable dtatendimentos = new DataTable();
+
+            bco.Conecta();
+            AtendimentoBD adb = new AtendimentoBD(bco);
+            dtatendimentos = adb.BuscaAtendData(d1, d2, ob);
+
+            bco.Desconecta();
+            return dtatendimentos;
+        }
+
+        internal DataTable BuscaAtendimentosPDataMed(DateTime d1, DateTime d2,int codmed,char ob)
+        {
+            DataTable dtatendimentos = new DataTable();
+
+            bco.Conecta();
+            AtendimentoBD adb = new AtendimentoBD(bco);
+            dtatendimentos = adb.BuscaAtendDataMed(d1, d2,ob, codmed);
+
+            bco.Desconecta();
+            return dtatendimentos;
+        }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TrabHospital.Modelo;
 
 namespace TrabHospital.Persistencia
@@ -44,6 +46,173 @@ namespace TrabHospital.Persistencia
             }
 
             return result;
+        }
+
+        public DataTable BuscaAtendNomeData(string nome, DateTime d1, DateTime d2,char ob)
+        {
+            DataTable dta = new DataTable();
+            string SQL;
+            if(ob == 'o')
+            {
+                SQL = @"SELECT atn.atn_codigo,dia.dia_codigo,med.med_codigo,pac.pac_codigo,atn.atn_data,atn.atn_anamnese,
+                                atn.atn_dtretorno,atn.atn_dtalta,atn.atn_contafechada,atn.atn_causamortis,atn.atn_vrconta,
+                                atn.atn_dtobito,atn.atn_vrdesconto,pac.pac_nome,med.med_nome,dia.dia_descricao
+                                FROM Atendimentos as atn INNER JOIN Diagnosticos as dia
+                                ON atn.dia_codigo = dia.dia_codigo INNER JOIN Pacientes as pac
+                                ON pac.pac_codigo = atn.pac_codigo AND pac.pac_nome LIKE @nome
+                                INNER JOIN Medicos as med
+                                ON med.med_codigo = atn.med_codigo 
+                                    WHERE atn_dtobito >= @d1 AND atn_dtobito <= @d2";
+            }
+            else
+            {
+                SQL = @"SELECT atn.atn_codigo,dia.dia_codigo,med.med_codigo,pac.pac_codigo,atn.atn_data,atn.atn_anamnese,
+                                atn.atn_dtretorno,atn.atn_dtalta,atn.atn_contafechada,atn.atn_causamortis,atn.atn_vrconta,
+                                atn.atn_dtobito,atn.atn_vrdesconto,pac.pac_nome,med.med_nome,dia.dia_descricao
+                                FROM Atendimentos as atn INNER JOIN Diagnosticos as dia
+                                ON atn.dia_codigo = dia.dia_codigo INNER JOIN Pacientes as pac
+                                ON pac.pac_codigo = atn.pac_codigo AND pac.pac_nome LIKE @nome
+                                INNER JOIN Medicos as med
+                                ON med.med_codigo = atn.med_codigo 
+                                    WHERE atn_data >= @d1 AND atn_data <= @d2";
+            }
+            nome += "%";
+
+            try
+            {
+                bco.ExecuteQuery(SQL, out dta,"@d1", d1, "@d2", d2, "@nome", nome);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            
+
+            return dta;
+        }
+
+        public DataTable BuscaAtendNomeDataMed(string nome, DateTime d1, DateTime d2, int codigomed, char ob)
+        {
+            DataTable dta = new DataTable();
+            string SQL;
+            if (ob == 'o')
+            {
+                SQL = @"SELECT atn.atn_codigo,dia.dia_codigo,med.med_codigo,pac.pac_codigo,atn.atn_data,atn.atn_anamnese,
+                                atn.atn_dtretorno,atn.atn_dtalta,atn.atn_contafechada,atn.atn_causamortis,atn.atn_vrconta,
+                                atn.atn_dtobito,atn.atn_vrdesconto,pac.pac_nome,med.med_nome,dia.dia_descricao
+                                FROM Atendimentos as atn INNER JOIN Diagnosticos as dia
+                                ON atn.dia_codigo = dia.dia_codigo INNER JOIN Medicos as med
+                                ON med.med_codigo = atn.med_codigo INNER JOIN Pacientes as pac
+                                ON pac.pac_codigo = atn.pac_codigo AND pac.pac_nome = @nome 
+                                    WHERE atn_dtobito >= @d1 AND atn_dtobito <= @d2 AND atn.med_codigo = @med";
+            }
+            else
+            {
+                SQL = @"SELECT atn.atn_codigo,dia.dia_codigo,med.med_codigo,pac.pac_codigo,atn.atn_data,atn.atn_anamnese,
+                                atn.atn_dtretorno,atn.atn_dtalta,atn.atn_contafechada,atn.atn_causamortis,atn.atn_vrconta,
+                                atn.atn_dtobito,atn.atn_vrdesconto,pac.pac_nome,med.med_nome,dia.dia_descricao
+                                FROM Atendimentos as atn INNER JOIN Diagnosticos as dia
+                                ON atn.dia_codigo = dia.dia_codigo INNER JOIN Pacientes as pac
+                                ON pac.pac_codigo = atn.pac_codigo
+                                INNER JOIN Medicos as med
+                                ON med.med_codigo = atn.med_codigo AND  pac.pac_nome = @nome
+                                    WHERE atn_data >= @d1 AND atn_data <= @d2 AND atn.med_codigo = @med";
+            }
+            nome += "%";
+
+            try
+            {
+                bco.ExecuteQuery(SQL, out dta, "@d1", d1, "@d2", d2, "@nome", nome,"@med",codigomed);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+
+            return dta;
+        }
+
+        public DataTable BuscaAtendData(DateTime d1, DateTime d2, char ob)
+        {
+            DataTable dta = new DataTable();
+            string SQL;
+            if (ob == 'o')
+            {
+                SQL = @"SELECT atn.atn_codigo,dia.dia_codigo,med.med_codigo,pac.pac_codigo,atn.atn_data,atn.atn_anamnese,
+                                atn.atn_dtretorno,atn.atn_dtalta,atn.atn_contafechada,atn.atn_causamortis,atn.atn_vrconta,
+                                atn.atn_dtobito,atn.atn_vrdesconto,pac.pac_nome,med.med_nome,dia.dia_descricao
+                                FROM Atendimentos as atn INNER JOIN Diagnosticos as dia
+                                ON atn.dia_codigo = dia.dia_codigo INNER JOIN Medicos as med
+                                ON med.med_codigo = atn.med_codigo INNER JOIN Pacientes as pac
+                                ON pac.pac_codigo = atn.pac_codigo
+                                    WHERE atn_dtobito >= @d1 AND atn_dtobito <= @d2";
+            }
+            else
+            {
+                SQL = @"SELECT atn.atn_codigo,dia.dia_codigo,med.med_codigo,pac.pac_codigo,atn.atn_data,atn.atn_anamnese,
+                                atn.atn_dtretorno,atn.atn_dtalta,atn.atn_contafechada,atn.atn_causamortis,atn.atn_vrconta,
+                                atn.atn_dtobito,atn.atn_vrdesconto,pac.pac_nome,med.med_nome,dia.dia_descricao
+                                FROM Atendimentos as atn INNER JOIN Diagnosticos as dia
+                                ON atn.dia_codigo = dia.dia_codigo INNER JOIN Pacientes as pac
+                                ON pac.pac_codigo = atn.pac_codigo
+                                INNER JOIN Medicos as med
+                                ON med.med_codigo = atn.med_codigo 
+                                    WHERE atn_data >= @d1 AND atn_data <= @d2";
+            }
+
+            try
+            {
+                bco.ExecuteQuery(SQL, out dta, "@d1", d1, "@d2", d2);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+
+            return dta;
+        }
+
+        public DataTable BuscaAtendDataMed(DateTime d1, DateTime d2, char ob,int codmed)
+        {
+            DataTable dta = new DataTable();
+            string SQL;
+            if (ob == 'o')
+            {
+                SQL = @"SELECT atn.atn_codigo,dia.dia_codigo,med.med_codigo,pac.pac_codigo,atn.atn_data,atn.atn_anamnese,
+                                atn.atn_dtretorno,atn.atn_dtalta,atn.atn_contafechada,atn.atn_causamortis,atn.atn_vrconta,
+                                atn.atn_dtobito,atn.atn_vrdesconto,pac.pac_nome,med.med_nome,dia.dia_descricao
+                                FROM Atendimentos as atn INNER JOIN Diagnosticos as dia
+                                ON atn.dia_codigo = dia.dia_codigo INNER JOIN Medicos as med
+                                ON med.med_codigo = atn.med_codigo INNER JOIN Pacientes as pac
+                                ON pac.pac_codigo = atn.pac_codigo
+                                    WHERE atn_dtobito >= @d1 AND atn_dtobito <= @d2 AND atn.med_codigo = @med";
+            }
+            else
+            {
+                SQL = @"SELECT atn.atn_codigo,dia.dia_codigo,med.med_codigo,pac.pac_codigo,atn.atn_data,atn.atn_anamnese,
+                                atn.atn_dtretorno,atn.atn_dtalta,atn.atn_contafechada,atn.atn_causamortis,atn.atn_vrconta,
+                                atn.atn_dtobito,atn.atn_vrdesconto,pac.pac_nome,med.med_nome,dia.dia_descricao
+                                FROM Atendimentos as atn INNER JOIN Diagnosticos as dia
+                                ON atn.dia_codigo = dia.dia_codigo INNER JOIN Pacientes as pac
+                                ON pac.pac_codigo = atn.pac_codigo
+                                INNER JOIN Medicos as med
+                                ON med.med_codigo = atn.med_codigo
+                                    WHERE atn_data >= @d1 AND atn_data <= @d2 AND atn.med_codigo = @med";
+            }
+
+            try
+            {
+                bco.ExecuteQuery(SQL, out dta, "@d1", d1, "@d2", d2, "@nome", nome, "@med", codigomed);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+
+            return dta;
         }
     }
 }

@@ -93,7 +93,7 @@ namespace TrabHospital.Persistencia
 			catch (Exception e)
 			{
 				Console.Out.WriteLine("Erro execute query" + e.Message);
-
+                MessageBox.Show(e.Message);
 				return false;
 			}
 		}

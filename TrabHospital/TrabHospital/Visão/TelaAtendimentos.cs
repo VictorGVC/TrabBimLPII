@@ -15,7 +15,6 @@ namespace TrabHospital.Visão
 	{
         private CtrlAtendimentos ControlAte = new CtrlAtendimentos();
         private DataTable dtConta = new DataTable();
-        private int TL = 0;
 
         public TelaAtendimentos()
 		{
@@ -55,11 +54,12 @@ namespace TrabHospital.Visão
             cbMedico.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
             cbMedico2.ValueMember = "med_codigo";
             cbMedico2.DisplayMember = "med_nome";
-            cbMedico2.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
+            cbMedico2.DataSource = ControlAte.BuscaMedicos2(Convert.ToInt32(cbPaciente.SelectedValue));
             cbProcede.ValueMember = "pro_codigo";
             cbProcede.DisplayMember = "pro_descricao";
             cbProcede.DataSource = ControlAte.BuscarProcedimentos();
             dgvProcedimentos.DataSource = dtConta;
+            rbatendimento.Checked = true;
         }
 
         public void limpa()
@@ -120,7 +120,44 @@ namespace TrabHospital.Visão
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
-
+            if(rbatendimento.Checked)
+            {
+                if (tbPesqNomePac.TextLength > 0 && cbMedico2.SelectedIndex == -1)
+                {
+                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPNomeData(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value,'a');
+                }
+                else if (tbPesqNomePac.TextLength > 0 && cbMedico2.SelectedIndex != -1)
+                {
+                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPNomeDataMed(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'a');
+                }
+                else if (tbPesqNomePac.TextLength == 0 && cbMedico2.SelectedIndex != -1)
+                {
+                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPDataMed(dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'a');
+                }
+                else if (tbPesqNomePac.TextLength == 0 && cbMedico2.SelectedIndex == -1)
+                {
+                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPData(dtpPeriodo.Value, dtpPeriodoObito.Value,'a');
+                }
+            }
+            else if(rbobito.Checked)
+            {
+                if (tbPesqNomePac.TextLength > 0 && cbMedico2.SelectedIndex == -1)
+                {
+                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPNomeData(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value,'o');
+                }
+                else if (tbPesqNomePac.TextLength > 0 && cbMedico2.SelectedIndex != -1)
+                {
+                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPNomeDataMed(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'o');
+                }
+                else if (tbPesqNomePac.TextLength == 0 && cbMedico2.SelectedIndex != -1)
+                {
+                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPDataMed(dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'o');
+                }
+                else if (tbPesqNomePac.TextLength == 0 && cbMedico2.SelectedIndex == -1)
+                {
+                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPData(dtpPeriodo.Value, dtpPeriodoObito.Value,'o');
+                }
+            }
         }
 
         private void BtnAlterar_Click(object sender, EventArgs e)
@@ -150,12 +187,21 @@ namespace TrabHospital.Visão
         private void cbPaciente_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbMedico.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
-            cbMedico2.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
         }
 
         private void tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbMedico2.SelectedIndex = -1;
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbMedico2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
