@@ -15,6 +15,7 @@ namespace TrabHospital.Visão
 	{
         private CtrlAtendimentos ControlAte = new CtrlAtendimentos();
         private DataTable dtConta = new DataTable();
+        DataTable dtatends = new DataTable();
 
         public TelaAtendimentos()
 		{
@@ -124,38 +125,38 @@ namespace TrabHospital.Visão
             {
                 if (tbPesqNomePac.TextLength > 0 && cbMedico2.SelectedIndex == -1)
                 {
-                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPNomeData(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value,'a');
+                    dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPNomeData(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value, 'a');
                 }
                 else if (tbPesqNomePac.TextLength > 0 && cbMedico2.SelectedIndex != -1)
                 {
-                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPNomeDataMed(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'a');
+                    dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPNomeDataMed(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'a');
                 }
                 else if (tbPesqNomePac.TextLength == 0 && cbMedico2.SelectedIndex != -1)
                 {
-                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPDataMed(dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'a');
+                    dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPDataMed(dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'a');
                 }
                 else if (tbPesqNomePac.TextLength == 0 && cbMedico2.SelectedIndex == -1)
                 {
-                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPData(dtpPeriodo.Value, dtpPeriodoObito.Value,'a');
+                    dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPData(dtpPeriodo.Value, dtpPeriodoObito.Value,'a');
                 }
             }
             else if(rbobito.Checked)
             {
                 if (tbPesqNomePac.TextLength > 0 && cbMedico2.SelectedIndex == -1)
                 {
-                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPNomeData(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value,'o');
+                    dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPNomeData(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value,'o');
                 }
                 else if (tbPesqNomePac.TextLength > 0 && cbMedico2.SelectedIndex != -1)
                 {
-                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPNomeDataMed(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'o');
+                    dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPNomeDataMed(tbPesqNomePac.Text, dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'o');
                 }
                 else if (tbPesqNomePac.TextLength == 0 && cbMedico2.SelectedIndex != -1)
                 {
-                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPDataMed(dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'o');
+                    dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPDataMed(dtpPeriodo.Value, dtpPeriodoObito.Value, Convert.ToInt32(cbMedico2.SelectedValue),'o');
                 }
                 else if (tbPesqNomePac.TextLength == 0 && cbMedico2.SelectedIndex == -1)
                 {
-                    dgvAtendimentos.DataSource = ControlAte.BuscaAtendimentosPData(dtpPeriodo.Value, dtpPeriodoObito.Value,'o');
+                    dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPData(dtpPeriodo.Value, dtpPeriodoObito.Value,'o');
                 }
             }
         }
@@ -167,7 +168,20 @@ namespace TrabHospital.Visão
 
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-
+            if(dgvAtendimentos.CurrentRow.Cells[13].Value.ToString() == "S")
+            {
+                MessageBox.Show("Atendimento já fechado, não é possivel fazer a exclusão", "Atendimento Fechado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else 
+            {
+                if (MessageBox.Show("Deseja mesmo excluir o atendimento?", "Alerta!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    if (!ControlAte.ExcluiAtendimento((int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_codigo"]))
+                        MessageBox.Show("Erro na exclusão!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        dtatends.Rows.RemoveAt(dgvAtendimentos.CurrentRow.Index);
+            }
         }
 
         private void BtnLimpar_Click(object sender, EventArgs e)

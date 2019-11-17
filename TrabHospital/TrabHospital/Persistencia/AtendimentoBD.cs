@@ -174,6 +174,16 @@ namespace TrabHospital.Persistencia
             return dta;
         }
 
+        public bool DeleteAtendimento(int codigo)
+        {
+            string SQL = @"DELETE FROM Atendimentos
+                            WHERE atn_codigo = @cod";
+            if (bco.ExecuteNonQuery(SQL, "@cod", codigo))
+                return true;
+            else
+                return false;
+        }
+
         public DataTable BuscaAtendDataMed(DateTime d1, DateTime d2, char ob,int codmed)
         {
             DataTable dta = new DataTable();
@@ -210,7 +220,6 @@ namespace TrabHospital.Persistencia
             {
                 MessageBox.Show(e.Message);
             }
-
 
             return dta;
         }

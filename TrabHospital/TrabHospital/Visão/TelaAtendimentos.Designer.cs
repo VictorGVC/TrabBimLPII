@@ -34,6 +34,12 @@
             this.tabs = new System.Windows.Forms.TabControl();
             this.painel = new System.Windows.Forms.TabPage();
             this.pnDados = new System.Windows.Forms.Panel();
+            this.dtpretorno = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbcausamorte = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.gbConta = new System.Windows.Forms.GroupBox();
             this.tbValor = new System.Windows.Forms.MaskedTextBox();
             this.tbQtde = new System.Windows.Forms.MaskedTextBox();
@@ -98,12 +104,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.btSeleciona = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbcausamorte = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dtpretorno = new System.Windows.Forms.Label();
             this.codigoatn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codmed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cod_diag = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -207,6 +207,62 @@
             this.pnDados.Name = "pnDados";
             this.pnDados.Size = new System.Drawing.Size(458, 379);
             this.pnDados.TabIndex = 52;
+            // 
+            // dtpretorno
+            // 
+            this.dtpretorno.AutoSize = true;
+            this.dtpretorno.Location = new System.Drawing.Point(335, 8);
+            this.dtpretorno.Name = "dtpretorno";
+            this.dtpretorno.Size = new System.Drawing.Size(86, 13);
+            this.dtpretorno.TabIndex = 47;
+            this.dtpretorno.Text = "Data do Retorno";
+            this.dtpretorno.Visible = false;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(338, 24);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(117, 20);
+            this.dateTimePicker2.TabIndex = 46;
+            this.dateTimePicker2.Visible = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(213, 8);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(82, 13);
+            this.label20.TabIndex = 45;
+            this.label20.Text = "Causa da Morte";
+            this.label20.Visible = false;
+            // 
+            // tbcausamorte
+            // 
+            this.tbcausamorte.Location = new System.Drawing.Point(213, 24);
+            this.tbcausamorte.Name = "tbcausamorte";
+            this.tbcausamorte.Size = new System.Drawing.Size(119, 20);
+            this.tbcausamorte.TabIndex = 44;
+            this.tbcausamorte.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(93, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(95, 13);
+            this.label11.TabIndex = 43;
+            this.label11.Text = "Data da alta/Óbito";
+            this.label11.Visible = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(96, 24);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(109, 20);
+            this.dateTimePicker1.TabIndex = 42;
+            this.dateTimePicker1.Visible = false;
             // 
             // gbConta
             // 
@@ -924,62 +980,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(472, 284);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(96, 24);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(109, 20);
-            this.dateTimePicker1.TabIndex = 42;
-            this.dateTimePicker1.Visible = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(93, 9);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(95, 13);
-            this.label11.TabIndex = 43;
-            this.label11.Text = "Data da alta/Óbito";
-            this.label11.Visible = false;
-            // 
-            // tbcausamorte
-            // 
-            this.tbcausamorte.Location = new System.Drawing.Point(213, 24);
-            this.tbcausamorte.Name = "tbcausamorte";
-            this.tbcausamorte.Size = new System.Drawing.Size(119, 20);
-            this.tbcausamorte.TabIndex = 44;
-            this.tbcausamorte.Visible = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(213, 8);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(82, 13);
-            this.label20.TabIndex = 45;
-            this.label20.Text = "Causa da Morte";
-            this.label20.Visible = false;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(338, 24);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(117, 20);
-            this.dateTimePicker2.TabIndex = 46;
-            this.dateTimePicker2.Visible = false;
-            // 
-            // dtpretorno
-            // 
-            this.dtpretorno.AutoSize = true;
-            this.dtpretorno.Location = new System.Drawing.Point(335, 8);
-            this.dtpretorno.Name = "dtpretorno";
-            this.dtpretorno.Size = new System.Drawing.Size(86, 13);
-            this.dtpretorno.TabIndex = 47;
-            this.dtpretorno.Text = "Data do Retorno";
-            this.dtpretorno.Visible = false;
             // 
             // codigoatn
             // 

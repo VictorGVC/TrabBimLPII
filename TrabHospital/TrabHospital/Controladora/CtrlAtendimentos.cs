@@ -186,7 +186,7 @@ namespace TrabHospital.Controladora
             return dtprocs;
         }
 
-        internal DataTable BuscaAtendimentosPNomeData(string nome, DateTime d1, DateTime d2,char ob)
+        public DataTable BuscaAtendimentosPNomeData(string nome, DateTime d1, DateTime d2,char ob)
         {
             DataTable dtatendimentos = new DataTable();
 
@@ -198,7 +198,18 @@ namespace TrabHospital.Controladora
             return dtatendimentos;
         }
 
-        internal DataTable BuscaAtendimentosPNomeDataMed(string nome, DateTime d1,DateTime d2,int codigomed,char ob)
+        public bool ExcluiAtendimento(int codigo)
+        {
+            bool result;
+            bco.Conecta();
+            AtendimentoBD abd = new AtendimentoBD(bco);
+            result = abd.DeleteAtendimento(codigo);    
+            bco.Desconecta();
+
+            return result;
+        }
+
+        public DataTable BuscaAtendimentosPNomeDataMed(string nome, DateTime d1,DateTime d2,int codigomed,char ob)
         {
             DataTable dtatendimentos = new DataTable();
 
@@ -226,7 +237,7 @@ namespace TrabHospital.Controladora
             }
         }
 
-        internal DataTable BuscaAtendimentosPData(DateTime d1, DateTime d2,char ob)
+        public DataTable BuscaAtendimentosPData(DateTime d1, DateTime d2,char ob)
         {
             DataTable dtatendimentos = new DataTable();
 
@@ -238,7 +249,7 @@ namespace TrabHospital.Controladora
             return dtatendimentos;
         }
 
-        internal DataTable BuscaAtendimentosPDataMed(DateTime d1, DateTime d2,int codmed,char ob)
+        public DataTable BuscaAtendimentosPDataMed(DateTime d1, DateTime d2,int codmed,char ob)
         {
             DataTable dtatendimentos = new DataTable();
 
