@@ -28,6 +28,28 @@ namespace TrabHospital.Visão
             dtConta.Columns.Add("pro_codigo");
         }
 
+        private void JogaNaOutraTela()
+        {
+            tbCodigo.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_codigo"].ToString();
+            tbAnamnese.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_anamnese"].ToString();
+            dtpAtendimento.Value = Convert.ToDateTime(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_data"]);
+            cbDiagnostico.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["dia_codigo"];
+            cbPaciente.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["pac_codigo"];
+            cbMedico.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["med_codigo"];
+            dgvProcedimentos.DataSource = dtConta = ControlAte.BuscarContas(Convert.ToInt32(tbCodigo.Text));
+            for (int i = 0; i < dtConta.Rows.Count; i++)
+            {
+                DataRow row = dtConta.NewRow();
+                row["pro_descricao"] = dtConta.Rows[i]["pro_descricao"];
+                row["con_data"] = dtConta.Rows[i]["con_data"];
+                row["con_qtde"] = dtConta.Rows[i]["con_qtde"];
+                row["pro_valor"] = dtConta.Rows[i]["pro_valor"];
+                row["pro_codigo"] = dtConta.Rows[i]["pro_codigo"];
+                row["pro_total"] = dtConta.Rows[i]["pro_total"];
+                ControlAte.AddContaU(row);
+            }
+        }
+
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
             if (dgvAtendimentos.SelectedRows.Count > 0)
@@ -35,13 +57,7 @@ namespace TrabHospital.Visão
                 if (dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_contafechada"].ToString() == "N")
                 {
                     limpa();
-                    tbCodigo.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_codigo"].ToString();
-                    tbAnamnese.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_anamnese"].ToString();
-                    dtpAtendimento.Value = Convert.ToDateTime(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_data"]);
-                    cbDiagnostico.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["dia_codigo"];
-                    cbPaciente.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["pac_codigo"];
-                    cbMedico.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["med_codigo"];
-                    dgvProcedimentos.DataSource = ControlAte.BuscarContas(Convert.ToInt32(tbCodigo.Text));
+                    JogaNaOutraTela();
                     pnDados.Enabled = true;
                     btnNovo.Enabled = false;
                     btnSalvar.Enabled = true;
@@ -49,13 +65,17 @@ namespace TrabHospital.Visão
                     cbDiagnostico.Focus();
                     if (dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtobito"] != DBNull.Value)
                     {
+                        dtpaltaobito.Value = Convert.ToDateTime(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtobito"]);
+                        tbcausamorte.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_causamortis"].ToString();
                         dtpaltaobito.Visible = true;
                         lblaltaobito.Visible = true;
                         tbcausamorte.Visible = true;
                         lblcausamorte.Visible = true;
                     }
-                    else if(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtobito"] != DBNull.Value)
+                    else if(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtalta"] != DBNull.Value)
                     {
+                        dtpaltaobito.Value = Convert.ToDateTime(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtalta"]);
+                        dtpretorno.Value = Convert.ToDateTime(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtretorno"]);
                         dtpaltaobito.Visible = true;
                         lblaltaobito.Visible = true;
                         lblretorno.Visible = true;
@@ -64,12 +84,17 @@ namespace TrabHospital.Visão
 
                     tabsatendimento.SelectedIndex = 0;
                 }
+                else
+                {
+                    MessageBox.Show("Conta já fechada, Impossível alteração");
+                }
             }
 
         }
 
         private void BtAdd_Click(object sender, EventArgs e)
         {
+            
             DataRow row = dtConta.NewRow();
             row["pro_descricao"] = cbProcede.Text;
             row["con_data"] = dtpDataConta.Value;
@@ -78,8 +103,12 @@ namespace TrabHospital.Visão
             row["pro_codigo"] = cbProcede.SelectedValue;
             row["pro_total"] = Convert.ToDouble(tbValor.Text) * Convert.ToDouble(tbQtde.Text);
 
+            if (tbCodigo.TextLength == 0)
+                ControlAte.AddContaA(row);
+            else
+                ControlAte.AddContaU(row);
             dtConta.Rows.Add(row);
-            ControlAte.AddConta(row);
+            
         }
 
         private void TelaAtendimentos_Load(object sender, EventArgs e)
@@ -120,12 +149,17 @@ namespace TrabHospital.Visão
             dtpretorno.Visible = false;
         }
 
-        private void BtnNovo_Click(object sender, EventArgs e)
+        private void LiberaCampos()
         {
             pnDados.Enabled = true;
             btnNovo.Enabled = false;
             btnSalvar.Enabled = true;
             btnCancelar.Enabled = true;
+        }
+
+        private void BtnNovo_Click(object sender, EventArgs e)
+        {
+            LiberaCampos();
             cbDiagnostico.Focus();
         }
 
@@ -155,7 +189,50 @@ namespace TrabHospital.Visão
             }
             else
             {
-
+                if(tbcausamorte.Visible)
+                {
+                    if (!ControlAte.AlterarAtendimentoCMorte(Convert.ToInt32(tbCodigo.Text), (int)cbDiagnostico.SelectedValue,
+                                (int)cbPaciente.SelectedValue, (int)cbMedico.SelectedValue, dtpAtendimento.Value, tbAnamnese.Text,
+                                tbcausamorte.Text, dtpaltaobito.Value))
+                        MessageBox.Show("Não foi possivel alterar");
+                    else
+                    {
+                        limpa();
+                        pnDados.Enabled = false;
+                        btnNovo.Enabled = true;
+                        btnSalvar.Enabled = false;
+                        btnCancelar.Enabled = false;
+                    }
+                }
+                else if(dtpretorno.Visible)
+                {
+                    if(!ControlAte.AlterarAtendimentoCAlta(Convert.ToInt32(tbCodigo.Text), (int)cbDiagnostico.SelectedValue,
+                                (int)cbPaciente.SelectedValue, (int)cbMedico.SelectedValue, dtpAtendimento.Value, tbAnamnese.Text,
+                                dtpretorno.Value, dtpaltaobito.Value))
+                        MessageBox.Show("Não foi possivel alterar");
+                    else
+                    {
+                        limpa();
+                        pnDados.Enabled = false;
+                        btnNovo.Enabled = true;
+                        btnSalvar.Enabled = false;
+                        btnCancelar.Enabled = false;
+                    }
+                }
+                else
+                {
+                    if(!ControlAte.AlterarAtendimento(Convert.ToInt32(tbCodigo.Text), (int)cbDiagnostico.SelectedValue,
+                                (int)cbPaciente.SelectedValue, (int)cbMedico.SelectedValue, dtpAtendimento.Value, tbAnamnese.Text))
+                        MessageBox.Show("Não foi possivel alterar");
+                    else
+                    {
+                        limpa();
+                        pnDados.Enabled = false;
+                        btnNovo.Enabled = true;
+                        btnSalvar.Enabled = false;
+                        btnCancelar.Enabled = false;
+                    }
+                }
             }
         }
 
@@ -233,12 +310,17 @@ namespace TrabHospital.Visão
             }
         }
 
-        private void BtnLimpar_Click(object sender, EventArgs e)
+        private void limpaOpc()
         {
             rbatendimento.Checked = true;
             tbPesqNomePac.Text = "";
             cbMedico2.SelectedIndex = -1;
             dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPData(dtpPeriodo.Value, dtpPeriodoObito.Value, 'a');
+        }
+
+        private void BtnLimpar_Click(object sender, EventArgs e)
+        {
+            limpaOpc();
         }
 
         private void BtRemover_Click(object sender, EventArgs e)
@@ -258,6 +340,10 @@ namespace TrabHospital.Visão
         private void tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbMedico2.SelectedIndex = -1;
+            if(tabsatendimento.SelectedIndex == 1)
+            {
+                limpaOpc();
+            }
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -273,6 +359,42 @@ namespace TrabHospital.Visão
         private void cbProcede_SelectedIndexChanged(object sender, EventArgs e)
         {
             tbValor.Text = ControlAte.BuscaValorConta((int)cbProcede.SelectedValue).ToString();
+        }
+
+        private void btresult_Click(object sender, EventArgs e)
+        {
+            if(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtobito"] != DBNull.Value && 
+                dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtalta"] != DBNull.Value)
+            {
+                DialogResult dr = MessageBox.Show("O paciente foi a óbito?", "Resultado",
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    dtpaltaobito.Visible = true;
+                    lblaltaobito.Visible = true;
+                    tbcausamorte.Visible = true;
+                    lblcausamorte.Visible = true;
+                    JogaNaOutraTela();
+                    LiberaCampos();
+                    tabsatendimento.SelectedIndex = 0;
+                    tbcausamorte.Focus();
+                }
+                else if (dr == DialogResult.No && MessageBox.Show("O paciente teve alta?", "Resultado",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    dtpaltaobito.Visible = true;
+                    lblaltaobito.Visible = true;
+                    lblretorno.Visible = true;
+                    dtpretorno.Visible = true;
+                    dtpretorno.Value = dtpretorno.Value.AddDays(30);
+                    tabsatendimento.SelectedIndex = 0;
+                    dtpaltaobito.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Esse Atendimento já tem um resultado");
+            }
         }
     }
 }

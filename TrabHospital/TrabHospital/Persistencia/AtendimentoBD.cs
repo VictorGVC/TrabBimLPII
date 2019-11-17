@@ -91,6 +91,128 @@ namespace TrabHospital.Persistencia
             return dta;
         }
 
+        public bool AlterarAtendimentoCMorte(Atendimento at)
+        {
+            bool result;
+
+            string SQL = @"UPDATE Atendimentos SET dia_codigo = @diag, med_codigo = @med,pac_codigo = @pac,
+                            atn_data = @dtatn, atn_anamnese = @anam, atn_causamortis = @cmorte
+                            , atn_vrconta = @valor, atn_dtobito = @dtobito, atn_contafechada = 'N'
+                                WHERE atn_codigo = @cod";
+
+            result = bco.ExecuteNonQuery(SQL, "@diag", at.Diagnostico.Codigo,
+                                    "@med", at.Medico.Codigo, "@pac", at.Paciente.Codigo,
+                                    "@dtatn", at.Data, "@anam", at.Anamnase, "@valor", at.Valorconta,
+                                    "@cmorte",at.Causamortis,"@dtobito",at.Dtobito,"@cod",at.Codigo);
+
+            if (result)
+            {
+                SQL = @"DELETE FROM Contas
+                        WHERE atn_codigo = @cod";
+                result = bco.ExecuteNonQuery(SQL, "@cod", at.Codigo);
+                if (result)
+                {
+                    SQL = @"INSERT INTO contas (pro_codigo,atn_codigo,con_qtde,con_data,con_vrconta)
+                                            VALUES (@proc,@aten,@qtde,@data,@valor)";
+                    foreach (Conta conta in at.Conta)
+                    {
+                        bco.ExecuteNonQuery(SQL, "@proc", conta.Procedimento.Codigo,
+                                                "@aten", at.Codigo,
+                                                "@qtde", conta.Qtde, "@data", conta.Data,
+                                                "@valor", conta.Valorconta);
+                    }
+                }
+                else
+                    MessageBox.Show("ERRO NO SQL DELETE");
+
+            }
+            else
+                MessageBox.Show("ERRO NO SQL UPDATE");
+
+            return result;
+        }
+
+        public bool AlterarAtendimentoCAlta(Atendimento at)
+        {
+            bool result;
+
+            string SQL = @"UPDATE Atendimentos SET dia_codigo = @diag, med_codigo = @med,pac_codigo = @pac,
+                            atn_data = @dtatn, atn_anamnese = @anam, atn_dtretorno = @dtretorno
+                            , atn_vrconta = @valor, atn_dtalta = @dtalta, atn_contafechada = 'N'
+                                WHERE atn_codigo = @cod";
+
+            result = bco.ExecuteNonQuery(SQL, "@diag", at.Diagnostico.Codigo,
+                                    "@med", at.Medico.Codigo, "@pac", at.Paciente.Codigo,
+                                    "@dtatn", at.Data, "@anam", at.Anamnase, "@valor", at.Valorconta,
+                                    "@dtalta", at.Dtalta, "@dtretorno", at.Dtretorno, "@cod", at.Codigo);
+
+            if (result)
+            {
+                SQL = @"DELETE FROM Contas
+                        WHERE atn_codigo = @cod";
+                result = bco.ExecuteNonQuery(SQL, "@cod", at.Codigo);
+                if (result)
+                {
+                    SQL = @"INSERT INTO contas (pro_codigo,atn_codigo,con_qtde,con_data,con_vrconta)
+                                            VALUES (@proc,@aten,@qtde,@data,@valor)";
+                    foreach (Conta conta in at.Conta)
+                    {
+                        bco.ExecuteNonQuery(SQL, "@proc", conta.Procedimento.Codigo,
+                                                "@aten", at.Codigo,
+                                                "@qtde", conta.Qtde, "@data", conta.Data,
+                                                "@valor", conta.Valorconta);
+                    }
+                }
+                else
+                    MessageBox.Show("ERRO NO SQL DELETE");
+
+            }
+            else
+                MessageBox.Show("ERRO NO SQL UPDATE");
+
+            return result;
+        }
+
+        internal bool AlterarAtendimento(Atendimento at)
+        {
+            bool result;
+
+            string SQL = @"UPDATE Atendimentos SET dia_codigo = @diag, med_codigo = @med,pac_codigo = @pac,
+                            atn_data = @dtatn, atn_anamnese = @anam, atn_vrconta = @valor, atn_contafechada = 'N'
+                                WHERE atn_codigo = @cod";
+
+            result = bco.ExecuteNonQuery(SQL, "@diag", at.Diagnostico.Codigo,
+                                    "@med", at.Medico.Codigo, "@pac", at.Paciente.Codigo,
+                                    "@dtatn", at.Data, "@anam", at.Anamnase, "@valor", at.Valorconta,
+                                    "@cod", at.Codigo);
+
+            if (result)
+            {
+                SQL = @"DELETE FROM Contas
+                        WHERE atn_codigo = @cod";
+                result = bco.ExecuteNonQuery(SQL, "@cod", at.Codigo);
+                if (result)
+                {
+                    SQL = @"INSERT INTO contas (pro_codigo,atn_codigo,con_qtde,con_data,con_vrconta)
+                                            VALUES (@proc,@aten,@qtde,@data,@valor)";
+                    foreach (Conta conta in at.Conta)
+                    {
+                        bco.ExecuteNonQuery(SQL, "@proc", conta.Procedimento.Codigo,
+                                                "@aten", at.Codigo,
+                                                "@qtde", conta.Qtde, "@data", conta.Data,
+                                                "@valor", conta.Valorconta);
+                    }
+                }
+                else
+                    MessageBox.Show("ERRO NO SQL DELETE");
+
+            }
+            else
+                MessageBox.Show("ERRO NO SQL UPDATE");
+
+            return result;
+        }
+
         public DataTable BuscaAtendNomeDataMed(string nome, DateTime d1, DateTime d2, int codigomed, char ob)
         {
             DataTable dta = new DataTable();
@@ -176,12 +298,19 @@ namespace TrabHospital.Persistencia
 
         public bool DeleteAtendimento(int codigo)
         {
-            string SQL = @"DELETE FROM Atendimentos
+            string SQL = @"DELETE FROM contas
                             WHERE atn_codigo = @cod";
-            if (bco.ExecuteNonQuery(SQL, "@cod", codigo))
-                return true;
-            else
-                return false;
+                
+            if(bco.ExecuteNonQuery(SQL, "@cod", codigo))
+            {
+                SQL = @"DELETE FROM Atendimentos
+                       WHERE atn_codigo = @cod";
+                if (bco.ExecuteNonQuery(SQL, "@cod", codigo))
+                    return true;
+                else
+                    return false;
+            }
+            return false;
         }
 
         public DataTable BuscaAtendDataMed(DateTime d1, DateTime d2, char ob,int codmed)
@@ -223,5 +352,6 @@ namespace TrabHospital.Persistencia
 
             return dta;
         }
+
     }
 }

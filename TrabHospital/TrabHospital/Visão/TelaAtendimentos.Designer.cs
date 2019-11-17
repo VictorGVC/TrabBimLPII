@@ -41,8 +41,6 @@
             this.lblaltaobito = new System.Windows.Forms.Label();
             this.dtpaltaobito = new System.Windows.Forms.DateTimePicker();
             this.gbConta = new System.Windows.Forms.GroupBox();
-            this.tbValor = new System.Windows.Forms.MaskedTextBox();
-            this.tbQtde = new System.Windows.Forms.MaskedTextBox();
             this.btRemover = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -103,7 +101,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabFechaAtt = new System.Windows.Forms.TabPage();
             this.gbPagamento = new System.Windows.Forms.GroupBox();
-            this.tbValorConta = new System.Windows.Forms.MaskedTextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.dtpDataComp = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
@@ -113,14 +110,22 @@
             this.label16 = new System.Windows.Forms.Label();
             this.tbParcela = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.btSeleciona = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.S = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btresult = new System.Windows.Forms.Button();
+            this.dtpDeposito = new System.Windows.Forms.DateTimePicker();
+            this.fdadsf = new System.Windows.Forms.Label();
+            this.tbValorConta = new System.Windows.Forms.TextBox();
+            this.tbvalorrestante = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btConfirmaPags = new System.Windows.Forms.Button();
+            this.tbQtde = new System.Windows.Forms.TextBox();
+            this.tbValor = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.tabsatendimento.SuspendLayout();
             this.painel.SuspendLayout();
@@ -132,7 +137,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtendimentos)).BeginInit();
             this.tabFechaAtt.SuspendLayout();
             this.gbPagamento.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.S)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -285,24 +290,6 @@
             this.gbConta.TabIndex = 41;
             this.gbConta.TabStop = false;
             this.gbConta.Text = "Conta";
-            // 
-            // tbValor
-            // 
-            this.tbValor.Enabled = false;
-            this.tbValor.Location = new System.Drawing.Point(345, 40);
-            this.tbValor.Mask = "0000000";
-            this.tbValor.Name = "tbValor";
-            this.tbValor.Size = new System.Drawing.Size(100, 20);
-            this.tbValor.TabIndex = 49;
-            this.tbValor.ValidatingType = typeof(int);
-            // 
-            // tbQtde
-            // 
-            this.tbQtde.Location = new System.Drawing.Point(134, 40);
-            this.tbQtde.Mask = "00000";
-            this.tbQtde.Name = "tbQtde";
-            this.tbQtde.Size = new System.Drawing.Size(98, 20);
-            this.tbQtde.TabIndex = 49;
             // 
             // btRemover
             // 
@@ -595,6 +582,7 @@
             // tabPesquisa
             // 
             this.tabPesquisa.BackColor = System.Drawing.Color.PowderBlue;
+            this.tabPesquisa.Controls.Add(this.btresult);
             this.tabPesquisa.Controls.Add(this.rbatendimento);
             this.tabPesquisa.Controls.Add(this.rbobito);
             this.tabPesquisa.Controls.Add(this.btnLimpar);
@@ -642,7 +630,7 @@
             // 
             this.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
-            this.btnLimpar.Location = new System.Drawing.Point(335, 127);
+            this.btnLimpar.Location = new System.Drawing.Point(287, 127);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(89, 36);
             this.btnLimpar.TabIndex = 69;
@@ -884,7 +872,7 @@
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
             this.btnPesquisar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPesquisar.Location = new System.Drawing.Point(51, 127);
+            this.btnPesquisar.Location = new System.Drawing.Point(3, 127);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(89, 36);
             this.btnPesquisar.TabIndex = 60;
@@ -899,7 +887,7 @@
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(240, 127);
+            this.btnExcluir.Location = new System.Drawing.Point(192, 127);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(89, 36);
             this.btnExcluir.TabIndex = 59;
@@ -913,7 +901,7 @@
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
             this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlterar.Location = new System.Drawing.Point(145, 127);
+            this.btnAlterar.Location = new System.Drawing.Point(97, 127);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(89, 36);
             this.btnAlterar.TabIndex = 58;
@@ -941,9 +929,9 @@
             // tabFechaAtt
             // 
             this.tabFechaAtt.BackColor = System.Drawing.Color.PowderBlue;
+            this.tabFechaAtt.Controls.Add(this.btConfirmaPags);
             this.tabFechaAtt.Controls.Add(this.gbPagamento);
-            this.tabFechaAtt.Controls.Add(this.btSeleciona);
-            this.tabFechaAtt.Controls.Add(this.dataGridView1);
+            this.tabFechaAtt.Controls.Add(this.S);
             this.tabFechaAtt.Location = new System.Drawing.Point(4, 22);
             this.tabFechaAtt.Name = "tabFechaAtt";
             this.tabFechaAtt.Size = new System.Drawing.Size(472, 435);
@@ -952,7 +940,11 @@
             // 
             // gbPagamento
             // 
+            this.gbPagamento.Controls.Add(this.label11);
+            this.gbPagamento.Controls.Add(this.tbvalorrestante);
             this.gbPagamento.Controls.Add(this.tbValorConta);
+            this.gbPagamento.Controls.Add(this.fdadsf);
+            this.gbPagamento.Controls.Add(this.dtpDeposito);
             this.gbPagamento.Controls.Add(this.label19);
             this.gbPagamento.Controls.Add(this.dtpDataComp);
             this.gbPagamento.Controls.Add(this.label18);
@@ -964,28 +956,19 @@
             this.gbPagamento.Controls.Add(this.label15);
             this.gbPagamento.Location = new System.Drawing.Point(3, 3);
             this.gbPagamento.Name = "gbPagamento";
-            this.gbPagamento.Size = new System.Drawing.Size(461, 113);
+            this.gbPagamento.Size = new System.Drawing.Size(461, 112);
             this.gbPagamento.TabIndex = 2;
             this.gbPagamento.TabStop = false;
             this.gbPagamento.Text = "Pagamento";
-            // 
-            // tbValorConta
-            // 
-            this.tbValorConta.Enabled = false;
-            this.tbValorConta.Location = new System.Drawing.Point(372, 82);
-            this.tbValorConta.Mask = "$";
-            this.tbValorConta.Name = "tbValorConta";
-            this.tbValorConta.Size = new System.Drawing.Size(83, 20);
-            this.tbValorConta.TabIndex = 10;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(368, 65);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(77, 13);
+            this.label19.Size = new System.Drawing.Size(58, 13);
             this.label19.TabIndex = 8;
-            this.label19.Text = "Valor da Conta";
+            this.label19.Text = "Valor Total";
             // 
             // dtpDataComp
             // 
@@ -1055,30 +1038,18 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Parcela";
             // 
-            // btSeleciona
+            // S
             // 
-            this.btSeleciona.BackColor = System.Drawing.Color.White;
-            this.btSeleciona.Image = ((System.Drawing.Image)(resources.GetObject("btSeleciona.Image")));
-            this.btSeleciona.Location = new System.Drawing.Point(323, 122);
-            this.btSeleciona.Name = "btSeleciona";
-            this.btSeleciona.Size = new System.Drawing.Size(141, 23);
-            this.btSeleciona.TabIndex = 1;
-            this.btSeleciona.Text = "Selecionar Paciente";
-            this.btSeleciona.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btSeleciona.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 151);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(472, 284);
-            this.dataGridView1.TabIndex = 0;
+            this.S.AllowUserToAddRows = false;
+            this.S.AllowUserToDeleteRows = false;
+            this.S.BackgroundColor = System.Drawing.Color.White;
+            this.S.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.S.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.S.Location = new System.Drawing.Point(0, 152);
+            this.S.Name = "S";
+            this.S.ReadOnly = true;
+            this.S.Size = new System.Drawing.Size(472, 283);
+            this.S.TabIndex = 0;
             // 
             // codigo
             // 
@@ -1131,6 +1102,82 @@
             this.total.ReadOnly = true;
             this.total.Width = 56;
             // 
+            // btresult
+            // 
+            this.btresult.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btresult.Location = new System.Drawing.Point(380, 127);
+            this.btresult.Name = "btresult";
+            this.btresult.Size = new System.Drawing.Size(89, 36);
+            this.btresult.TabIndex = 71;
+            this.btresult.Text = "Resultado";
+            this.btresult.UseVisualStyleBackColor = true;
+            this.btresult.Click += new System.EventHandler(this.btresult_Click);
+            // 
+            // dtpDeposito
+            // 
+            this.dtpDeposito.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDeposito.Location = new System.Drawing.Point(97, 37);
+            this.dtpDeposito.Name = "dtpDeposito";
+            this.dtpDeposito.Size = new System.Drawing.Size(129, 20);
+            this.dtpDeposito.TabIndex = 11;
+            // 
+            // fdadsf
+            // 
+            this.fdadsf.AutoSize = true;
+            this.fdadsf.Location = new System.Drawing.Point(97, 20);
+            this.fdadsf.Name = "fdadsf";
+            this.fdadsf.Size = new System.Drawing.Size(90, 13);
+            this.fdadsf.TabIndex = 12;
+            this.fdadsf.Text = "Data do Depósito";
+            // 
+            // tbValorConta
+            // 
+            this.tbValorConta.Enabled = false;
+            this.tbValorConta.Location = new System.Drawing.Point(372, 81);
+            this.tbValorConta.Name = "tbValorConta";
+            this.tbValorConta.Size = new System.Drawing.Size(83, 20);
+            this.tbValorConta.TabIndex = 13;
+            // 
+            // tbvalorrestante
+            // 
+            this.tbvalorrestante.Enabled = false;
+            this.tbvalorrestante.Location = new System.Drawing.Point(372, 37);
+            this.tbvalorrestante.Name = "tbvalorrestante";
+            this.tbvalorrestante.Size = new System.Drawing.Size(83, 20);
+            this.tbvalorrestante.TabIndex = 14;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(369, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 13);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Valor Restante";
+            // 
+            // btConfirmaPags
+            // 
+            this.btConfirmaPags.Location = new System.Drawing.Point(330, 121);
+            this.btConfirmaPags.Name = "btConfirmaPags";
+            this.btConfirmaPags.Size = new System.Drawing.Size(128, 25);
+            this.btConfirmaPags.TabIndex = 3;
+            this.btConfirmaPags.Text = "Confirmar Pagamento";
+            this.btConfirmaPags.UseVisualStyleBackColor = true;
+            // 
+            // tbQtde
+            // 
+            this.tbQtde.Location = new System.Drawing.Point(132, 40);
+            this.tbQtde.Name = "tbQtde";
+            this.tbQtde.Size = new System.Drawing.Size(100, 20);
+            this.tbQtde.TabIndex = 50;
+            // 
+            // tbValor
+            // 
+            this.tbValor.Location = new System.Drawing.Point(348, 40);
+            this.tbValor.Name = "tbValor";
+            this.tbValor.Size = new System.Drawing.Size(100, 20);
+            this.tbValor.TabIndex = 51;
+            // 
             // TelaAtendimentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1157,7 +1204,7 @@
             this.tabFechaAtt.ResumeLayout(false);
             this.gbPagamento.ResumeLayout(false);
             this.gbPagamento.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.S)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -1200,8 +1247,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnLimpar;
 		private System.Windows.Forms.TabPage tabFechaAtt;
-		private System.Windows.Forms.Button btSeleciona;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView S;
 		private System.Windows.Forms.GroupBox gbConta;
 		private System.Windows.Forms.Button btAdd;
 		private System.Windows.Forms.Label label14;
@@ -1212,10 +1258,7 @@
 		private System.Windows.Forms.ComboBox cbProcede;
 		private System.Windows.Forms.DataGridView dgvProcedimentos;
 		private System.Windows.Forms.Button btRemover;
-		private System.Windows.Forms.MaskedTextBox tbValor;
-		private System.Windows.Forms.MaskedTextBox tbQtde;
 		private System.Windows.Forms.GroupBox gbPagamento;
-		private System.Windows.Forms.MaskedTextBox tbValorConta;
 		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.DateTimePicker dtpDataComp;
 		private System.Windows.Forms.Label label18;
@@ -1256,5 +1299,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn qtde;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.Button btresult;
+        private System.Windows.Forms.Label fdadsf;
+        private System.Windows.Forms.DateTimePicker dtpDeposito;
+        private System.Windows.Forms.TextBox tbValorConta;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox tbvalorrestante;
+        private System.Windows.Forms.Button btConfirmaPags;
+        private System.Windows.Forms.TextBox tbValor;
+        private System.Windows.Forms.TextBox tbQtde;
     }
 }

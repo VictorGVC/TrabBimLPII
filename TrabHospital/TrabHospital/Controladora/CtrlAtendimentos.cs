@@ -17,6 +17,7 @@ namespace TrabHospital.Controladora
         private Diagnostico diagnostico = new Diagnostico();
         private Medico medico = new Medico();
         private Paciente paciente = new Paciente();
+        private Atendimento atendimentoupdate = new Atendimento();
 
         public bool SalvarAtendimento(int coddiagn, int codpac, int codmed, DateTime data, string anamnese)
         {
@@ -153,7 +154,7 @@ namespace TrabHospital.Controladora
             return dtpac;
         }
 
-        public void AddConta(DataRow row)
+        public void AddContaA(DataRow row)
         {
             ProcedimentoDB pdb = new ProcedimentoDB(bco);
             Conta c = new Conta();
@@ -164,6 +165,19 @@ namespace TrabHospital.Controladora
             c.Qtde = Convert.ToInt32(row["con_qtde"]);
             c.Valorconta = Convert.ToDouble(row["pro_valor"]);
             atendimentoAtual.Conta.Add(c);
+        }
+
+        public void AddContaU(DataRow row)
+        {
+            ProcedimentoDB pdb = new ProcedimentoDB(bco);
+            Conta c = new Conta();
+            bco.Conecta();
+            c.Data = Convert.ToDateTime(row["con_data"]);
+            c.Procedimento = pdb.BuscaProcedimentos(Convert.ToInt32(row["pro_codigo"]));
+            bco.Desconecta();
+            c.Qtde = Convert.ToInt32(row["con_qtde"]);
+            c.Valorconta = Convert.ToDouble(row["pro_valor"]);
+            atendimentoupdate.Conta.Add(c);
         }
 
         public DataTable BuscarProcedimentos()
@@ -184,6 +198,79 @@ namespace TrabHospital.Controladora
             }
             bco.Desconecta();
             return dtprocs;
+        }
+
+        public bool AlterarAtendimentoCMorte(int atncod, int diacod, int paccod, int medcod, DateTime dtatn, string anamnese, string causam, DateTime dtobito)
+        {
+            MedicoBD mbd = new MedicoBD(bco);
+            PacienteBD pbd = new PacienteBD(bco);
+            DiagnosticoBD dbd = new DiagnosticoBD(bco);
+            bool result;
+            bco.Conecta();
+            atendimentoupdate.Codigo = atncod;
+            atendimentoupdate.Data = dtatn;
+            atendimentoupdate.Diagnostico = (Diagnostico)dbd.BuscarDiagnostico(diacod);
+            atendimentoupdate.Paciente = (Paciente)pbd.PesquisarPaciente2(paccod);
+            atendimentoupdate.Medico = (Medico)mbd.BuscarMedico(medcod);
+            atendimentoupdate.Anamnase = anamnese;
+            atendimentoupdate.Causamortis = causam;
+            atendimentoupdate.Dtobito = dtobito;
+            AtendimentoBD abd = new AtendimentoBD(bco);
+            atendimentoupdate.Valorconta = 0;
+            foreach (Conta conta in atendimentoupdate.Conta)
+                atendimentoupdate.Valorconta += conta.Valorconta * conta.Qtde;
+            result = abd.AlterarAtendimentoCMorte(atendimentoupdate);
+            bco.Desconecta();
+
+            return result;
+        }
+
+        public bool AlterarAtendimentoCAlta(int atncod, int diacod, int paccod, int medcod, DateTime dtatn, string anamnese, DateTime dtretorno, DateTime dtalta)
+        {
+            MedicoBD mbd = new MedicoBD(bco);
+            PacienteBD pbd = new PacienteBD(bco);
+            DiagnosticoBD dbd = new DiagnosticoBD(bco);
+            bool result;
+            bco.Conecta();
+            atendimentoupdate.Codigo = atncod;
+            atendimentoupdate.Data = dtatn;
+            atendimentoupdate.Diagnostico = (Diagnostico)dbd.BuscarDiagnostico(diacod);
+            atendimentoupdate.Paciente = (Paciente)pbd.PesquisarPaciente2(paccod);
+            atendimentoupdate.Medico = (Medico)mbd.BuscarMedico(medcod);
+            atendimentoupdate.Anamnase = anamnese;
+            atendimentoupdate.Dtretorno = dtretorno;
+            atendimentoupdate.Dtalta = dtalta;
+            AtendimentoBD abd = new AtendimentoBD(bco);
+            atendimentoupdate.Valorconta = 0;
+            foreach (Conta conta in atendimentoupdate.Conta)
+                atendimentoupdate.Valorconta += conta.Valorconta * conta.Qtde;
+            result = abd.AlterarAtendimentoCAlta(atendimentoupdate);
+            bco.Desconecta();
+
+            return result;
+        }
+
+        public bool AlterarAtendimento(int atncod, int diacod, int paccod, int medcod, DateTime dtatn, string anamnese)
+        {
+            MedicoBD mbd = new MedicoBD(bco);
+            PacienteBD pbd = new PacienteBD(bco);
+            DiagnosticoBD dbd = new DiagnosticoBD(bco);
+            bool result;
+            bco.Conecta();
+            atendimentoupdate.Codigo = atncod;
+            atendimentoupdate.Data = dtatn;
+            atendimentoupdate.Diagnostico = (Diagnostico)dbd.BuscarDiagnostico(diacod);
+            atendimentoupdate.Paciente = (Paciente)pbd.PesquisarPaciente2(paccod);
+            atendimentoupdate.Medico = (Medico)mbd.BuscarMedico(medcod);
+            atendimentoupdate.Anamnase = anamnese;
+            AtendimentoBD abd = new AtendimentoBD(bco);
+            atendimentoupdate.Valorconta = 0;
+            foreach (Conta conta in atendimentoupdate.Conta)
+                atendimentoupdate.Valorconta += conta.Valorconta * conta.Qtde;
+            result = abd.AlterarAtendimento(atendimentoupdate);
+            bco.Desconecta();
+
+            return result;
         }
 
         public DataTable BuscaAtendimentosPNomeData(string nome, DateTime d1, DateTime d2,char ob)
