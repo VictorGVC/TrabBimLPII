@@ -56,5 +56,14 @@ namespace TrabHospital.Persistencia
 
             return proc;
         }
+
+        public DataTable ProcuraValor(int codproc)
+        {
+            DataTable dtval = new DataTable();
+            string SQL = @"SELECT pro_valor FROM Procedimentos
+                            WHERE pro_codigo = @cod";
+            banco.ExecuteQuery(SQL, out dtval, "@cod", codproc);
+            return dtval;
+        }
     }
 }

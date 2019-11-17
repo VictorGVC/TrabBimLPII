@@ -58,6 +58,7 @@
     <Compile Include="Modelo\Procedimento.cs" />
     <Compile Include="Persistencia\AtendimentoBD.cs" />
     <Compile Include="Persistencia\Banco.cs" />
+    <Compile Include="Persistencia\ContaDB.cs" />
     <Compile Include="Persistencia\DiagnosticoBD.cs" />
     <Compile Include="Persistencia\MedicoBD.cs" />
     <Compile Include="Persistencia\PacienteBD.cs" />

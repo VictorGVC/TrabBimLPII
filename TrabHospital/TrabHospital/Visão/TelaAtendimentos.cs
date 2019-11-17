@@ -21,19 +21,59 @@ namespace TrabHospital.Visão
 		{
 			InitializeComponent();
             dtConta.Columns.Add("pro_descricao");
-            dtConta.Columns.Add("pro_data");
-            dtConta.Columns.Add("pro_qtde");
+            dtConta.Columns.Add("con_data");
+            dtConta.Columns.Add("con_qtde");
             dtConta.Columns.Add("pro_valor");
             dtConta.Columns.Add("pro_total");
             dtConta.Columns.Add("pro_codigo");
+        }
+
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+            if (dgvAtendimentos.SelectedRows.Count > 0)
+            {
+                if (dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_contafechada"].ToString() == "N")
+                {
+                    limpa();
+                    tbCodigo.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_codigo"].ToString();
+                    tbAnamnese.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_anamnese"].ToString();
+                    dtpAtendimento.Value = Convert.ToDateTime(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_data"]);
+                    cbDiagnostico.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["dia_codigo"];
+                    cbPaciente.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["pac_codigo"];
+                    cbMedico.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["med_codigo"];
+                    dgvProcedimentos.DataSource = ControlAte.BuscarContas(Convert.ToInt32(tbCodigo.Text));
+                    pnDados.Enabled = true;
+                    btnNovo.Enabled = false;
+                    btnSalvar.Enabled = true;
+                    btnCancelar.Enabled = true;
+                    cbDiagnostico.Focus();
+                    if (dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtobito"] != DBNull.Value)
+                    {
+                        dtpaltaobito.Visible = true;
+                        lblaltaobito.Visible = true;
+                        tbcausamorte.Visible = true;
+                        lblcausamorte.Visible = true;
+                    }
+                    else if(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtobito"] != DBNull.Value)
+                    {
+                        dtpaltaobito.Visible = true;
+                        lblaltaobito.Visible = true;
+                        lblretorno.Visible = true;
+                        dtpretorno.Visible = true;
+                    }
+
+                    tabsatendimento.SelectedIndex = 0;
+                }
+            }
+
         }
 
         private void BtAdd_Click(object sender, EventArgs e)
         {
             DataRow row = dtConta.NewRow();
             row["pro_descricao"] = cbProcede.Text;
-            row["pro_data"] = dtpDataConta.Value;
-            row["pro_qtde"] = tbQtde.Text;
+            row["con_data"] = dtpDataConta.Value;
+            row["con_qtde"] = tbQtde.Text;
             row["pro_valor"] = tbValor.Text;
             row["pro_codigo"] = cbProcede.SelectedValue;
             row["pro_total"] = Convert.ToDouble(tbValor.Text) * Convert.ToDouble(tbQtde.Text);
@@ -61,6 +101,7 @@ namespace TrabHospital.Visão
             cbProcede.DataSource = ControlAte.BuscarProcedimentos();
             dgvProcedimentos.DataSource = dtConta;
             rbatendimento.Checked = true;
+            dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPData(dtpPeriodo.Value, dtpPeriodoObito.Value, 'a');
         }
 
         public void limpa()
@@ -68,9 +109,15 @@ namespace TrabHospital.Visão
             tbAnamnese.Clear();
             tbCodigo.Clear();
             tbPesqNomePac.Clear();
-            dgvProcedimentos.Rows.Clear();
+            dtConta.Rows.Clear();
             tbQtde.Clear();
             tbValor.Clear();
+            dtpaltaobito.Visible = false;
+            lblaltaobito.Visible = false;
+            tbcausamorte.Visible = false;
+            lblcausamorte.Visible = false;
+            lblretorno.Visible = false;
+            dtpretorno.Visible = false;
         }
 
         private void BtnNovo_Click(object sender, EventArgs e)
@@ -96,6 +143,10 @@ namespace TrabHospital.Visão
                                 (int)cbMedico.SelectedValue,dtpAtendimento.Value,tbAnamnese.Text))
                 {
                     limpa();
+                    pnDados.Enabled = false;
+                    btnNovo.Enabled = true;
+                    btnSalvar.Enabled = false;
+                    btnCancelar.Enabled = false;
                 }
                 else
                 {
@@ -164,26 +215,6 @@ namespace TrabHospital.Visão
             }
         }
 
-        private void BtnAlterar_Click(object sender, EventArgs e)
-        {
-            if(dgvAtendimentos.SelectedRows.Count>0)
-            {
-                if (dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_contafechada"].ToString() == "N")
-                {
-                    tbCodigo.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_codigo"].ToString();
-                    tbAnamnese.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_anamnese"].ToString();
-                    dtpAtendimento.Value = Convert.ToDateTime(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_data"]);
-                    cbDiagnostico.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["dia_codigo"];
-                    cbPaciente.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["pac_codigo"];
-                    cbMedico.SelectedValue = (int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["med_codigo"];
-                    dgvProcedimentos.DataSource = ControlAte.BuscarContas(Convert.ToInt32(tbCodigo.Text));
-                    
-                    tabsatendimento.SelectedIndex = 0;
-                }
-            }
-            
-        }
-
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             if(dgvAtendimentos.CurrentRow.Cells[13].Value.ToString() == "S")
@@ -204,7 +235,10 @@ namespace TrabHospital.Visão
 
         private void BtnLimpar_Click(object sender, EventArgs e)
         {
-
+            rbatendimento.Checked = true;
+            tbPesqNomePac.Text = "";
+            cbMedico2.SelectedIndex = -1;
+            dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPData(dtpPeriodo.Value, dtpPeriodoObito.Value, 'a');
         }
 
         private void BtRemover_Click(object sender, EventArgs e)
@@ -234,6 +268,11 @@ namespace TrabHospital.Visão
         private void cbMedico2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbProcede_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbValor.Text = ControlAte.BuscaValorConta((int)cbProcede.SelectedValue).ToString();
         }
     }
 }

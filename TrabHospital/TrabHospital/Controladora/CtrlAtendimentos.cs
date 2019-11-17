@@ -158,10 +158,10 @@ namespace TrabHospital.Controladora
             ProcedimentoDB pdb = new ProcedimentoDB(bco);
             Conta c = new Conta();
             bco.Conecta();
-            c.Data = Convert.ToDateTime(row["pro_data"]);
+            c.Data = Convert.ToDateTime(row["con_data"]);
             c.Procedimento = pdb.BuscaProcedimentos(Convert.ToInt32(row["pro_codigo"]));
             bco.Desconecta();
-            c.Qtde = Convert.ToInt32(row["pro_qtde"]);
+            c.Qtde = Convert.ToInt32(row["con_qtde"]);
             c.Valorconta = Convert.ToDouble(row["pro_valor"]);
             atendimentoAtual.Conta.Add(c);
         }
@@ -221,11 +221,29 @@ namespace TrabHospital.Controladora
             return dtatendimentos;
         }
 
-        public DataTable BuscarContas(int codigo)
+        public DataTable BuscarContas(int atncodigo)
         {
             DataTable dtc = new DataTable();
-            dtc.Columns.Add("");
-
+            dtc.Columns.Add("pro_codigo");
+            dtc.Columns.Add("con_qtde");
+            dtc.Columns.Add("con_data");
+            dtc.Columns.Add("pro_descricao");
+            dtc.Columns.Add("pro_valor");
+            dtc.Columns.Add("pro_total");
+            bco.Conecta();
+            ContaDB cdb = new ContaDB(bco);
+            foreach (Conta conta in cdb.BuscaContas(atncodigo))
+            {
+                DataRow row = dtc.NewRow();
+                row["pro_codigo"] = conta.Procedimento.Codigo;
+                row["con_qtde"] = conta.Qtde;
+                row["con_data"] = conta.Data;
+                row["pro_descricao"] = conta.Procedimento.Descricao;
+                row["pro_valor"] = conta.Valorconta;
+                row["pro_total"] = conta.Qtde * conta.Valorconta;
+                dtc.Rows.Add(row);
+            }
+            bco.Desconecta();
             return dtc;
         }
 
@@ -236,8 +254,8 @@ namespace TrabHospital.Controladora
             for (int i = 0; i < atendimentoAtual.Conta.Count && b; i++)
             {
                 c = atendimentoAtual.Conta[i];
-                if(c.Data == Convert.ToDateTime(row["pro_data"]) && 
-                    c.Qtde == (int)row["pro_qtde"] && c.Valorconta == (int)row["pro_valor"])
+                if(c.Data == Convert.ToDateTime(row["con_data"]) && 
+                    c.Qtde == (int)row["con_qtde"] && c.Valorconta == (int)row["pro_valor"])
                 {
                     atendimentoAtual.Conta.RemoveAt(i);
                     b = false;
@@ -267,6 +285,16 @@ namespace TrabHospital.Controladora
 
             bco.Desconecta();
             return dtatendimentos;
+        }
+
+        public double BuscaValorConta(int codproc)
+        {
+            DataTable dtval = new DataTable();
+            bco.Conecta();
+            ProcedimentoDB pdb = new ProcedimentoDB(bco);
+            dtval = pdb.ProcuraValor(codproc);
+            bco.Desconecta();
+            return Convert.ToDouble(dtval.Rows[0]["pro_valor"]);
         }
     }
 }
