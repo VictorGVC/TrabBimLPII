@@ -41,6 +41,8 @@
             this.lblaltaobito = new System.Windows.Forms.Label();
             this.dtpaltaobito = new System.Windows.Forms.DateTimePicker();
             this.gbConta = new System.Windows.Forms.GroupBox();
+            this.tbValor = new System.Windows.Forms.TextBox();
+            this.tbQtde = new System.Windows.Forms.TextBox();
             this.btRemover = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -50,6 +52,12 @@
             this.dtpDataConta = new System.Windows.Forms.DateTimePicker();
             this.cbProcede = new System.Windows.Forms.ComboBox();
             this.dgvProcedimentos = new System.Windows.Forms.DataGridView();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.tbAnamnese = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,6 +76,7 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.tabPesquisa = new System.Windows.Forms.TabPage();
+            this.btresult = new System.Windows.Forms.Button();
             this.rbatendimento = new System.Windows.Forms.RadioButton();
             this.rbobito = new System.Windows.Forms.RadioButton();
             this.btnLimpar = new System.Windows.Forms.Button();
@@ -100,32 +109,34 @@
             this.tbPesqNomePac = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tabFechaAtt = new System.Windows.Forms.TabPage();
+            this.btConfirmaPags = new System.Windows.Forms.Button();
             this.gbPagamento = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbvalorrestante = new System.Windows.Forms.TextBox();
+            this.tbValorConta = new System.Windows.Forms.TextBox();
+            this.fdadsf = new System.Windows.Forms.Label();
+            this.dtpDeposito = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
             this.dtpDataComp = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
             this.tbCheque = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.tbValorPg = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.tbParcela = new System.Windows.Forms.TextBox();
+            this.dgvdepositos = new System.Windows.Forms.DataGridView();
+            this.tbValorPag = new System.Windows.Forms.TextBox();
+            this.tbAtendimento = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btAddDeposito = new System.Windows.Forms.Button();
+            this.btRemoveDepositos = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.S = new System.Windows.Forms.DataGridView();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.procedimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btresult = new System.Windows.Forms.Button();
-            this.dtpDeposito = new System.Windows.Forms.DateTimePicker();
-            this.fdadsf = new System.Windows.Forms.Label();
-            this.tbValorConta = new System.Windows.Forms.TextBox();
-            this.tbvalorrestante = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btConfirmaPags = new System.Windows.Forms.Button();
-            this.tbQtde = new System.Windows.Forms.TextBox();
-            this.tbValor = new System.Windows.Forms.TextBox();
+            this.tbParcela = new System.Windows.Forms.TextBox();
+            this.atendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numerocheque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datapagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datacompensa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valord = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.tabsatendimento.SuspendLayout();
             this.painel.SuspendLayout();
@@ -137,7 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtendimentos)).BeginInit();
             this.tabFechaAtt.SuspendLayout();
             this.gbPagamento.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.S)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvdepositos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -291,6 +302,20 @@
             this.gbConta.TabStop = false;
             this.gbConta.Text = "Conta";
             // 
+            // tbValor
+            // 
+            this.tbValor.Location = new System.Drawing.Point(348, 40);
+            this.tbValor.Name = "tbValor";
+            this.tbValor.Size = new System.Drawing.Size(100, 20);
+            this.tbValor.TabIndex = 51;
+            // 
+            // tbQtde
+            // 
+            this.tbQtde.Location = new System.Drawing.Point(132, 40);
+            this.tbQtde.Name = "tbQtde";
+            this.tbQtde.Size = new System.Drawing.Size(100, 20);
+            this.tbQtde.TabIndex = 50;
+            // 
             // btRemover
             // 
             this.btRemover.BackColor = System.Drawing.Color.White;
@@ -393,6 +418,57 @@
             this.dgvProcedimentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProcedimentos.Size = new System.Drawing.Size(439, 139);
             this.dgvProcedimentos.TabIndex = 42;
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "pro_codigo";
+            this.codigo.FillWeight = 20F;
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Width = 50;
+            // 
+            // procedimento
+            // 
+            this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.procedimento.DataPropertyName = "pro_descricao";
+            this.procedimento.HeaderText = "Procedimento";
+            this.procedimento.Name = "procedimento";
+            this.procedimento.ReadOnly = true;
+            // 
+            // data
+            // 
+            this.data.DataPropertyName = "con_data";
+            this.data.HeaderText = "Data";
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            // 
+            // qtde
+            // 
+            this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.qtde.DataPropertyName = "con_qtde";
+            this.qtde.HeaderText = "Qtde";
+            this.qtde.Name = "qtde";
+            this.qtde.ReadOnly = true;
+            this.qtde.Width = 55;
+            // 
+            // valor
+            // 
+            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.valor.DataPropertyName = "pro_valor";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            this.valor.Width = 56;
+            // 
+            // total
+            // 
+            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.total.DataPropertyName = "pro_total";
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 56;
             // 
             // label6
             // 
@@ -604,6 +680,17 @@
             this.tabPesquisa.TabIndex = 1;
             this.tabPesquisa.Text = "Pesquisa";
             // 
+            // btresult
+            // 
+            this.btresult.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btresult.Location = new System.Drawing.Point(380, 127);
+            this.btresult.Name = "btresult";
+            this.btresult.Size = new System.Drawing.Size(89, 36);
+            this.btresult.TabIndex = 71;
+            this.btresult.Text = "Resultado";
+            this.btresult.UseVisualStyleBackColor = true;
+            this.btresult.Click += new System.EventHandler(this.btresult_Click);
+            // 
             // rbatendimento
             // 
             this.rbatendimento.AutoSize = true;
@@ -720,6 +807,7 @@
             this.dgvAtendimentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAtendimentos.Size = new System.Drawing.Size(466, 263);
             this.dgvAtendimentos.TabIndex = 61;
+            this.dgvAtendimentos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAtendimentos_CellMouseDoubleClick);
             // 
             // codigoatn
             // 
@@ -929,17 +1017,33 @@
             // tabFechaAtt
             // 
             this.tabFechaAtt.BackColor = System.Drawing.Color.PowderBlue;
+            this.tabFechaAtt.Controls.Add(this.btRemoveDepositos);
+            this.tabFechaAtt.Controls.Add(this.btAddDeposito);
             this.tabFechaAtt.Controls.Add(this.btConfirmaPags);
             this.tabFechaAtt.Controls.Add(this.gbPagamento);
-            this.tabFechaAtt.Controls.Add(this.S);
+            this.tabFechaAtt.Controls.Add(this.dgvdepositos);
             this.tabFechaAtt.Location = new System.Drawing.Point(4, 22);
             this.tabFechaAtt.Name = "tabFechaAtt";
             this.tabFechaAtt.Size = new System.Drawing.Size(472, 435);
             this.tabFechaAtt.TabIndex = 2;
             this.tabFechaAtt.Text = "Fechar Atendimento";
             // 
+            // btConfirmaPags
+            // 
+            this.btConfirmaPags.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btConfirmaPags.Location = new System.Drawing.Point(330, 121);
+            this.btConfirmaPags.Name = "btConfirmaPags";
+            this.btConfirmaPags.Size = new System.Drawing.Size(128, 25);
+            this.btConfirmaPags.TabIndex = 3;
+            this.btConfirmaPags.Text = "Confirmar Pagamento";
+            this.btConfirmaPags.UseVisualStyleBackColor = true;
+            this.btConfirmaPags.Click += new System.EventHandler(this.btConfirmaPags_Click);
+            // 
             // gbPagamento
             // 
+            this.gbPagamento.Controls.Add(this.label20);
+            this.gbPagamento.Controls.Add(this.tbAtendimento);
+            this.gbPagamento.Controls.Add(this.tbValorPag);
             this.gbPagamento.Controls.Add(this.label11);
             this.gbPagamento.Controls.Add(this.tbvalorrestante);
             this.gbPagamento.Controls.Add(this.tbValorConta);
@@ -950,7 +1054,6 @@
             this.gbPagamento.Controls.Add(this.label18);
             this.gbPagamento.Controls.Add(this.tbCheque);
             this.gbPagamento.Controls.Add(this.label17);
-            this.gbPagamento.Controls.Add(this.tbValorPg);
             this.gbPagamento.Controls.Add(this.label16);
             this.gbPagamento.Controls.Add(this.tbParcela);
             this.gbPagamento.Controls.Add(this.label15);
@@ -960,6 +1063,48 @@
             this.gbPagamento.TabIndex = 2;
             this.gbPagamento.TabStop = false;
             this.gbPagamento.Text = "Pagamento";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(369, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 13);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Valor Restante";
+            // 
+            // tbvalorrestante
+            // 
+            this.tbvalorrestante.Enabled = false;
+            this.tbvalorrestante.Location = new System.Drawing.Point(372, 37);
+            this.tbvalorrestante.Name = "tbvalorrestante";
+            this.tbvalorrestante.Size = new System.Drawing.Size(83, 20);
+            this.tbvalorrestante.TabIndex = 14;
+            // 
+            // tbValorConta
+            // 
+            this.tbValorConta.Enabled = false;
+            this.tbValorConta.Location = new System.Drawing.Point(372, 81);
+            this.tbValorConta.Name = "tbValorConta";
+            this.tbValorConta.Size = new System.Drawing.Size(83, 20);
+            this.tbValorConta.TabIndex = 13;
+            // 
+            // fdadsf
+            // 
+            this.fdadsf.AutoSize = true;
+            this.fdadsf.Location = new System.Drawing.Point(229, 20);
+            this.fdadsf.Name = "fdadsf";
+            this.fdadsf.Size = new System.Drawing.Size(90, 13);
+            this.fdadsf.TabIndex = 12;
+            this.fdadsf.Text = "Data do Depósito";
+            // 
+            // dtpDeposito
+            // 
+            this.dtpDeposito.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDeposito.Location = new System.Drawing.Point(232, 37);
+            this.dtpDeposito.Name = "dtpDeposito";
+            this.dtpDeposito.Size = new System.Drawing.Size(129, 20);
+            this.dtpDeposito.TabIndex = 11;
             // 
             // label19
             // 
@@ -1003,15 +1148,6 @@
             this.label17.TabIndex = 4;
             this.label17.Text = "Cheque";
             // 
-            // tbValorPg
-            // 
-            this.tbValorPg.Location = new System.Drawing.Point(10, 82);
-            this.tbValorPg.Mask = "0000000";
-            this.tbValorPg.Name = "tbValorPg";
-            this.tbValorPg.Size = new System.Drawing.Size(77, 20);
-            this.tbValorPg.TabIndex = 3;
-            this.tbValorPg.ValidatingType = typeof(int);
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -1021,13 +1157,73 @@
             this.label16.TabIndex = 2;
             this.label16.Text = "Valor";
             // 
-            // tbParcela
+            // dgvdepositos
             // 
-            this.tbParcela.Enabled = false;
-            this.tbParcela.Location = new System.Drawing.Point(10, 37);
-            this.tbParcela.Name = "tbParcela";
-            this.tbParcela.Size = new System.Drawing.Size(56, 20);
-            this.tbParcela.TabIndex = 1;
+            this.dgvdepositos.AllowUserToAddRows = false;
+            this.dgvdepositos.AllowUserToDeleteRows = false;
+            this.dgvdepositos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvdepositos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvdepositos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.atendimento,
+            this.parcela,
+            this.tipo,
+            this.numerocheque,
+            this.datapagamento,
+            this.datacompensa,
+            this.valord});
+            this.dgvdepositos.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvdepositos.Enabled = false;
+            this.dgvdepositos.Location = new System.Drawing.Point(0, 152);
+            this.dgvdepositos.Name = "dgvdepositos";
+            this.dgvdepositos.ReadOnly = true;
+            this.dgvdepositos.RowHeadersVisible = false;
+            this.dgvdepositos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvdepositos.Size = new System.Drawing.Size(472, 283);
+            this.dgvdepositos.TabIndex = 0;
+            // 
+            // tbValorPag
+            // 
+            this.tbValorPag.Location = new System.Drawing.Point(10, 81);
+            this.tbValorPag.Name = "tbValorPag";
+            this.tbValorPag.Size = new System.Drawing.Size(81, 20);
+            this.tbValorPag.TabIndex = 16;
+            // 
+            // tbAtendimento
+            // 
+            this.tbAtendimento.Enabled = false;
+            this.tbAtendimento.Location = new System.Drawing.Point(97, 37);
+            this.tbAtendimento.Name = "tbAtendimento";
+            this.tbAtendimento.Size = new System.Drawing.Size(66, 20);
+            this.tbAtendimento.TabIndex = 17;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(97, 20);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(66, 13);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "Atendimento";
+            // 
+            // btAddDeposito
+            // 
+            this.btAddDeposito.Location = new System.Drawing.Point(219, 121);
+            this.btAddDeposito.Name = "btAddDeposito";
+            this.btAddDeposito.Size = new System.Drawing.Size(28, 25);
+            this.btAddDeposito.TabIndex = 19;
+            this.btAddDeposito.Text = "+";
+            this.btAddDeposito.UseVisualStyleBackColor = true;
+            this.btAddDeposito.Click += new System.EventHandler(this.btAddDeposito_Click);
+            // 
+            // btRemoveDepositos
+            // 
+            this.btRemoveDepositos.Location = new System.Drawing.Point(163, 121);
+            this.btRemoveDepositos.Name = "btRemoveDepositos";
+            this.btRemoveDepositos.Size = new System.Drawing.Size(26, 25);
+            this.btRemoveDepositos.TabIndex = 20;
+            this.btRemoveDepositos.Text = "-";
+            this.btRemoveDepositos.UseVisualStyleBackColor = true;
+            this.btRemoveDepositos.Click += new System.EventHandler(this.btRemoveDepositos_Click);
             // 
             // label15
             // 
@@ -1038,145 +1234,67 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Parcela";
             // 
-            // S
+            // tbParcela
             // 
-            this.S.AllowUserToAddRows = false;
-            this.S.AllowUserToDeleteRows = false;
-            this.S.BackgroundColor = System.Drawing.Color.White;
-            this.S.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.S.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.S.Location = new System.Drawing.Point(0, 152);
-            this.S.Name = "S";
-            this.S.ReadOnly = true;
-            this.S.Size = new System.Drawing.Size(472, 283);
-            this.S.TabIndex = 0;
+            this.tbParcela.Location = new System.Drawing.Point(10, 37);
+            this.tbParcela.Name = "tbParcela";
+            this.tbParcela.Size = new System.Drawing.Size(56, 20);
+            this.tbParcela.TabIndex = 1;
             // 
-            // codigo
+            // atendimento
             // 
-            this.codigo.DataPropertyName = "pro_codigo";
-            this.codigo.FillWeight = 20F;
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            this.codigo.Width = 50;
+            this.atendimento.DataPropertyName = "atn_codigo";
+            this.atendimento.HeaderText = "Atendimento";
+            this.atendimento.Name = "atendimento";
+            this.atendimento.ReadOnly = true;
+            this.atendimento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // procedimento
+            // parcela
             // 
-            this.procedimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.procedimento.DataPropertyName = "pro_descricao";
-            this.procedimento.HeaderText = "Procedimento";
-            this.procedimento.Name = "procedimento";
-            this.procedimento.ReadOnly = true;
+            this.parcela.DataPropertyName = "dep_parcela";
+            this.parcela.HeaderText = "Parcela";
+            this.parcela.Name = "parcela";
+            this.parcela.ReadOnly = true;
             // 
-            // data
+            // tipo
             // 
-            this.data.DataPropertyName = "con_data";
-            this.data.HeaderText = "Data";
-            this.data.Name = "data";
-            this.data.ReadOnly = true;
+            this.tipo.DataPropertyName = "dep_tip";
+            this.tipo.HeaderText = "tipo";
+            this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
+            this.tipo.Visible = false;
             // 
-            // qtde
+            // numerocheque
             // 
-            this.qtde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.qtde.DataPropertyName = "con_qtde";
-            this.qtde.HeaderText = "Qtde";
-            this.qtde.Name = "qtde";
-            this.qtde.ReadOnly = true;
-            this.qtde.Width = 55;
+            this.numerocheque.DataPropertyName = "dep_nrcheque";
+            this.numerocheque.HeaderText = "Cheque";
+            this.numerocheque.Name = "numerocheque";
+            this.numerocheque.ReadOnly = true;
+            this.numerocheque.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // valor
+            // datapagamento
             // 
-            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.valor.DataPropertyName = "pro_valor";
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            this.valor.Width = 56;
+            this.datapagamento.DataPropertyName = "dep_data";
+            this.datapagamento.HeaderText = "Data Pagamento";
+            this.datapagamento.Name = "datapagamento";
+            this.datapagamento.ReadOnly = true;
+            this.datapagamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // total
+            // datacompensa
             // 
-            this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.total.DataPropertyName = "pro_total";
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 56;
+            this.datacompensa.DataPropertyName = "dep_dtcompensa";
+            this.datacompensa.HeaderText = "Data Compensação";
+            this.datacompensa.Name = "datacompensa";
+            this.datacompensa.ReadOnly = true;
+            this.datacompensa.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // btresult
+            // valord
             // 
-            this.btresult.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btresult.Location = new System.Drawing.Point(380, 127);
-            this.btresult.Name = "btresult";
-            this.btresult.Size = new System.Drawing.Size(89, 36);
-            this.btresult.TabIndex = 71;
-            this.btresult.Text = "Resultado";
-            this.btresult.UseVisualStyleBackColor = true;
-            this.btresult.Click += new System.EventHandler(this.btresult_Click);
-            // 
-            // dtpDeposito
-            // 
-            this.dtpDeposito.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDeposito.Location = new System.Drawing.Point(97, 37);
-            this.dtpDeposito.Name = "dtpDeposito";
-            this.dtpDeposito.Size = new System.Drawing.Size(129, 20);
-            this.dtpDeposito.TabIndex = 11;
-            // 
-            // fdadsf
-            // 
-            this.fdadsf.AutoSize = true;
-            this.fdadsf.Location = new System.Drawing.Point(97, 20);
-            this.fdadsf.Name = "fdadsf";
-            this.fdadsf.Size = new System.Drawing.Size(90, 13);
-            this.fdadsf.TabIndex = 12;
-            this.fdadsf.Text = "Data do Depósito";
-            // 
-            // tbValorConta
-            // 
-            this.tbValorConta.Enabled = false;
-            this.tbValorConta.Location = new System.Drawing.Point(372, 81);
-            this.tbValorConta.Name = "tbValorConta";
-            this.tbValorConta.Size = new System.Drawing.Size(83, 20);
-            this.tbValorConta.TabIndex = 13;
-            // 
-            // tbvalorrestante
-            // 
-            this.tbvalorrestante.Enabled = false;
-            this.tbvalorrestante.Location = new System.Drawing.Point(372, 37);
-            this.tbvalorrestante.Name = "tbvalorrestante";
-            this.tbvalorrestante.Size = new System.Drawing.Size(83, 20);
-            this.tbvalorrestante.TabIndex = 14;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(369, 20);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 13);
-            this.label11.TabIndex = 15;
-            this.label11.Text = "Valor Restante";
-            // 
-            // btConfirmaPags
-            // 
-            this.btConfirmaPags.Location = new System.Drawing.Point(330, 121);
-            this.btConfirmaPags.Name = "btConfirmaPags";
-            this.btConfirmaPags.Size = new System.Drawing.Size(128, 25);
-            this.btConfirmaPags.TabIndex = 3;
-            this.btConfirmaPags.Text = "Confirmar Pagamento";
-            this.btConfirmaPags.UseVisualStyleBackColor = true;
-            // 
-            // tbQtde
-            // 
-            this.tbQtde.Location = new System.Drawing.Point(132, 40);
-            this.tbQtde.Name = "tbQtde";
-            this.tbQtde.Size = new System.Drawing.Size(100, 20);
-            this.tbQtde.TabIndex = 50;
-            // 
-            // tbValor
-            // 
-            this.tbValor.Location = new System.Drawing.Point(348, 40);
-            this.tbValor.Name = "tbValor";
-            this.tbValor.Size = new System.Drawing.Size(100, 20);
-            this.tbValor.TabIndex = 51;
+            this.valord.DataPropertyName = "dep_valor";
+            this.valord.HeaderText = "Valor";
+            this.valord.Name = "valord";
+            this.valord.ReadOnly = true;
+            this.valord.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // TelaAtendimentos
             // 
@@ -1204,7 +1322,7 @@
             this.tabFechaAtt.ResumeLayout(false);
             this.gbPagamento.ResumeLayout(false);
             this.gbPagamento.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.S)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvdepositos)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -1247,7 +1365,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnLimpar;
 		private System.Windows.Forms.TabPage tabFechaAtt;
-		private System.Windows.Forms.DataGridView S;
+		private System.Windows.Forms.DataGridView dgvdepositos;
 		private System.Windows.Forms.GroupBox gbConta;
 		private System.Windows.Forms.Button btAdd;
 		private System.Windows.Forms.Label label14;
@@ -1264,10 +1382,7 @@
 		private System.Windows.Forms.Label label18;
 		private System.Windows.Forms.TextBox tbCheque;
 		private System.Windows.Forms.Label label17;
-		private System.Windows.Forms.MaskedTextBox tbValorPg;
 		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.TextBox tbParcela;
-		private System.Windows.Forms.Label label15;
         private System.Windows.Forms.RadioButton rbatendimento;
         private System.Windows.Forms.RadioButton rbobito;
         private System.Windows.Forms.Label lblaltaobito;
@@ -1308,5 +1423,19 @@
         private System.Windows.Forms.Button btConfirmaPags;
         private System.Windows.Forms.TextBox tbValor;
         private System.Windows.Forms.TextBox tbQtde;
+        private System.Windows.Forms.TextBox tbValorPag;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox tbAtendimento;
+        private System.Windows.Forms.Button btRemoveDepositos;
+        private System.Windows.Forms.Button btAddDeposito;
+        private System.Windows.Forms.TextBox tbParcela;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn atendimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn parcela;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numerocheque;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datapagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datacompensa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valord;
     }
 }

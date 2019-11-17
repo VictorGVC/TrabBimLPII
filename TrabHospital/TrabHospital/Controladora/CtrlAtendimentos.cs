@@ -383,5 +383,31 @@ namespace TrabHospital.Controladora
             bco.Desconecta();
             return Convert.ToDouble(dtval.Rows[0]["pro_valor"]);
         }
+
+        public DataTable BuscaDepositos(int atncod)
+        {
+            DataTable dtdeps = new DataTable();
+            dtdeps.Columns.Add("dep_parcela");
+            dtdeps.Columns.Add("atn_codigo");
+            dtdeps.Columns.Add("dep_data");
+            dtdeps.Columns.Add("dep_valor");
+            dtdeps.Columns.Add("dep_nrcheque");
+            dtdeps.Columns.Add("dep_dtcompensa");
+            bco.Conecta();
+            DepositoDB ddb = new DepositoDB(bco);
+            foreach (Deposito dep in ddb.BuscaDepositos(atncod))
+            {
+                DataRow row = dtdeps.NewRow();
+                row["dep_parcela"] = dep.Parcela;
+                row["atn_codigo"] = atncod;
+                row["dep_data"] = dep.Data;
+                row["dep_valor"] = dep.Valor;
+                row["dep_nrcheque"] = dep.Cheque;
+                row["dep_dtcompensa"] = dep.Dtcompensa;
+                dtdeps.Rows.Add(row);
+            }     
+            bco.Desconecta();
+            return dtdeps;
+        }
     }
 }

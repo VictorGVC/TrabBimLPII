@@ -16,6 +16,7 @@ namespace TrabHospital.Visão
         private CtrlAtendimentos ControlAte = new CtrlAtendimentos();
         private DataTable dtConta = new DataTable();
         DataTable dtatends = new DataTable();
+        DataTable dtdeps = new DataTable();
 
         public TelaAtendimentos()
 		{
@@ -26,6 +27,7 @@ namespace TrabHospital.Visão
             dtConta.Columns.Add("pro_valor");
             dtConta.Columns.Add("pro_total");
             dtConta.Columns.Add("pro_codigo");
+
         }
 
         private void JogaNaOutraTela()
@@ -94,21 +96,27 @@ namespace TrabHospital.Visão
 
         private void BtAdd_Click(object sender, EventArgs e)
         {
-            
-            DataRow row = dtConta.NewRow();
-            row["pro_descricao"] = cbProcede.Text;
-            row["con_data"] = dtpDataConta.Value;
-            row["con_qtde"] = tbQtde.Text;
-            row["pro_valor"] = tbValor.Text;
-            row["pro_codigo"] = cbProcede.SelectedValue;
-            row["pro_total"] = Convert.ToDouble(tbValor.Text) * Convert.ToDouble(tbQtde.Text);
+            if(tbQtde.TextLength > 0)
+            {
+                DataRow row = dtConta.NewRow();
+                row["pro_descricao"] = cbProcede.Text;
+                row["con_data"] = dtpDataConta.Value;
+                row["con_qtde"] = tbQtde.Text;
+                row["pro_valor"] = tbValor.Text;
+                row["pro_codigo"] = cbProcede.SelectedValue;
+                row["pro_total"] = Convert.ToDouble(tbValor.Text) * Convert.ToDouble(tbQtde.Text);
 
-            if (tbCodigo.TextLength == 0)
-                ControlAte.AddContaA(row);
+                if (tbCodigo.TextLength == 0)
+                    ControlAte.AddContaA(row);
+                else
+                    ControlAte.AddContaU(row);
+                dtConta.Rows.Add(row);
+            }
             else
-                ControlAte.AddContaU(row);
-            dtConta.Rows.Add(row);
-            
+            {
+                MessageBox.Show("A quantidade deve ser preenchida");
+                tbQtde.Focus();
+            }
         }
 
         private void TelaAtendimentos_Load(object sender, EventArgs e)
@@ -131,6 +139,7 @@ namespace TrabHospital.Visão
             dgvProcedimentos.DataSource = dtConta;
             rbatendimento.Checked = true;
             dgvAtendimentos.DataSource = dtatends = ControlAte.BuscaAtendimentosPData(dtpPeriodo.Value, dtpPeriodoObito.Value, 'a');
+            gbPagamento.Enabled = false;
         }
 
         public void limpa()
@@ -304,7 +313,7 @@ namespace TrabHospital.Visão
                 if (MessageBox.Show("Deseja mesmo excluir o atendimento?", "Alerta!",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     if (!ControlAte.ExcluiAtendimento((int)dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_codigo"]))
-                        MessageBox.Show("Erro na exclusão!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Atendimento já está em uso por outra classe", "Erro na exclusão!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                         dtatends.Rows.RemoveAt(dgvAtendimentos.CurrentRow.Index);
             }
@@ -395,6 +404,70 @@ namespace TrabHospital.Visão
             {
                 MessageBox.Show("Esse Atendimento já tem um resultado");
             }
+        }
+
+        private void dgvAtendimentos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            double valorrest = 0;
+            if(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_contafechada"].ToString() == "N" &&
+                (dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtobito"] != DBNull.Value ||
+                dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtalta"] != DBNull.Value))
+            {
+                gbPagamento.Enabled = true;
+                dgvdepositos.Enabled = true;
+                tbAtendimento.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_codigo"].ToString();
+                tbValorConta.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_vrconta"].ToString();
+                dgvdepositos.DataSource = dtdeps = ControlAte.BuscaDepositos(Convert.ToInt32(tbAtendimento.Text));
+                for (int i = 0; i < dtdeps.Rows.Count; i++)
+                    valorrest += Convert.ToDouble(dtdeps.Rows[i]["dep_valor"]);
+                tbvalorrestante.Text = (Convert.ToDouble(tbValorConta.Text) - valorrest).ToString();
+                tabsatendimento.SelectedIndex = 2;
+            }
+            else
+            {
+                MessageBox.Show("A conta deve estar aberta e algum resultado de atendimento dado");
+            }
+        }
+
+        private void btConfirmaPags_Click(object sender, EventArgs e)
+        {
+            gbPagamento.Enabled = false;
+            dgvdepositos.Enabled = false;
+        }
+
+        private void btAddDeposito_Click(object sender, EventArgs e)
+        {
+            if(tbValorConta.TextLength == 0)
+            {
+                MessageBox.Show("O valor deve ser informado");
+                tbValorConta.Focus();
+            }
+            else if(tbCheque.TextLength == 0)
+            {
+                MessageBox.Show("Numero do cheque deve ser informado");
+                tbCheque.Focus();
+            }
+            else if(tbParcela.TextLength == 0)
+            {
+                MessageBox.Show("Codigo da parcela deve ser informado");
+                tbParcela.Focus();
+            }
+            else
+            {
+                DataRow row = dtdeps.NewRow();
+                row["atn_codigo"] = tbAtendimento.Text;
+                row["dep_parcela"] = tbParcela.Text;
+                row["dep_data"] = dtpDeposito.Value;
+                row["dep_valor"] = tbValorPag.Text;
+                row["dep_nrcheque"] = tbCheque.Text;
+                row["dep_dtcompensa"] = dtpDataComp.Value;
+                dtdeps.Rows.Add(row);
+            }
+        }
+
+        private void btRemoveDepositos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

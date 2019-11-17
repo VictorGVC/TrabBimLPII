@@ -48,6 +48,22 @@ namespace TrabHospital.Persistencia
             return result;
         }
 
+        public object BuscaAtendimento(int atncod)
+        {
+            Atendimento atn = new Atendimento();
+            DataTable dtatn = new DataTable();
+            string SQL = @"SELECT * FROM Atendimentos
+                            WHERE atn_codigo = @cod";
+            bco.ExecuteQuery(SQL, out dtatn, "@cod", atncod);
+            if(dtatn.Rows.Count>0)
+            {
+                atn.Codigo = atncod;
+                atn.Anamnase = dtatn.Rows[0]["atn_anamnese"].ToString();
+                atn.Valorconta = Convert.ToDouble(dtatn.Rows[0]["atn_vrconta"]);
+            }
+            return atn;
+        }
+
         public DataTable BuscaAtendNomeData(string nome, DateTime d1, DateTime d2,char ob)
         {
             DataTable dta = new DataTable();
