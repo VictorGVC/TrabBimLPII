@@ -105,7 +105,7 @@ namespace TrabHospital.Visão
                 row["con_qtde"] = tbQtde.Text;
                 row["pro_valor"] = tbValor.Text;
                 row["pro_codigo"] = cbProcede.SelectedValue;
-                row["pro_total"] = Convert.ToDouble(tbValor.Text) * Convert.ToDouble(tbQtde.Text);
+                row["pro_total"] = Convert.ToDouble(tbValor.Text) * Convert.ToInt32(tbQtde.Text);
 
                 if (tbCodigo.TextLength == 0)
                     ControlAte.AddContaA(row);
@@ -130,12 +130,15 @@ namespace TrabHospital.Visão
             cbPaciente.DataSource = ControlAte.BuscaPacientes();
             cbMedico.ValueMember = "med_codigo";
             cbMedico.DisplayMember = "med_nome";
-            cbMedico.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
-            cbMedico2.ValueMember = "med_codigo";
-            cbMedico2.DisplayMember = "med_nome";
-            cbMedico2.DataSource = ControlAte.BuscaMedicos2(Convert.ToInt32(cbPaciente.SelectedValue));
-            cbProcede.ValueMember = "pro_codigo";
-            cbProcede.DisplayMember = "pro_descricao";
+            if(cbPaciente.Text.Length != 0)
+            {
+                cbMedico.DataSource = ControlAte.BuscaMedicos(Convert.ToInt32(cbPaciente.SelectedValue));
+                cbMedico2.ValueMember = "med_codigo";
+                cbMedico2.DisplayMember = "med_nome";
+                cbMedico2.DataSource = ControlAte.BuscaMedicos2(Convert.ToInt32(cbPaciente.SelectedValue));
+                cbProcede.ValueMember = "pro_codigo";
+                cbProcede.DisplayMember = "pro_descricao";
+            }
             cbProcede.DataSource = ControlAte.BuscarProcedimentos();
             dgvProcedimentos.DataSource = dtConta;
             rbatendimento.Checked = true;
@@ -396,6 +399,8 @@ namespace TrabHospital.Visão
                     lblaltaobito.Visible = true;
                     lblretorno.Visible = true;
                     dtpretorno.Visible = true;
+                    JogaNaOutraTela();
+                    LiberaCampos();
                     dtpretorno.Value = dtpretorno.Value.AddDays(30);
                     tabsatendimento.SelectedIndex = 0;
                     dtpaltaobito.Focus();
@@ -417,7 +422,7 @@ namespace TrabHospital.Visão
                 gbPagamento.Enabled = true;
                 dgvdepositos.Enabled = true;
                 tbAtendimento.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_codigo"].ToString();
-                tbValorConta.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_vrconta"].ToString();
+                tbValorConta.Text = (dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_vrconta"]).ToString();
                 dgvdepositos.DataSource = dtdeps = ControlAte.BuscaDepositos(Convert.ToInt32(tbAtendimento.Text));
                 cont = 0;
                 for (int i = 0; i < dtdeps.Rows.Count; i++)
@@ -504,6 +509,33 @@ namespace TrabHospital.Visão
                 for (int i = 0; i < dtdeps.Rows.Count; i++)
                     valor += Convert.ToDouble(dtdeps.Rows[i]["dep_valor"]);
                 tbvalorrestante.Text = (Convert.ToDouble(tbValorConta.Text) - valor).ToString();
+            }
+        }
+
+        private void TbQtde_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)44)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TbCheque_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)44)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TbValorPag_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)44)
+            {
+                if (e.KeyChar != ',')
+                    e.Handled = true;
+                else if (tbValorPag.Text.IndexOf(',') > 0)
+                    e.Handled = true;
             }
         }
     }

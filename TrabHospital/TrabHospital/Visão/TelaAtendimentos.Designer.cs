@@ -304,6 +304,7 @@
             // 
             // tbValor
             // 
+            this.tbValor.Enabled = false;
             this.tbValor.Location = new System.Drawing.Point(348, 40);
             this.tbValor.Name = "tbValor";
             this.tbValor.Size = new System.Drawing.Size(100, 20);
@@ -315,6 +316,7 @@
             this.tbQtde.Name = "tbQtde";
             this.tbQtde.Size = new System.Drawing.Size(100, 20);
             this.tbQtde.TabIndex = 50;
+            this.tbQtde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbQtde_KeyPress);
             // 
             // btRemover
             // 
@@ -1107,6 +1109,7 @@
             this.tbValorPag.Name = "tbValorPag";
             this.tbValorPag.Size = new System.Drawing.Size(81, 20);
             this.tbValorPag.TabIndex = 16;
+            this.tbValorPag.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbValorPag_KeyPress);
             // 
             // label11
             // 
@@ -1182,6 +1185,7 @@
             this.tbCheque.Name = "tbCheque";
             this.tbCheque.Size = new System.Drawing.Size(129, 20);
             this.tbCheque.TabIndex = 5;
+            this.tbCheque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbCheque_KeyPress);
             // 
             // label17
             // 
