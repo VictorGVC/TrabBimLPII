@@ -109,8 +109,13 @@
             this.tbPesqNomePac = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tabFechaAtt = new System.Windows.Forms.TabPage();
+            this.btRemoveDepositos = new System.Windows.Forms.Button();
+            this.btAddDeposito = new System.Windows.Forms.Button();
             this.btConfirmaPags = new System.Windows.Forms.Button();
             this.gbPagamento = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tbAtendimento = new System.Windows.Forms.TextBox();
+            this.tbValorPag = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbvalorrestante = new System.Windows.Forms.TextBox();
             this.tbValorConta = new System.Windows.Forms.TextBox();
@@ -122,14 +127,9 @@
             this.tbCheque = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.dgvdepositos = new System.Windows.Forms.DataGridView();
-            this.tbValorPag = new System.Windows.Forms.TextBox();
-            this.tbAtendimento = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.btAddDeposito = new System.Windows.Forms.Button();
-            this.btRemoveDepositos = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
             this.tbParcela = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.dgvdepositos = new System.Windows.Forms.DataGridView();
             this.atendimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parcela = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1028,6 +1028,26 @@
             this.tabFechaAtt.TabIndex = 2;
             this.tabFechaAtt.Text = "Fechar Atendimento";
             // 
+            // btRemoveDepositos
+            // 
+            this.btRemoveDepositos.Location = new System.Drawing.Point(163, 121);
+            this.btRemoveDepositos.Name = "btRemoveDepositos";
+            this.btRemoveDepositos.Size = new System.Drawing.Size(26, 25);
+            this.btRemoveDepositos.TabIndex = 20;
+            this.btRemoveDepositos.Text = "-";
+            this.btRemoveDepositos.UseVisualStyleBackColor = true;
+            this.btRemoveDepositos.Click += new System.EventHandler(this.btRemoveDepositos_Click);
+            // 
+            // btAddDeposito
+            // 
+            this.btAddDeposito.Location = new System.Drawing.Point(219, 121);
+            this.btAddDeposito.Name = "btAddDeposito";
+            this.btAddDeposito.Size = new System.Drawing.Size(28, 25);
+            this.btAddDeposito.TabIndex = 19;
+            this.btAddDeposito.Text = "+";
+            this.btAddDeposito.UseVisualStyleBackColor = true;
+            this.btAddDeposito.Click += new System.EventHandler(this.btAddDeposito_Click);
+            // 
             // btConfirmaPags
             // 
             this.btConfirmaPags.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1063,6 +1083,30 @@
             this.gbPagamento.TabIndex = 2;
             this.gbPagamento.TabStop = false;
             this.gbPagamento.Text = "Pagamento";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(97, 20);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(66, 13);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "Atendimento";
+            // 
+            // tbAtendimento
+            // 
+            this.tbAtendimento.Enabled = false;
+            this.tbAtendimento.Location = new System.Drawing.Point(97, 37);
+            this.tbAtendimento.Name = "tbAtendimento";
+            this.tbAtendimento.Size = new System.Drawing.Size(66, 20);
+            this.tbAtendimento.TabIndex = 17;
+            // 
+            // tbValorPag
+            // 
+            this.tbValorPag.Location = new System.Drawing.Point(10, 81);
+            this.tbValorPag.Name = "tbValorPag";
+            this.tbValorPag.Size = new System.Drawing.Size(81, 20);
+            this.tbValorPag.TabIndex = 16;
             // 
             // label11
             // 
@@ -1157,6 +1201,23 @@
             this.label16.TabIndex = 2;
             this.label16.Text = "Valor";
             // 
+            // tbParcela
+            // 
+            this.tbParcela.Enabled = false;
+            this.tbParcela.Location = new System.Drawing.Point(10, 37);
+            this.tbParcela.Name = "tbParcela";
+            this.tbParcela.Size = new System.Drawing.Size(56, 20);
+            this.tbParcela.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(7, 20);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(43, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Parcela";
+            // 
             // dgvdepositos
             // 
             this.dgvdepositos.AllowUserToAddRows = false;
@@ -1180,66 +1241,6 @@
             this.dgvdepositos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvdepositos.Size = new System.Drawing.Size(472, 283);
             this.dgvdepositos.TabIndex = 0;
-            // 
-            // tbValorPag
-            // 
-            this.tbValorPag.Location = new System.Drawing.Point(10, 81);
-            this.tbValorPag.Name = "tbValorPag";
-            this.tbValorPag.Size = new System.Drawing.Size(81, 20);
-            this.tbValorPag.TabIndex = 16;
-            // 
-            // tbAtendimento
-            // 
-            this.tbAtendimento.Enabled = false;
-            this.tbAtendimento.Location = new System.Drawing.Point(97, 37);
-            this.tbAtendimento.Name = "tbAtendimento";
-            this.tbAtendimento.Size = new System.Drawing.Size(66, 20);
-            this.tbAtendimento.TabIndex = 17;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(97, 20);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(66, 13);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "Atendimento";
-            // 
-            // btAddDeposito
-            // 
-            this.btAddDeposito.Location = new System.Drawing.Point(219, 121);
-            this.btAddDeposito.Name = "btAddDeposito";
-            this.btAddDeposito.Size = new System.Drawing.Size(28, 25);
-            this.btAddDeposito.TabIndex = 19;
-            this.btAddDeposito.Text = "+";
-            this.btAddDeposito.UseVisualStyleBackColor = true;
-            this.btAddDeposito.Click += new System.EventHandler(this.btAddDeposito_Click);
-            // 
-            // btRemoveDepositos
-            // 
-            this.btRemoveDepositos.Location = new System.Drawing.Point(163, 121);
-            this.btRemoveDepositos.Name = "btRemoveDepositos";
-            this.btRemoveDepositos.Size = new System.Drawing.Size(26, 25);
-            this.btRemoveDepositos.TabIndex = 20;
-            this.btRemoveDepositos.Text = "-";
-            this.btRemoveDepositos.UseVisualStyleBackColor = true;
-            this.btRemoveDepositos.Click += new System.EventHandler(this.btRemoveDepositos_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 20);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(43, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Parcela";
-            // 
-            // tbParcela
-            // 
-            this.tbParcela.Location = new System.Drawing.Point(10, 37);
-            this.tbParcela.Name = "tbParcela";
-            this.tbParcela.Size = new System.Drawing.Size(56, 20);
-            this.tbParcela.TabIndex = 1;
             // 
             // atendimento
             // 

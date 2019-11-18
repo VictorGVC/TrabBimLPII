@@ -409,5 +409,23 @@ namespace TrabHospital.Controladora
             bco.Desconecta();
             return dtdeps;
         }
+
+        public bool SalvarDepositos(DataTable dtdeps)
+        {
+            bool result;
+            bco.Conecta();
+            DepositoDB ddb = new DepositoDB(bco);
+            result = ddb.SalvarDepositos(dtdeps);
+            bco.Desconecta();
+            return result;
+        }
+
+        public void FechaConta(int atncod)
+        {
+            bco.Conecta();
+            AtendimentoBD abd = new AtendimentoBD(bco);
+            abd.FechaAtendimento(atncod);
+            bco.Desconecta();
+        }
     }
 }

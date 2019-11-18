@@ -17,6 +17,7 @@ namespace TrabHospital.Visão
         private DataTable dtConta = new DataTable();
         DataTable dtatends = new DataTable();
         DataTable dtdeps = new DataTable();
+        private int cont = 0;
 
         public TelaAtendimentos()
 		{
@@ -372,8 +373,8 @@ namespace TrabHospital.Visão
 
         private void btresult_Click(object sender, EventArgs e)
         {
-            if(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtobito"] != DBNull.Value && 
-                dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtalta"] != DBNull.Value)
+            if(dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtobito"] == DBNull.Value && 
+                dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_dtalta"] == DBNull.Value)
             {
                 DialogResult dr = MessageBox.Show("O paciente foi a óbito?", "Resultado",
                 MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -418,21 +419,43 @@ namespace TrabHospital.Visão
                 tbAtendimento.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_codigo"].ToString();
                 tbValorConta.Text = dtatends.Rows[dgvAtendimentos.CurrentRow.Index]["atn_vrconta"].ToString();
                 dgvdepositos.DataSource = dtdeps = ControlAte.BuscaDepositos(Convert.ToInt32(tbAtendimento.Text));
+                cont = 0;
                 for (int i = 0; i < dtdeps.Rows.Count; i++)
+                {
                     valorrest += Convert.ToDouble(dtdeps.Rows[i]["dep_valor"]);
+                    cont++;
+                }
                 tbvalorrestante.Text = (Convert.ToDouble(tbValorConta.Text) - valorrest).ToString();
                 tabsatendimento.SelectedIndex = 2;
+                tbParcela.Text = cont.ToString();
             }
             else
             {
-                MessageBox.Show("A conta deve estar aberta e algum resultado de atendimento dado");
+                MessageBox.Show("A conta deve estar aberta e algum resultado de atendimento especificado");
             }
         }
 
         private void btConfirmaPags_Click(object sender, EventArgs e)
         {
-            gbPagamento.Enabled = false;
-            dgvdepositos.Enabled = false;
+            if(ControlAte.SalvarDepositos(dtdeps))
+            {
+                if(Convert.ToInt32(tbvalorrestante.Text)<=0)
+                {
+                    MessageBox.Show("Conta totalmente paga (será automaticamene fechada)","Conta Fechada",
+                        MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    ControlAte.FechaConta(Convert.ToInt32(tbAtendimento.Text));
+                }
+                gbPagamento.Enabled = false;
+                dgvdepositos.Enabled = false;
+                tbParcela.Clear();
+                dtdeps.Rows.Clear();
+                tbCheque.Clear();
+                tbValorConta.Clear();
+                tbvalorrestante.Clear();
+                tbAtendimento.Clear();
+                tbValorPag.Clear();
+            }
+            
         }
 
         private void btAddDeposito_Click(object sender, EventArgs e)
@@ -462,12 +485,26 @@ namespace TrabHospital.Visão
                 row["dep_nrcheque"] = tbCheque.Text;
                 row["dep_dtcompensa"] = dtpDataComp.Value;
                 dtdeps.Rows.Add(row);
+                double valor = 0;
+                for (int i = 0; i < dtdeps.Rows.Count; i++)
+                    valor += Convert.ToDouble(dtdeps.Rows[i]["dep_valor"]);
+                tbvalorrestante.Text = (Convert.ToDouble(tbValorConta.Text) - valor).ToString();
+                cont++;
+                tbParcela.Text = cont.ToString();
             }
         }
 
         private void btRemoveDepositos_Click(object sender, EventArgs e)
         {
-
+            if(MessageBox.Show("Deseja realmente remover esse deposito","Exclusão",
+                MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                dtdeps.Rows.RemoveAt(dgvdepositos.CurrentRow.Index);
+                double valor = 0;
+                for (int i = 0; i < dtdeps.Rows.Count; i++)
+                    valor += Convert.ToDouble(dtdeps.Rows[i]["dep_valor"]);
+                tbvalorrestante.Text = (Convert.ToDouble(tbValorConta.Text) - valor).ToString();
+            }
         }
     }
 }

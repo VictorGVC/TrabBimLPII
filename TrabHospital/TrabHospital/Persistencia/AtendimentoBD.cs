@@ -369,5 +369,12 @@ namespace TrabHospital.Persistencia
             return dta;
         }
 
+        public void FechaAtendimento(int atncod)
+        {
+            string SQL = @"UPDATE Atendimentos SET atn_contafechada = 'S'
+                            WHERE atn_codigo = @cod";
+
+            bco.ExecuteNonQuery(SQL, "@cod", atncod);
+        }
     }
 }

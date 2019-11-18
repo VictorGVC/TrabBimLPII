@@ -42,5 +42,40 @@ namespace TrabHospital.Persistencia
             }
             return deps;
         }
+
+        internal bool SalvarDepositos(DataTable dtdeps)
+        {
+            bool result;
+            string SQL = @"DELETE FROM Depositos
+                            WHERE atn_codigo = @cod";
+
+            result = banco.ExecuteNonQuery(SQL, "@cod", Convert.ToInt32(dtdeps.Rows[0]["atn_codigo"]));
+
+            if (result)
+            {
+                SQL = @"INSERT INTO Depositos (dep_parcela,atn_codigo,dep_data,dep_valor,dep_nrcheque,dep_dtcompensa)
+                        VALUES (@parcela,@atend,@data,@valor,@cheque,@dtcomp)";
+                try
+                {
+                    for (int i = 0; i < dtdeps.Rows.Count; i++)
+                    {
+                        banco.ExecuteNonQuery(SQL, "@parcela", Convert.ToInt32(dtdeps.Rows[i]["dep_parcela"]),
+                                                    "@atend", Convert.ToInt32(dtdeps.Rows[i]["atn_codigo"]),
+                                                    "@data", Convert.ToDateTime(dtdeps.Rows[i]["dep_data"]),
+                                                    "@valor", Convert.ToDouble(dtdeps.Rows[i]["dep_valor"]),
+                                                    "cheque", dtdeps.Rows[i]["dep_nrcheque"].ToString(),
+                                                    "@dtcomp",Convert.ToDateTime(dtdeps.Rows[i]["dep_dtcompensa"])); 
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.Out.WriteLine(e.Message);
+                    return false;
+                }
+                return true;
+            }
+            else
+                return false;
+        }
     }
 }
