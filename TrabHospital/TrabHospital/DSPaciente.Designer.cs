@@ -917,8 +917,7 @@ namespace TrabHospital.DSPacienteTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT p.pac_nome, p.pac_sexo, p.pac_endereco, p.pac_cidade, p.pac_fone FROM dbo." +
                 "Pacientes AS p INNER JOIN dbo.Atendimentos AS a ON p.pac_codigo = a.pac_codigo W" +
-                "HERE (a.atn_dtobito IS NOT NULL) OR (a.atn_dtalta IS NOT NULL) ORDER BY p.pac_no" +
-                "me;";
+                "HERE (a.atn_dtobito IS NULL) AND (a.atn_dtalta IS NULL) ORDER BY p.pac_nome";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

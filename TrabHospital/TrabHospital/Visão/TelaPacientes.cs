@@ -95,7 +95,7 @@ namespace TrabHospital.Visão
             }
             else if (btnSalvar.Text == "Salvar")
             {
-                if (cbSexo.SelectedItem.ToString() == "Masculino")
+                if (cbSexo.SelectedIndex == 0)
                     sexo = 'M';
                 else
                     sexo = 'F';

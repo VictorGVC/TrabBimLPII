@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="BancoHospital (Settings)" DbObjectName="dbo.Pacientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT p.pac_nome, p.pac_sexo, p.pac_endereco, p.pac_cidade, p.pac_fone FROM dbo.Pacientes AS p INNER JOIN dbo.Atendimentos AS a ON p.pac_codigo = a.pac_codigo WHERE (a.atn_dtobito IS NOT NULL) OR (a.atn_dtalta IS NOT NULL) ORDER BY p.pac_nome;</CommandText>
+                    <CommandText>SELECT p.pac_nome, p.pac_sexo, p.pac_endereco, p.pac_cidade, p.pac_fone FROM dbo.Pacientes AS p INNER JOIN dbo.Atendimentos AS a ON p.pac_codigo = a.pac_codigo WHERE (a.atn_dtobito IS NULL) AND (a.atn_dtalta IS NULL) ORDER BY p.pac_nome</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>

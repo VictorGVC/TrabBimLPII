@@ -44,7 +44,7 @@ namespace TrabHospital.Controladora
 			return (result);
 		}
 
-        public bool ExcluirPaciente(int codigo)
+		public bool ExcluirPaciente(int codigo)
         {
             bool tr = false;
             bco.Conecta();
@@ -138,6 +138,18 @@ namespace TrabHospital.Controladora
 
             return dtpac;
         }
+
+		public DataTable BuscarPacienteRelatorio()
+		{
+			DataTable dtpac = new DataTable();
+			PacienteBD pbd = new PacienteBD(bco);
+
+			bco.Conecta();
+			dtpac = pbd.BuscarPacienteRel();
+			bco.Desconecta();
+
+			return (dtpac);
+		}
 
 		public bool ProcessaRelatorio(string caminhoRelatorio, DataTable dtDados, ReportViewer visualizador,
 									  string nomeDataSet, ReportParameter[] parametros)

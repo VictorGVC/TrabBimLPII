@@ -24,7 +24,7 @@ namespace TrabHospital.Visão
 		private void TelaRelatórios_Load(object sender, EventArgs e)
 		{
 			this.reportViewer1.RefreshReport();
-			DataTable dtDados = ControlPac.BuscarPaciente("");
+			DataTable dtDados = ControlPac.BuscarPacienteRelatorio();
 			ControlPac.ProcessaRelatorio(@"..\..\Relatorios\RPaciente.rdlc",
 						 dtDados, reportViewer1, "DSPaciente", null);
 			this.reportViewer2.RefreshReport();

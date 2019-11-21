@@ -140,5 +140,20 @@ namespace TrabHospital.Persistencia
                 
         }
 
-    }
+		public DataTable BuscarPacienteRel()
+		{
+			DataTable dtp = new DataTable();
+
+			string SQL = @"SELECT p.pac_nome, p.pac_sexo, p.pac_endereco, p.pac_cidade, p.pac_fone 
+							FROM Pacientes AS p 
+								INNER JOIN Atendimentos AS a 
+									ON p.pac_codigo = a.pac_codigo 
+										WHERE (a.atn_dtobito IS NULL) AND (a.atn_dtalta IS NULL) 
+											ORDER BY p.pac_nome";
+
+			bco.ExecuteQuery(SQL, out dtp);
+
+			return (dtp);
+		}
+	}
 }
