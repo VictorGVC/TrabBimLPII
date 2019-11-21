@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -137,5 +138,30 @@ namespace TrabHospital.Controladora
 
             return dtpac;
         }
-    }
+
+		public bool ProcessaRelatorio(string caminhoRelatorio, DataTable dtDados, ReportViewer visualizador,
+									  string nomeDataSet, ReportParameter[] parametros)
+		{
+			bool resultado = false;
+			try
+			{
+				visualizador.Reset();
+				visualizador.LocalReport.DataSources.Clear();
+				ReportDataSource RDS = new ReportDataSource(nomeDataSet, dtDados);
+				visualizador.LocalReport.DataSources.Add(RDS);
+				visualizador.LocalReport.ReportPath = caminhoRelatorio;
+				if (parametros != null)
+				{
+					visualizador.LocalReport.SetParameters(parametros);
+				}
+				visualizador.RefreshReport();
+				resultado = true;
+			}
+			catch (Exception e)
+			{
+				return (false);
+			}
+			return (resultado);
+		}
+	}
 }

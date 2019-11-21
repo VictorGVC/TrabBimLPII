@@ -369,6 +369,7 @@
 			// 
 			// btnVoltar
 			// 
+			this.btnVoltar.BackColor = System.Drawing.Color.White;
 			this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
@@ -379,11 +380,12 @@
 			this.btnVoltar.TabIndex = 11;
 			this.btnVoltar.Text = "Voltar";
 			this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.btnVoltar.UseVisualStyleBackColor = true;
+			this.btnVoltar.UseVisualStyleBackColor = false;
 			this.btnVoltar.Click += new System.EventHandler(this.BtnVoltar_Click);
 			// 
 			// btnCancelar
 			// 
+			this.btnCancelar.BackColor = System.Drawing.Color.White;
 			this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
@@ -394,11 +396,12 @@
 			this.btnCancelar.TabIndex = 11;
 			this.btnCancelar.Text = "Cancelar";
 			this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.btnCancelar.UseVisualStyleBackColor = true;
+			this.btnCancelar.UseVisualStyleBackColor = false;
 			this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
 			// 
 			// btnNovo
 			// 
+			this.btnNovo.BackColor = System.Drawing.Color.White;
 			this.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
@@ -408,11 +411,12 @@
 			this.btnNovo.Size = new System.Drawing.Size(82, 23);
 			this.btnNovo.TabIndex = 9;
 			this.btnNovo.Text = "Novo";
-			this.btnNovo.UseVisualStyleBackColor = true;
+			this.btnNovo.UseVisualStyleBackColor = false;
 			this.btnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
 			// 
 			// btnSalvar
 			// 
+			this.btnSalvar.BackColor = System.Drawing.Color.White;
 			this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
@@ -423,7 +427,7 @@
 			this.btnSalvar.TabIndex = 10;
 			this.btnSalvar.Text = "Salvar";
 			this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.btnSalvar.UseVisualStyleBackColor = true;
+			this.btnSalvar.UseVisualStyleBackColor = false;
 			this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
 			// 
 			// tabPesquisa
@@ -547,6 +551,7 @@
 			// 
 			// btnPesquisar
 			// 
+			this.btnPesquisar.BackColor = System.Drawing.Color.White;
 			this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
@@ -557,11 +562,12 @@
 			this.btnPesquisar.TabIndex = 60;
 			this.btnPesquisar.Text = "Pesquisar";
 			this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.btnPesquisar.UseVisualStyleBackColor = true;
+			this.btnPesquisar.UseVisualStyleBackColor = false;
 			this.btnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click);
 			// 
 			// btnExcluir
 			// 
+			this.btnExcluir.BackColor = System.Drawing.Color.White;
 			this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
@@ -571,11 +577,12 @@
 			this.btnExcluir.Size = new System.Drawing.Size(89, 36);
 			this.btnExcluir.TabIndex = 59;
 			this.btnExcluir.Text = "Excluir";
-			this.btnExcluir.UseVisualStyleBackColor = true;
+			this.btnExcluir.UseVisualStyleBackColor = false;
 			this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
 			// 
 			// btnAlterar
 			// 
+			this.btnAlterar.BackColor = System.Drawing.Color.White;
 			this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
@@ -585,7 +592,7 @@
 			this.btnAlterar.Size = new System.Drawing.Size(89, 36);
 			this.btnAlterar.TabIndex = 58;
 			this.btnAlterar.Text = "Alterar";
-			this.btnAlterar.UseVisualStyleBackColor = true;
+			this.btnAlterar.UseVisualStyleBackColor = false;
 			this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
 			// 
 			// tbPesqNome
