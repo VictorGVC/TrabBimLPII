@@ -26,6 +26,10 @@ namespace TrabHospital {
         
         private AtendimentosDataTable tableAtendimentos;
         
+        private ContasDataTable tableContas;
+        
+        private global::System.Data.DataRelation relationFK_Contas_Atendimentos;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -57,6 +61,9 @@ namespace TrabHospital {
                 if ((ds.Tables["Atendimentos"] != null)) {
                     base.Tables.Add(new AtendimentosDataTable(ds.Tables["Atendimentos"]));
                 }
+                if ((ds.Tables["Contas"] != null)) {
+                    base.Tables.Add(new ContasDataTable(ds.Tables["Contas"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -82,6 +89,16 @@ namespace TrabHospital {
         public AtendimentosDataTable Atendimentos {
             get {
                 return this.tableAtendimentos;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ContasDataTable Contas {
+            get {
+                return this.tableContas;
             }
         }
         
@@ -155,6 +172,9 @@ namespace TrabHospital {
                 if ((ds.Tables["Atendimentos"] != null)) {
                     base.Tables.Add(new AtendimentosDataTable(ds.Tables["Atendimentos"]));
                 }
+                if ((ds.Tables["Contas"] != null)) {
+                    base.Tables.Add(new ContasDataTable(ds.Tables["Contas"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -194,6 +214,13 @@ namespace TrabHospital {
                     this.tableAtendimentos.InitVars();
                 }
             }
+            this.tableContas = ((ContasDataTable)(base.Tables["Contas"]));
+            if ((initTable == true)) {
+                if ((this.tableContas != null)) {
+                    this.tableContas.InitVars();
+                }
+            }
+            this.relationFK_Contas_Atendimentos = this.Relations["FK_Contas_Atendimentos"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -206,11 +233,23 @@ namespace TrabHospital {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableAtendimentos = new AtendimentosDataTable();
             base.Tables.Add(this.tableAtendimentos);
+            this.tableContas = new ContasDataTable();
+            base.Tables.Add(this.tableContas);
+            this.relationFK_Contas_Atendimentos = new global::System.Data.DataRelation("FK_Contas_Atendimentos", new global::System.Data.DataColumn[] {
+                        this.tableAtendimentos.atn_codigoColumn}, new global::System.Data.DataColumn[] {
+                        this.tableContas.atn_codigoColumn}, false);
+            this.Relations.Add(this.relationFK_Contas_Atendimentos);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeAtendimentos() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeContas() {
             return false;
         }
         
@@ -271,6 +310,9 @@ namespace TrabHospital {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void AtendimentosRowChangeEventHandler(object sender, AtendimentosRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void ContasRowChangeEventHandler(object sender, ContasRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -709,6 +751,553 @@ namespace TrabHospital {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ContasDataTable : global::System.Data.TypedTableBase<ContasRow> {
+            
+            private global::System.Data.DataColumn columncon_codigo;
+            
+            private global::System.Data.DataColumn columnpro_codigo;
+            
+            private global::System.Data.DataColumn columnatn_codigo;
+            
+            private global::System.Data.DataColumn columncon_qtde;
+            
+            private global::System.Data.DataColumn columncon_data;
+            
+            private global::System.Data.DataColumn columncon_vrconta;
+            
+            private global::System.Data.DataColumn columnatn_codigo1;
+            
+            private global::System.Data.DataColumn columndia_codigo;
+            
+            private global::System.Data.DataColumn columnmed_codigo;
+            
+            private global::System.Data.DataColumn columnpac_codigo;
+            
+            private global::System.Data.DataColumn columnatn_data;
+            
+            private global::System.Data.DataColumn columnatn_anamnese;
+            
+            private global::System.Data.DataColumn columnatn_dtretorno;
+            
+            private global::System.Data.DataColumn columnatn_dtalta;
+            
+            private global::System.Data.DataColumn columnatn_contafechada;
+            
+            private global::System.Data.DataColumn columnatn_causamortis;
+            
+            private global::System.Data.DataColumn columnatn_vrconta;
+            
+            private global::System.Data.DataColumn columnatn_dtobito;
+            
+            private global::System.Data.DataColumn columnatn_vrdesconto;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ContasDataTable() {
+                this.TableName = "Contas";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal ContasDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected ContasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn con_codigoColumn {
+                get {
+                    return this.columncon_codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pro_codigoColumn {
+                get {
+                    return this.columnpro_codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn atn_codigoColumn {
+                get {
+                    return this.columnatn_codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn con_qtdeColumn {
+                get {
+                    return this.columncon_qtde;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn con_dataColumn {
+                get {
+                    return this.columncon_data;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn con_vrcontaColumn {
+                get {
+                    return this.columncon_vrconta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn atn_codigo1Column {
+                get {
+                    return this.columnatn_codigo1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dia_codigoColumn {
+                get {
+                    return this.columndia_codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn med_codigoColumn {
+                get {
+                    return this.columnmed_codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_codigoColumn {
+                get {
+                    return this.columnpac_codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn atn_dataColumn {
+                get {
+                    return this.columnatn_data;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn atn_anamneseColumn {
+                get {
+                    return this.columnatn_anamnese;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn atn_dtretornoColumn {
+                get {
+                    return this.columnatn_dtretorno;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn atn_dtaltaColumn {
+                get {
+                    return this.columnatn_dtalta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn atn_contafechadaColumn {
+                get {
+                    return this.columnatn_contafechada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn atn_causamortisColumn {
+                get {
+                    return this.columnatn_causamortis;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn atn_vrcontaColumn {
+                get {
+                    return this.columnatn_vrconta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn atn_dtobitoColumn {
+                get {
+                    return this.columnatn_dtobito;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn atn_vrdescontoColumn {
+                get {
+                    return this.columnatn_vrdesconto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ContasRow this[int index] {
+                get {
+                    return ((ContasRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ContasRowChangeEventHandler ContasRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ContasRowChangeEventHandler ContasRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ContasRowChangeEventHandler ContasRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ContasRowChangeEventHandler ContasRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddContasRow(ContasRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ContasRow AddContasRow(
+                        int pro_codigo, 
+                        AtendimentosRow parentAtendimentosRowByFK_Contas_Atendimentos, 
+                        int con_qtde, 
+                        System.DateTime con_data, 
+                        decimal con_vrconta, 
+                        int dia_codigo, 
+                        int med_codigo, 
+                        int pac_codigo, 
+                        System.DateTime atn_data, 
+                        string atn_anamnese, 
+                        System.DateTime atn_dtretorno, 
+                        System.DateTime atn_dtalta, 
+                        string atn_contafechada, 
+                        string atn_causamortis, 
+                        decimal atn_vrconta, 
+                        System.DateTime atn_dtobito, 
+                        decimal atn_vrdesconto) {
+                ContasRow rowContasRow = ((ContasRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        pro_codigo,
+                        null,
+                        con_qtde,
+                        con_data,
+                        con_vrconta,
+                        null,
+                        dia_codigo,
+                        med_codigo,
+                        pac_codigo,
+                        atn_data,
+                        atn_anamnese,
+                        atn_dtretorno,
+                        atn_dtalta,
+                        atn_contafechada,
+                        atn_causamortis,
+                        atn_vrconta,
+                        atn_dtobito,
+                        atn_vrdesconto};
+                if ((parentAtendimentosRowByFK_Contas_Atendimentos != null)) {
+                    columnValuesArray[2] = parentAtendimentosRowByFK_Contas_Atendimentos[0];
+                }
+                rowContasRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowContasRow);
+                return rowContasRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ContasRow FindBycon_codigo(int con_codigo) {
+                return ((ContasRow)(this.Rows.Find(new object[] {
+                            con_codigo})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ContasDataTable cln = ((ContasDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ContasDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columncon_codigo = base.Columns["con_codigo"];
+                this.columnpro_codigo = base.Columns["pro_codigo"];
+                this.columnatn_codigo = base.Columns["atn_codigo"];
+                this.columncon_qtde = base.Columns["con_qtde"];
+                this.columncon_data = base.Columns["con_data"];
+                this.columncon_vrconta = base.Columns["con_vrconta"];
+                this.columnatn_codigo1 = base.Columns["atn_codigo1"];
+                this.columndia_codigo = base.Columns["dia_codigo"];
+                this.columnmed_codigo = base.Columns["med_codigo"];
+                this.columnpac_codigo = base.Columns["pac_codigo"];
+                this.columnatn_data = base.Columns["atn_data"];
+                this.columnatn_anamnese = base.Columns["atn_anamnese"];
+                this.columnatn_dtretorno = base.Columns["atn_dtretorno"];
+                this.columnatn_dtalta = base.Columns["atn_dtalta"];
+                this.columnatn_contafechada = base.Columns["atn_contafechada"];
+                this.columnatn_causamortis = base.Columns["atn_causamortis"];
+                this.columnatn_vrconta = base.Columns["atn_vrconta"];
+                this.columnatn_dtobito = base.Columns["atn_dtobito"];
+                this.columnatn_vrdesconto = base.Columns["atn_vrdesconto"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columncon_codigo = new global::System.Data.DataColumn("con_codigo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncon_codigo);
+                this.columnpro_codigo = new global::System.Data.DataColumn("pro_codigo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpro_codigo);
+                this.columnatn_codigo = new global::System.Data.DataColumn("atn_codigo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnatn_codigo);
+                this.columncon_qtde = new global::System.Data.DataColumn("con_qtde", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncon_qtde);
+                this.columncon_data = new global::System.Data.DataColumn("con_data", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncon_data);
+                this.columncon_vrconta = new global::System.Data.DataColumn("con_vrconta", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncon_vrconta);
+                this.columnatn_codigo1 = new global::System.Data.DataColumn("atn_codigo1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnatn_codigo1);
+                this.columndia_codigo = new global::System.Data.DataColumn("dia_codigo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndia_codigo);
+                this.columnmed_codigo = new global::System.Data.DataColumn("med_codigo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmed_codigo);
+                this.columnpac_codigo = new global::System.Data.DataColumn("pac_codigo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_codigo);
+                this.columnatn_data = new global::System.Data.DataColumn("atn_data", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnatn_data);
+                this.columnatn_anamnese = new global::System.Data.DataColumn("atn_anamnese", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnatn_anamnese);
+                this.columnatn_dtretorno = new global::System.Data.DataColumn("atn_dtretorno", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnatn_dtretorno);
+                this.columnatn_dtalta = new global::System.Data.DataColumn("atn_dtalta", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnatn_dtalta);
+                this.columnatn_contafechada = new global::System.Data.DataColumn("atn_contafechada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnatn_contafechada);
+                this.columnatn_causamortis = new global::System.Data.DataColumn("atn_causamortis", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnatn_causamortis);
+                this.columnatn_vrconta = new global::System.Data.DataColumn("atn_vrconta", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnatn_vrconta);
+                this.columnatn_dtobito = new global::System.Data.DataColumn("atn_dtobito", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnatn_dtobito);
+                this.columnatn_vrdesconto = new global::System.Data.DataColumn("atn_vrdesconto", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnatn_vrdesconto);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columncon_codigo}, true));
+                this.columncon_codigo.AutoIncrement = true;
+                this.columncon_codigo.AutoIncrementSeed = -1;
+                this.columncon_codigo.AutoIncrementStep = -1;
+                this.columncon_codigo.AllowDBNull = false;
+                this.columncon_codigo.ReadOnly = true;
+                this.columncon_codigo.Unique = true;
+                this.columnpro_codigo.AllowDBNull = false;
+                this.columnatn_codigo.AllowDBNull = false;
+                this.columnatn_codigo1.AutoIncrement = true;
+                this.columnatn_codigo1.AutoIncrementSeed = -1;
+                this.columnatn_codigo1.AutoIncrementStep = -1;
+                this.columnatn_codigo1.AllowDBNull = false;
+                this.columnatn_codigo1.ReadOnly = true;
+                this.columndia_codigo.AllowDBNull = false;
+                this.columnmed_codigo.AllowDBNull = false;
+                this.columnpac_codigo.AllowDBNull = false;
+                this.columnatn_anamnese.MaxLength = 255;
+                this.columnatn_contafechada.MaxLength = 1;
+                this.columnatn_causamortis.MaxLength = 30;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ContasRow NewContasRow() {
+                return ((ContasRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ContasRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ContasRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ContasRowChanged != null)) {
+                    this.ContasRowChanged(this, new ContasRowChangeEvent(((ContasRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ContasRowChanging != null)) {
+                    this.ContasRowChanging(this, new ContasRowChangeEvent(((ContasRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ContasRowDeleted != null)) {
+                    this.ContasRowDeleted(this, new ContasRowChangeEvent(((ContasRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ContasRowDeleting != null)) {
+                    this.ContasRowDeleting(this, new ContasRowChangeEvent(((ContasRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveContasRow(ContasRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DSAtendimento ds = new DSAtendimento();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ContasDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class AtendimentosRow : global::System.Data.DataRow {
@@ -1017,6 +1606,456 @@ namespace TrabHospital {
             public void Setatn_vrdescontoNull() {
                 this[this.tableAtendimentos.atn_vrdescontoColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ContasRow[] GetContasRows() {
+                if ((this.Table.ChildRelations["FK_Contas_Atendimentos"] == null)) {
+                    return new ContasRow[0];
+                }
+                else {
+                    return ((ContasRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Contas_Atendimentos"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ContasRow : global::System.Data.DataRow {
+            
+            private ContasDataTable tableContas;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal ContasRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableContas = ((ContasDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int con_codigo {
+                get {
+                    return ((int)(this[this.tableContas.con_codigoColumn]));
+                }
+                set {
+                    this[this.tableContas.con_codigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int pro_codigo {
+                get {
+                    return ((int)(this[this.tableContas.pro_codigoColumn]));
+                }
+                set {
+                    this[this.tableContas.pro_codigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int atn_codigo {
+                get {
+                    return ((int)(this[this.tableContas.atn_codigoColumn]));
+                }
+                set {
+                    this[this.tableContas.atn_codigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int con_qtde {
+                get {
+                    try {
+                        return ((int)(this[this.tableContas.con_qtdeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'con_qtde\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.con_qtdeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime con_data {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableContas.con_dataColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'con_data\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.con_dataColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal con_vrconta {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableContas.con_vrcontaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'con_vrconta\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.con_vrcontaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int atn_codigo1 {
+                get {
+                    return ((int)(this[this.tableContas.atn_codigo1Column]));
+                }
+                set {
+                    this[this.tableContas.atn_codigo1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int dia_codigo {
+                get {
+                    return ((int)(this[this.tableContas.dia_codigoColumn]));
+                }
+                set {
+                    this[this.tableContas.dia_codigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int med_codigo {
+                get {
+                    return ((int)(this[this.tableContas.med_codigoColumn]));
+                }
+                set {
+                    this[this.tableContas.med_codigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int pac_codigo {
+                get {
+                    return ((int)(this[this.tableContas.pac_codigoColumn]));
+                }
+                set {
+                    this[this.tableContas.pac_codigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime atn_data {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableContas.atn_dataColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'atn_data\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.atn_dataColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string atn_anamnese {
+                get {
+                    try {
+                        return ((string)(this[this.tableContas.atn_anamneseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'atn_anamnese\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.atn_anamneseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime atn_dtretorno {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableContas.atn_dtretornoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'atn_dtretorno\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.atn_dtretornoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime atn_dtalta {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableContas.atn_dtaltaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'atn_dtalta\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.atn_dtaltaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string atn_contafechada {
+                get {
+                    try {
+                        return ((string)(this[this.tableContas.atn_contafechadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'atn_contafechada\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.atn_contafechadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string atn_causamortis {
+                get {
+                    try {
+                        return ((string)(this[this.tableContas.atn_causamortisColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'atn_causamortis\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.atn_causamortisColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal atn_vrconta {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableContas.atn_vrcontaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'atn_vrconta\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.atn_vrcontaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime atn_dtobito {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableContas.atn_dtobitoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'atn_dtobito\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.atn_dtobitoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal atn_vrdesconto {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableContas.atn_vrdescontoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'atn_vrdesconto\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.atn_vrdescontoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AtendimentosRow AtendimentosRow {
+                get {
+                    return ((AtendimentosRow)(this.GetParentRow(this.Table.ParentRelations["FK_Contas_Atendimentos"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Contas_Atendimentos"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscon_qtdeNull() {
+                return this.IsNull(this.tableContas.con_qtdeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcon_qtdeNull() {
+                this[this.tableContas.con_qtdeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscon_dataNull() {
+                return this.IsNull(this.tableContas.con_dataColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcon_dataNull() {
+                this[this.tableContas.con_dataColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscon_vrcontaNull() {
+                return this.IsNull(this.tableContas.con_vrcontaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcon_vrcontaNull() {
+                this[this.tableContas.con_vrcontaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isatn_dataNull() {
+                return this.IsNull(this.tableContas.atn_dataColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setatn_dataNull() {
+                this[this.tableContas.atn_dataColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isatn_anamneseNull() {
+                return this.IsNull(this.tableContas.atn_anamneseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setatn_anamneseNull() {
+                this[this.tableContas.atn_anamneseColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isatn_dtretornoNull() {
+                return this.IsNull(this.tableContas.atn_dtretornoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setatn_dtretornoNull() {
+                this[this.tableContas.atn_dtretornoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isatn_dtaltaNull() {
+                return this.IsNull(this.tableContas.atn_dtaltaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setatn_dtaltaNull() {
+                this[this.tableContas.atn_dtaltaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isatn_contafechadaNull() {
+                return this.IsNull(this.tableContas.atn_contafechadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setatn_contafechadaNull() {
+                this[this.tableContas.atn_contafechadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isatn_causamortisNull() {
+                return this.IsNull(this.tableContas.atn_causamortisColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setatn_causamortisNull() {
+                this[this.tableContas.atn_causamortisColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isatn_vrcontaNull() {
+                return this.IsNull(this.tableContas.atn_vrcontaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setatn_vrcontaNull() {
+                this[this.tableContas.atn_vrcontaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isatn_dtobitoNull() {
+                return this.IsNull(this.tableContas.atn_dtobitoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setatn_dtobitoNull() {
+                this[this.tableContas.atn_dtobitoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isatn_vrdescontoNull() {
+                return this.IsNull(this.tableContas.atn_vrdescontoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setatn_vrdescontoNull() {
+                this[this.tableContas.atn_vrdescontoColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1039,6 +2078,40 @@ namespace TrabHospital {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public AtendimentosRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class ContasRowChangeEvent : global::System.EventArgs {
+            
+            private ContasRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ContasRowChangeEvent(ContasRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ContasRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1758,6 +2831,193 @@ SELECT atn_codigo, dia_codigo, med_codigo, pac_codigo, atn_data, atn_anamnese, a
                     global::System.Nullable<global::System.DateTime> Original_atn_dtobito, 
                     global::System.Nullable<decimal> Original_atn_vrdesconto) {
             return this.Update(dia_codigo, med_codigo, pac_codigo, atn_data, atn_anamnese, atn_dtretorno, atn_dtalta, atn_contafechada, atn_causamortis, atn_vrconta, atn_dtobito, atn_vrdesconto, Original_atn_codigo, Original_dia_codigo, Original_med_codigo, Original_pac_codigo, Original_atn_data, Original_atn_anamnese, Original_atn_dtretorno, Original_atn_dtalta, Original_atn_contafechada, Original_atn_causamortis, Original_atn_vrconta, Original_atn_dtobito, Original_atn_vrdesconto, Original_atn_codigo);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ContasTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public ContasTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Contas";
+            tableMapping.ColumnMappings.Add("con_codigo", "con_codigo");
+            tableMapping.ColumnMappings.Add("pro_codigo", "pro_codigo");
+            tableMapping.ColumnMappings.Add("atn_codigo", "atn_codigo");
+            tableMapping.ColumnMappings.Add("con_qtde", "con_qtde");
+            tableMapping.ColumnMappings.Add("con_data", "con_data");
+            tableMapping.ColumnMappings.Add("con_vrconta", "con_vrconta");
+            tableMapping.ColumnMappings.Add("atn_codigo1", "atn_codigo1");
+            tableMapping.ColumnMappings.Add("dia_codigo", "dia_codigo");
+            tableMapping.ColumnMappings.Add("med_codigo", "med_codigo");
+            tableMapping.ColumnMappings.Add("pac_codigo", "pac_codigo");
+            tableMapping.ColumnMappings.Add("atn_data", "atn_data");
+            tableMapping.ColumnMappings.Add("atn_anamnese", "atn_anamnese");
+            tableMapping.ColumnMappings.Add("atn_dtretorno", "atn_dtretorno");
+            tableMapping.ColumnMappings.Add("atn_dtalta", "atn_dtalta");
+            tableMapping.ColumnMappings.Add("atn_contafechada", "atn_contafechada");
+            tableMapping.ColumnMappings.Add("atn_causamortis", "atn_causamortis");
+            tableMapping.ColumnMappings.Add("atn_vrconta", "atn_vrconta");
+            tableMapping.ColumnMappings.Add("atn_dtobito", "atn_dtobito");
+            tableMapping.ColumnMappings.Add("atn_vrdesconto", "atn_vrdesconto");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Mateus\\Downloads\\Ban" +
+                "coHospital.mdf;Integrated Security=True;Connect Timeout=30";
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT  * FROM Contas INNER JOIN Atendimentos ON Contas.atn_codigo = Atendimentos" +
+                ".atn_codigo";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DSAtendimento.ContasDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DSAtendimento.ContasDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DSAtendimento.ContasDataTable dataTable = new DSAtendimento.ContasDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     
