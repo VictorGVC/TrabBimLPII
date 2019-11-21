@@ -1053,9 +1053,6 @@
 			// tabFechaAtt
 			// 
 			this.tabFechaAtt.BackColor = System.Drawing.Color.PowderBlue;
-			this.tabFechaAtt.Controls.Add(this.btRemoveDepositos);
-			this.tabFechaAtt.Controls.Add(this.btAddDeposito);
-			this.tabFechaAtt.Controls.Add(this.btConfirmaPags);
 			this.tabFechaAtt.Controls.Add(this.gbPagamento);
 			this.tabFechaAtt.Controls.Add(this.dgvdepositos);
 			this.tabFechaAtt.Location = new System.Drawing.Point(4, 22);
@@ -1069,7 +1066,7 @@
 			this.btRemoveDepositos.BackColor = System.Drawing.Color.White;
 			this.btRemoveDepositos.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btRemoveDepositos.Image = ((System.Drawing.Image)(resources.GetObject("btRemoveDepositos.Image")));
-			this.btRemoveDepositos.Location = new System.Drawing.Point(192, 121);
+			this.btRemoveDepositos.Location = new System.Drawing.Point(189, 112);
 			this.btRemoveDepositos.Name = "btRemoveDepositos";
 			this.btRemoveDepositos.Size = new System.Drawing.Size(37, 36);
 			this.btRemoveDepositos.TabIndex = 20;
@@ -1081,7 +1078,7 @@
 			this.btAddDeposito.BackColor = System.Drawing.Color.White;
 			this.btAddDeposito.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btAddDeposito.Image = ((System.Drawing.Image)(resources.GetObject("btAddDeposito.Image")));
-			this.btAddDeposito.Location = new System.Drawing.Point(235, 121);
+			this.btAddDeposito.Location = new System.Drawing.Point(232, 112);
 			this.btAddDeposito.Name = "btAddDeposito";
 			this.btAddDeposito.Size = new System.Drawing.Size(37, 36);
 			this.btAddDeposito.TabIndex = 19;
@@ -1093,7 +1090,7 @@
 			this.btConfirmaPags.BackColor = System.Drawing.Color.White;
 			this.btConfirmaPags.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btConfirmaPags.Image = ((System.Drawing.Image)(resources.GetObject("btConfirmaPags.Image")));
-			this.btConfirmaPags.Location = new System.Drawing.Point(326, 121);
+			this.btConfirmaPags.Location = new System.Drawing.Point(317, 112);
 			this.btConfirmaPags.Name = "btConfirmaPags";
 			this.btConfirmaPags.Size = new System.Drawing.Size(138, 36);
 			this.btConfirmaPags.TabIndex = 3;
@@ -1104,7 +1101,10 @@
 			// 
 			// gbPagamento
 			// 
+			this.gbPagamento.Controls.Add(this.btConfirmaPags);
+			this.gbPagamento.Controls.Add(this.btRemoveDepositos);
 			this.gbPagamento.Controls.Add(this.label20);
+			this.gbPagamento.Controls.Add(this.btAddDeposito);
 			this.gbPagamento.Controls.Add(this.tbAtendimento);
 			this.gbPagamento.Controls.Add(this.tbValorPag);
 			this.gbPagamento.Controls.Add(this.label11);
@@ -1122,7 +1122,7 @@
 			this.gbPagamento.Controls.Add(this.label15);
 			this.gbPagamento.Location = new System.Drawing.Point(3, 3);
 			this.gbPagamento.Name = "gbPagamento";
-			this.gbPagamento.Size = new System.Drawing.Size(461, 112);
+			this.gbPagamento.Size = new System.Drawing.Size(461, 154);
 			this.gbPagamento.TabIndex = 2;
 			this.gbPagamento.TabStop = false;
 			this.gbPagamento.Text = "Pagamento";

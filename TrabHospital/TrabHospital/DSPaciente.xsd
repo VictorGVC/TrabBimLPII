@@ -2,14 +2,15 @@
 <xs:schema id="DSPaciente" targetNamespace="http://tempuri.org/DSPaciente.xsd" xmlns:mstns="http://tempuri.org/DSPaciente.xsd" xmlns="http://tempuri.org/DSPaciente.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BancoHospital" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BancoHospital (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TrabHospital.Properties.Settings.GlobalReference.Default.BancoHospital" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mateus\Downloads\BancoHospital.mdf;Integrated Security=True;Connect Timeout=30" IsAppSettingsProperty="false" Modifier="Assembly" Name="BancoHospital.mdf" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PacientesTableAdapter" GeneratorDataComponentClassName="PacientesTableAdapter" Name="Pacientes" UserDataComponentName="PacientesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BancoHospital (Settings)" DbObjectName="dbo.Pacientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BancoHospital.mdf" DbObjectName="dbo.Pacientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT p.pac_nome, p.pac_sexo, p.pac_endereco, p.pac_cidade, p.pac_fone FROM dbo.Pacientes AS p INNER JOIN dbo.Atendimentos AS a ON p.pac_codigo = a.pac_codigo WHERE (a.atn_dtobito IS NULL) AND (a.atn_dtalta IS NULL) ORDER BY p.pac_nome</CommandText>
@@ -35,7 +36,7 @@
   <xs:element name="DSPaciente" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSPaciente" msprop:Generator_UserDSName="DSPaciente">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Pacientes" msprop:Generator_TableClassName="PacientesDataTable" msprop:Generator_TableVarName="tablePacientes" msprop:Generator_TablePropName="Pacientes" msprop:Generator_RowDeletingName="PacientesRowDeleting" msprop:Generator_RowChangingName="PacientesRowChanging" msprop:Generator_RowEvHandlerName="PacientesRowChangeEventHandler" msprop:Generator_RowDeletedName="PacientesRowDeleted" msprop:Generator_UserTableName="Pacientes" msprop:Generator_RowChangedName="PacientesRowChanged" msprop:Generator_RowEvArgName="PacientesRowChangeEvent" msprop:Generator_RowClassName="PacientesRow">
+        <xs:element name="Pacientes" msprop:Generator_TableClassName="PacientesDataTable" msprop:Generator_TableVarName="tablePacientes" msprop:Generator_RowChangedName="PacientesRowChanged" msprop:Generator_TablePropName="Pacientes" msprop:Generator_RowDeletingName="PacientesRowDeleting" msprop:Generator_RowChangingName="PacientesRowChanging" msprop:Generator_RowEvHandlerName="PacientesRowChangeEventHandler" msprop:Generator_RowDeletedName="PacientesRowDeleted" msprop:Generator_RowClassName="PacientesRow" msprop:Generator_UserTableName="Pacientes" msprop:Generator_RowEvArgName="PacientesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="pac_nome" msprop:Generator_ColumnVarNameInTable="columnpac_nome" msprop:Generator_ColumnPropNameInRow="pac_nome" msprop:Generator_ColumnPropNameInTable="pac_nomeColumn" msprop:Generator_UserColumnName="pac_nome" minOccurs="0">

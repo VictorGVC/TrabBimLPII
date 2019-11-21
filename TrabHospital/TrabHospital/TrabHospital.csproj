@@ -81,6 +81,11 @@
   <ItemGroup>
     <Compile Include="Controladora\CtrlAtendimentos.cs" />
     <Compile Include="Controladora\CtrlPacientes.cs" />
+    <Compile Include="DSAtendimento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSAtendimento.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DSPaciente.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -153,6 +158,17 @@
     <EmbeddedResource Include="Visão\TelaRelatórios.resx">
       <DependentUpon>TelaRelatórios.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DSAtendimento.xsc">
+      <DependentUpon>DSAtendimento.xsd</DependentUpon>
+    </None>
+    <None Include="DSAtendimento.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSAtendimento.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSAtendimento.xss">
+      <DependentUpon>DSAtendimento.xsd</DependentUpon>
+    </None>
     <None Include="DSPaciente.xsc">
       <DependentUpon>DSPaciente.xsd</DependentUpon>
     </None>
@@ -191,13 +207,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BancoHospital.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="BancoHospital_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>BancoHospital.mdf</DependentUpon>
-    </Content>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

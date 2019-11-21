@@ -360,7 +360,7 @@
         </TablixRowHierarchy>
         <DataSetName>DSPaciente</DataSetName>
         <Height>1.61452cm</Height>
-        <Width>18.82163cm</Width>
+        <Width>18.82164cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -385,7 +385,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Relatório de Pacientes</Value>
+                  <Value>Relatório de Pacientes Internados</Value>
                   <Style>
                     <FontStyle>Italic</FontStyle>
                     <FontSize>22pt</FontSize>
@@ -399,7 +399,7 @@
           <Top>0.76412cm</Top>
           <Left>0.59245cm</Left>
           <Height>0.9175cm</Height>
-          <Width>11.20479cm</Width>
+          <Width>12.26312cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -426,7 +426,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.76412cm</Top>
-          <Left>14.25963cm</Left>
+          <Left>16.0588cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -469,7 +469,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>0.49953cm</Top>
-          <Left>14.65651cm</Left>
+          <Left>16.45568cm</Left>
           <Height>0.6cm</Height>
           <Width>2.10312cm</Width>
           <Style>

@@ -161,7 +161,7 @@
 			this.tbTelefone.Mask = "(99) 00000-0000";
 			this.tbTelefone.Name = "tbTelefone";
 			this.tbTelefone.Size = new System.Drawing.Size(145, 20);
-			this.tbTelefone.TabIndex = 54;
+			this.tbTelefone.TabIndex = 3;
 			// 
 			// label11
 			// 
