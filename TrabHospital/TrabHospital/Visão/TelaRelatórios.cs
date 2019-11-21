@@ -15,9 +15,10 @@ namespace TrabHospital.Visão
 	{
 		private CtrlPacientes ControlPac = new CtrlPacientes();
 
-		public TelaRelatórios()
+		public TelaRelatórios(int index)
 		{
 			InitializeComponent();
+			tabs.SelectedIndex = index;
 		}
 
 		private void TelaRelatórios_Load(object sender, EventArgs e)

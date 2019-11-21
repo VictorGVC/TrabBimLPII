@@ -140,6 +140,7 @@
 			// btnRelatorios
 			// 
 			this.btnRelatorios.BackColor = System.Drawing.Color.White;
+			this.btnRelatorios.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
 			this.btnRelatorios.Location = new System.Drawing.Point(143, 302);
 			this.btnRelatorios.Name = "btnRelatorios";

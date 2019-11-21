@@ -159,6 +159,7 @@ namespace TrabHospital.Controladora
 			}
 			catch (Exception e)
 			{
+				Console.Out.WriteLine("Erro na conexão" + e.Message);
 				return (false);
 			}
 			return (resultado);

@@ -38,7 +38,7 @@ namespace TrabHospital
 
 		private void PacientesToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
-			TelaRelatórios tela = new TelaRelatórios();
+			TelaRelatórios tela = new TelaRelatórios(0);
 			Hide();
 			tela.ShowDialog();
 			tela.Dispose();
@@ -47,7 +47,7 @@ namespace TrabHospital
 
 		private void AtendimentosToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
-			TelaRelatórios tela = new TelaRelatórios();
+			TelaRelatórios tela = new TelaRelatórios(1);
 			Hide();
 			tela.ShowDialog();
 			tela.Dispose();
@@ -74,7 +74,7 @@ namespace TrabHospital
 
         private void BtnRelatorios_Click(object sender, EventArgs e)
         {
-			TelaRelatórios tela = new TelaRelatórios();
+			TelaRelatórios tela = new TelaRelatórios(0);
 			Hide();
 			tela.ShowDialog();
 			tela.Dispose();

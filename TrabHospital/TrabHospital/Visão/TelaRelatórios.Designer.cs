@@ -31,8 +31,8 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaRelatórios));
 			this.tabs = new System.Windows.Forms.TabControl();
 			this.tbPacientes = new System.Windows.Forms.TabPage();
-			this.tabAtendimento = new System.Windows.Forms.TabPage();
 			this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+			this.tabAtendimento = new System.Windows.Forms.TabPage();
 			this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
 			this.tabs.SuspendLayout();
 			this.tbPacientes.SuspendLayout();
@@ -61,6 +61,15 @@
 			this.tbPacientes.Text = "Pacientes";
 			this.tbPacientes.UseVisualStyleBackColor = true;
 			// 
+			// reportViewer1
+			// 
+			this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.reportViewer1.Location = new System.Drawing.Point(3, 3);
+			this.reportViewer1.Name = "reportViewer1";
+			this.reportViewer1.ServerReport.BearerToken = null;
+			this.reportViewer1.Size = new System.Drawing.Size(655, 429);
+			this.reportViewer1.TabIndex = 0;
+			// 
 			// tabAtendimento
 			// 
 			this.tabAtendimento.Controls.Add(this.reportViewer2);
@@ -71,15 +80,6 @@
 			this.tabAtendimento.TabIndex = 1;
 			this.tabAtendimento.Text = "Atendimentos";
 			this.tabAtendimento.UseVisualStyleBackColor = true;
-			// 
-			// reportViewer1
-			// 
-			this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.reportViewer1.Location = new System.Drawing.Point(3, 3);
-			this.reportViewer1.Name = "reportViewer1";
-			this.reportViewer1.ServerReport.BearerToken = null;
-			this.reportViewer1.Size = new System.Drawing.Size(655, 429);
-			this.reportViewer1.TabIndex = 0;
 			// 
 			// reportViewer2
 			// 
