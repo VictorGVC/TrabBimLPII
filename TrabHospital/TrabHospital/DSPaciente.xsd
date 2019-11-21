@@ -12,20 +12,18 @@
               <DbSource ConnectionRef="BancoHospital (Settings)" DbObjectName="dbo.Pacientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT p.pac_codigo, p.pac_nome, p.pac_endereco, p.pac_fone FROM Pacientes AS p INNER JOIN Atendimentos AS a
-     ON p.pac_codigo = a.pac_codigo
-          WHERE a.atn_dtobito IS NOT NULL OR a.atn_dtalta IS NOT NULL
-               ORDER BY p.pac_nome</CommandText>
+                    <CommandText>SELECT p.pac_nome, p.pac_sexo, p.pac_endereco, p.pac_cidade, p.pac_fone FROM dbo.Pacientes AS p INNER JOIN dbo.Atendimentos AS a ON p.pac_codigo = a.pac_codigo WHERE (a.atn_dtobito IS NOT NULL) OR (a.atn_dtalta IS NOT NULL) ORDER BY p.pac_nome;</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="pac_codigo" DataSetColumn="pac_codigo" />
               <Mapping SourceColumn="pac_nome" DataSetColumn="pac_nome" />
               <Mapping SourceColumn="pac_endereco" DataSetColumn="pac_endereco" />
               <Mapping SourceColumn="pac_fone" DataSetColumn="pac_fone" />
+              <Mapping SourceColumn="pac_sexo" DataSetColumn="pac_sexo" />
+              <Mapping SourceColumn="pac_cidade" DataSetColumn="pac_cidade" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -37,10 +35,9 @@
   <xs:element name="DSPaciente" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSPaciente" msprop:Generator_UserDSName="DSPaciente">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Pacientes" msprop:Generator_TableClassName="PacientesDataTable" msprop:Generator_TableVarName="tablePacientes" msprop:Generator_RowChangedName="PacientesRowChanged" msprop:Generator_TablePropName="Pacientes" msprop:Generator_RowDeletingName="PacientesRowDeleting" msprop:Generator_RowChangingName="PacientesRowChanging" msprop:Generator_RowEvHandlerName="PacientesRowChangeEventHandler" msprop:Generator_RowDeletedName="PacientesRowDeleted" msprop:Generator_RowClassName="PacientesRow" msprop:Generator_UserTableName="Pacientes" msprop:Generator_RowEvArgName="PacientesRowChangeEvent">
+        <xs:element name="Pacientes" msprop:Generator_TableClassName="PacientesDataTable" msprop:Generator_TableVarName="tablePacientes" msprop:Generator_TablePropName="Pacientes" msprop:Generator_RowDeletingName="PacientesRowDeleting" msprop:Generator_RowChangingName="PacientesRowChanging" msprop:Generator_RowEvHandlerName="PacientesRowChangeEventHandler" msprop:Generator_RowDeletedName="PacientesRowDeleted" msprop:Generator_UserTableName="Pacientes" msprop:Generator_RowChangedName="PacientesRowChanged" msprop:Generator_RowEvArgName="PacientesRowChangeEvent" msprop:Generator_RowClassName="PacientesRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="pac_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpac_codigo" msprop:Generator_ColumnPropNameInRow="pac_codigo" msprop:Generator_ColumnPropNameInTable="pac_codigoColumn" msprop:Generator_UserColumnName="pac_codigo" type="xs:int" />
               <xs:element name="pac_nome" msprop:Generator_ColumnVarNameInTable="columnpac_nome" msprop:Generator_ColumnPropNameInRow="pac_nome" msprop:Generator_ColumnPropNameInTable="pac_nomeColumn" msprop:Generator_UserColumnName="pac_nome" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -62,14 +59,24 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="pac_sexo" msprop:Generator_ColumnVarNameInTable="columnpac_sexo" msprop:Generator_ColumnPropNameInRow="pac_sexo" msprop:Generator_ColumnPropNameInTable="pac_sexoColumn" msprop:Generator_UserColumnName="pac_sexo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pac_cidade" msprop:Generator_ColumnVarNameInTable="columnpac_cidade" msprop:Generator_ColumnPropNameInRow="pac_cidade" msprop:Generator_ColumnPropNameInTable="pac_cidadeColumn" msprop:Generator_UserColumnName="pac_cidade" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Pacientes" />
-      <xs:field xpath="mstns:pac_codigo" />
-    </xs:unique>
   </xs:element>
 </xs:schema>

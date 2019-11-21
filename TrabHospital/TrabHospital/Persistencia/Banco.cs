@@ -11,11 +11,12 @@ namespace TrabHospital.Persistencia
 {
 	class Banco
 	{
-        //Victor
-        //private String strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\BancoHospital.mdf;Integrated Security=True;Connect Timeout=30";
-        //private String strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mateus\Downloads\TrabHospital\TrabHospital\Banco\BancoHospital.mdf;Integrated Security=True;Connect Timeout=30";
-        //Facul
-        private String strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Hospital\BancoHospital.mdf;Integrated Security=True;Connect Timeout=30";
+		//Victor
+		//private String strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\BancoHospital.mdf;Integrated Security=True;Connect Timeout=30";
+		//Mateus
+		private String strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Mateus\Documents\TrabBimLPII\TrabHospital\TrabHospital\BancoHospital.mdf;Integrated Security=True;Connect Timeout=30";
+		//Facul
+		//private String strcon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Hospital\BancoHospital.mdf;Integrated Security=True;Connect Timeout=30";
 
         private SqlConnection con = null;
 		private SqlTransaction trans = null;

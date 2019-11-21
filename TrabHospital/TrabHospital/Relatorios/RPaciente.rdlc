@@ -6,16 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.90414cm</Width>
+              <Width>4.86206cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.96817cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>5.67775cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.67775cm</Width>
+              <Width>3.8347cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.00095cm</Width>
+              <Width>3.47896cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -31,7 +34,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Código</Value>
+                              <Value>Nome</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -62,7 +65,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nome</Value>
+                              <Value>Sexo</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -124,7 +127,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Telefone</Value>
+                              <Value>Cidade</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -146,6 +149,37 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Telefone</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#9eb9d4</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -153,21 +187,21 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="pac_codigo">
+                    <Textbox Name="pac_nome1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!pac_codigo.Value</Value>
+                              <Value>=Fields!pac_nome.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>pac_codigo</rd:DefaultName>
+                      <rd:DefaultName>pac_nome1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -183,21 +217,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="pac_nome">
+                    <Textbox Name="pac_sexo">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!pac_nome.Value</Value>
+                              <Value>=Fields!pac_sexo.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>pac_nome</rd:DefaultName>
+                      <rd:DefaultName>pac_sexo</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -228,6 +262,36 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>pac_endereco</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="pac_cidade">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!pac_cidade.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>pac_cidade</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -281,6 +345,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -295,7 +360,7 @@
         </TablixRowHierarchy>
         <DataSetName>DSPaciente</DataSetName>
         <Height>1.61452cm</Height>
-        <Width>17.26058cm</Width>
+        <Width>18.82163cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -306,7 +371,7 @@
     <Height>2.46875in</Height>
     <Style />
   </Body>
-  <Width>6.82675in</Width>
+  <Width>7.41009in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -451,10 +516,6 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="pac_codigo">
-          <DataField>pac_codigo</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="pac_nome">
           <DataField>pac_nome</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -465,6 +526,14 @@
         </Field>
         <Field Name="pac_fone">
           <DataField>pac_fone</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pac_sexo">
+          <DataField>pac_sexo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pac_cidade">
+          <DataField>pac_cidade</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

@@ -279,13 +279,15 @@ namespace TrabHospital {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class PacientesDataTable : global::System.Data.TypedTableBase<PacientesRow> {
             
-            private global::System.Data.DataColumn columnpac_codigo;
-            
             private global::System.Data.DataColumn columnpac_nome;
             
             private global::System.Data.DataColumn columnpac_endereco;
             
             private global::System.Data.DataColumn columnpac_fone;
+            
+            private global::System.Data.DataColumn columnpac_sexo;
+            
+            private global::System.Data.DataColumn columnpac_cidade;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -322,14 +324,6 @@ namespace TrabHospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn pac_codigoColumn {
-                get {
-                    return this.columnpac_codigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn pac_nomeColumn {
                 get {
                     return this.columnpac_nome;
@@ -349,6 +343,22 @@ namespace TrabHospital {
             public global::System.Data.DataColumn pac_foneColumn {
                 get {
                     return this.columnpac_fone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_sexoColumn {
+                get {
+                    return this.columnpac_sexo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_cidadeColumn {
+                get {
+                    return this.columnpac_cidade;
                 }
             }
             
@@ -389,23 +399,17 @@ namespace TrabHospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PacientesRow AddPacientesRow(string pac_nome, string pac_endereco, string pac_fone) {
+            public PacientesRow AddPacientesRow(string pac_nome, string pac_endereco, string pac_fone, string pac_sexo, string pac_cidade) {
                 PacientesRow rowPacientesRow = ((PacientesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
                         pac_nome,
                         pac_endereco,
-                        pac_fone};
+                        pac_fone,
+                        pac_sexo,
+                        pac_cidade};
                 rowPacientesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPacientesRow);
                 return rowPacientesRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PacientesRow FindBypac_codigo(int pac_codigo) {
-                return ((PacientesRow)(this.Rows.Find(new object[] {
-                            pac_codigo})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -425,34 +429,31 @@ namespace TrabHospital {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnpac_codigo = base.Columns["pac_codigo"];
                 this.columnpac_nome = base.Columns["pac_nome"];
                 this.columnpac_endereco = base.Columns["pac_endereco"];
                 this.columnpac_fone = base.Columns["pac_fone"];
+                this.columnpac_sexo = base.Columns["pac_sexo"];
+                this.columnpac_cidade = base.Columns["pac_cidade"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnpac_codigo = new global::System.Data.DataColumn("pac_codigo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpac_codigo);
                 this.columnpac_nome = new global::System.Data.DataColumn("pac_nome", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpac_nome);
                 this.columnpac_endereco = new global::System.Data.DataColumn("pac_endereco", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpac_endereco);
                 this.columnpac_fone = new global::System.Data.DataColumn("pac_fone", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpac_fone);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnpac_codigo}, true));
-                this.columnpac_codigo.AutoIncrement = true;
-                this.columnpac_codigo.AutoIncrementSeed = -1;
-                this.columnpac_codigo.AutoIncrementStep = -1;
-                this.columnpac_codigo.AllowDBNull = false;
-                this.columnpac_codigo.ReadOnly = true;
-                this.columnpac_codigo.Unique = true;
+                this.columnpac_sexo = new global::System.Data.DataColumn("pac_sexo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_sexo);
+                this.columnpac_cidade = new global::System.Data.DataColumn("pac_cidade", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_cidade);
                 this.columnpac_nome.MaxLength = 40;
                 this.columnpac_endereco.MaxLength = 50;
                 this.columnpac_fone.MaxLength = 15;
+                this.columnpac_sexo.MaxLength = 1;
+                this.columnpac_cidade.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -595,17 +596,6 @@ namespace TrabHospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int pac_codigo {
-                get {
-                    return ((int)(this[this.tablePacientes.pac_codigoColumn]));
-                }
-                set {
-                    this[this.tablePacientes.pac_codigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string pac_nome {
                 get {
                     try {
@@ -654,6 +644,38 @@ namespace TrabHospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pac_sexo {
+                get {
+                    try {
+                        return ((string)(this[this.tablePacientes.pac_sexoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pac_sexo\' na tabela \'Pacientes\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePacientes.pac_sexoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pac_cidade {
+                get {
+                    try {
+                        return ((string)(this[this.tablePacientes.pac_cidadeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pac_cidade\' na tabela \'Pacientes\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePacientes.pac_cidadeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Ispac_nomeNull() {
                 return this.IsNull(this.tablePacientes.pac_nomeColumn);
             }
@@ -686,6 +708,30 @@ namespace TrabHospital {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setpac_foneNull() {
                 this[this.tablePacientes.pac_foneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispac_sexoNull() {
+                return this.IsNull(this.tablePacientes.pac_sexoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpac_sexoNull() {
+                this[this.tablePacientes.pac_sexoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispac_cidadeNull() {
+                return this.IsNull(this.tablePacientes.pac_cidadeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpac_cidadeNull() {
+                this[this.tablePacientes.pac_cidadeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -848,10 +894,11 @@ namespace TrabHospital.DSPacienteTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Pacientes";
-            tableMapping.ColumnMappings.Add("pac_codigo", "pac_codigo");
             tableMapping.ColumnMappings.Add("pac_nome", "pac_nome");
             tableMapping.ColumnMappings.Add("pac_endereco", "pac_endereco");
             tableMapping.ColumnMappings.Add("pac_fone", "pac_fone");
+            tableMapping.ColumnMappings.Add("pac_sexo", "pac_sexo");
+            tableMapping.ColumnMappings.Add("pac_cidade", "pac_cidade");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -868,10 +915,10 @@ namespace TrabHospital.DSPacienteTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT p.pac_codigo, p.pac_nome, p.pac_endereco, p.pac_fone FROM Pacientes AS p I" +
-                "NNER JOIN Atendimentos AS a\r\n     ON p.pac_codigo = a.pac_codigo\r\n          WHER" +
-                "E a.atn_dtobito IS NOT NULL OR a.atn_dtalta IS NOT NULL\r\n               ORDER BY" +
-                " p.pac_nome";
+            this._commandCollection[0].CommandText = "SELECT p.pac_nome, p.pac_sexo, p.pac_endereco, p.pac_cidade, p.pac_fone FROM dbo." +
+                "Pacientes AS p INNER JOIN dbo.Atendimentos AS a ON p.pac_codigo = a.pac_codigo W" +
+                "HERE (a.atn_dtobito IS NOT NULL) OR (a.atn_dtalta IS NOT NULL) ORDER BY p.pac_no" +
+                "me;";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
