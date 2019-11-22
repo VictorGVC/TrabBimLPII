@@ -795,6 +795,32 @@ namespace TrabHospital {
             
             private global::System.Data.DataColumn columnatn_vrdesconto;
             
+            private global::System.Data.DataColumn columnpro_codigo1;
+            
+            private global::System.Data.DataColumn columnpro_descricao;
+            
+            private global::System.Data.DataColumn columnpro_valor;
+            
+            private global::System.Data.DataColumn columnpac_codigo1;
+            
+            private global::System.Data.DataColumn columnpla_codigo;
+            
+            private global::System.Data.DataColumn columnpac_nome;
+            
+            private global::System.Data.DataColumn columnpac_sexo;
+            
+            private global::System.Data.DataColumn columnpac_dtnasc;
+            
+            private global::System.Data.DataColumn columnpac_endereco;
+            
+            private global::System.Data.DataColumn columnpac_cidade;
+            
+            private global::System.Data.DataColumn columnpac_uf;
+            
+            private global::System.Data.DataColumn columnpac_cep;
+            
+            private global::System.Data.DataColumn columnpac_fone;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ContasDataTable() {
@@ -982,6 +1008,110 @@ namespace TrabHospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pro_codigo1Column {
+                get {
+                    return this.columnpro_codigo1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pro_descricaoColumn {
+                get {
+                    return this.columnpro_descricao;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pro_valorColumn {
+                get {
+                    return this.columnpro_valor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_codigo1Column {
+                get {
+                    return this.columnpac_codigo1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pla_codigoColumn {
+                get {
+                    return this.columnpla_codigo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_nomeColumn {
+                get {
+                    return this.columnpac_nome;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_sexoColumn {
+                get {
+                    return this.columnpac_sexo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_dtnascColumn {
+                get {
+                    return this.columnpac_dtnasc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_enderecoColumn {
+                get {
+                    return this.columnpac_endereco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_cidadeColumn {
+                get {
+                    return this.columnpac_cidade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_ufColumn {
+                get {
+                    return this.columnpac_uf;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_cepColumn {
+                get {
+                    return this.columnpac_cep;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pac_foneColumn {
+                get {
+                    return this.columnpac_fone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1034,7 +1164,18 @@ namespace TrabHospital {
                         string atn_causamortis, 
                         decimal atn_vrconta, 
                         System.DateTime atn_dtobito, 
-                        decimal atn_vrdesconto) {
+                        decimal atn_vrdesconto, 
+                        string pro_descricao, 
+                        decimal pro_valor, 
+                        int pla_codigo, 
+                        string pac_nome, 
+                        string pac_sexo, 
+                        System.DateTime pac_dtnasc, 
+                        string pac_endereco, 
+                        string pac_cidade, 
+                        string pac_uf, 
+                        string pac_cep, 
+                        string pac_fone) {
                 ContasRow rowContasRow = ((ContasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1055,7 +1196,20 @@ namespace TrabHospital {
                         atn_causamortis,
                         atn_vrconta,
                         atn_dtobito,
-                        atn_vrdesconto};
+                        atn_vrdesconto,
+                        null,
+                        pro_descricao,
+                        pro_valor,
+                        null,
+                        pla_codigo,
+                        pac_nome,
+                        pac_sexo,
+                        pac_dtnasc,
+                        pac_endereco,
+                        pac_cidade,
+                        pac_uf,
+                        pac_cep,
+                        pac_fone};
                 if ((parentAtendimentosRowByFK_Contas_Atendimentos != null)) {
                     columnValuesArray[2] = parentAtendimentosRowByFK_Contas_Atendimentos[0];
                 }
@@ -1107,6 +1261,19 @@ namespace TrabHospital {
                 this.columnatn_vrconta = base.Columns["atn_vrconta"];
                 this.columnatn_dtobito = base.Columns["atn_dtobito"];
                 this.columnatn_vrdesconto = base.Columns["atn_vrdesconto"];
+                this.columnpro_codigo1 = base.Columns["pro_codigo1"];
+                this.columnpro_descricao = base.Columns["pro_descricao"];
+                this.columnpro_valor = base.Columns["pro_valor"];
+                this.columnpac_codigo1 = base.Columns["pac_codigo1"];
+                this.columnpla_codigo = base.Columns["pla_codigo"];
+                this.columnpac_nome = base.Columns["pac_nome"];
+                this.columnpac_sexo = base.Columns["pac_sexo"];
+                this.columnpac_dtnasc = base.Columns["pac_dtnasc"];
+                this.columnpac_endereco = base.Columns["pac_endereco"];
+                this.columnpac_cidade = base.Columns["pac_cidade"];
+                this.columnpac_uf = base.Columns["pac_uf"];
+                this.columnpac_cep = base.Columns["pac_cep"];
+                this.columnpac_fone = base.Columns["pac_fone"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1150,6 +1317,32 @@ namespace TrabHospital {
                 base.Columns.Add(this.columnatn_dtobito);
                 this.columnatn_vrdesconto = new global::System.Data.DataColumn("atn_vrdesconto", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnatn_vrdesconto);
+                this.columnpro_codigo1 = new global::System.Data.DataColumn("pro_codigo1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpro_codigo1);
+                this.columnpro_descricao = new global::System.Data.DataColumn("pro_descricao", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpro_descricao);
+                this.columnpro_valor = new global::System.Data.DataColumn("pro_valor", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpro_valor);
+                this.columnpac_codigo1 = new global::System.Data.DataColumn("pac_codigo1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_codigo1);
+                this.columnpla_codigo = new global::System.Data.DataColumn("pla_codigo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpla_codigo);
+                this.columnpac_nome = new global::System.Data.DataColumn("pac_nome", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_nome);
+                this.columnpac_sexo = new global::System.Data.DataColumn("pac_sexo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_sexo);
+                this.columnpac_dtnasc = new global::System.Data.DataColumn("pac_dtnasc", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_dtnasc);
+                this.columnpac_endereco = new global::System.Data.DataColumn("pac_endereco", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_endereco);
+                this.columnpac_cidade = new global::System.Data.DataColumn("pac_cidade", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_cidade);
+                this.columnpac_uf = new global::System.Data.DataColumn("pac_uf", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_uf);
+                this.columnpac_cep = new global::System.Data.DataColumn("pac_cep", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_cep);
+                this.columnpac_fone = new global::System.Data.DataColumn("pac_fone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpac_fone);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncon_codigo}, true));
                 this.columncon_codigo.AutoIncrement = true;
@@ -1171,6 +1364,25 @@ namespace TrabHospital {
                 this.columnatn_anamnese.MaxLength = 255;
                 this.columnatn_contafechada.MaxLength = 1;
                 this.columnatn_causamortis.MaxLength = 30;
+                this.columnpro_codigo1.AutoIncrement = true;
+                this.columnpro_codigo1.AutoIncrementSeed = -1;
+                this.columnpro_codigo1.AutoIncrementStep = -1;
+                this.columnpro_codigo1.AllowDBNull = false;
+                this.columnpro_codigo1.ReadOnly = true;
+                this.columnpro_descricao.MaxLength = 40;
+                this.columnpac_codigo1.AutoIncrement = true;
+                this.columnpac_codigo1.AutoIncrementSeed = -1;
+                this.columnpac_codigo1.AutoIncrementStep = -1;
+                this.columnpac_codigo1.AllowDBNull = false;
+                this.columnpac_codigo1.ReadOnly = true;
+                this.columnpla_codigo.AllowDBNull = false;
+                this.columnpac_nome.MaxLength = 40;
+                this.columnpac_sexo.MaxLength = 1;
+                this.columnpac_endereco.MaxLength = 50;
+                this.columnpac_cidade.MaxLength = 30;
+                this.columnpac_uf.MaxLength = 2;
+                this.columnpac_cep.MaxLength = 9;
+                this.columnpac_fone.MaxLength = 15;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1904,6 +2116,199 @@ namespace TrabHospital {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int pro_codigo1 {
+                get {
+                    return ((int)(this[this.tableContas.pro_codigo1Column]));
+                }
+                set {
+                    this[this.tableContas.pro_codigo1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pro_descricao {
+                get {
+                    try {
+                        return ((string)(this[this.tableContas.pro_descricaoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pro_descricao\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.pro_descricaoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal pro_valor {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableContas.pro_valorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pro_valor\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.pro_valorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int pac_codigo1 {
+                get {
+                    return ((int)(this[this.tableContas.pac_codigo1Column]));
+                }
+                set {
+                    this[this.tableContas.pac_codigo1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int pla_codigo {
+                get {
+                    return ((int)(this[this.tableContas.pla_codigoColumn]));
+                }
+                set {
+                    this[this.tableContas.pla_codigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pac_nome {
+                get {
+                    try {
+                        return ((string)(this[this.tableContas.pac_nomeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pac_nome\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.pac_nomeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pac_sexo {
+                get {
+                    try {
+                        return ((string)(this[this.tableContas.pac_sexoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pac_sexo\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.pac_sexoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime pac_dtnasc {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableContas.pac_dtnascColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pac_dtnasc\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.pac_dtnascColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pac_endereco {
+                get {
+                    try {
+                        return ((string)(this[this.tableContas.pac_enderecoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pac_endereco\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.pac_enderecoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pac_cidade {
+                get {
+                    try {
+                        return ((string)(this[this.tableContas.pac_cidadeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pac_cidade\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.pac_cidadeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pac_uf {
+                get {
+                    try {
+                        return ((string)(this[this.tableContas.pac_ufColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pac_uf\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.pac_ufColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pac_cep {
+                get {
+                    try {
+                        return ((string)(this[this.tableContas.pac_cepColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pac_cep\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.pac_cepColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pac_fone {
+                get {
+                    try {
+                        return ((string)(this[this.tableContas.pac_foneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'pac_fone\' na tabela \'Contas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableContas.pac_foneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public AtendimentosRow AtendimentosRow {
                 get {
                     return ((AtendimentosRow)(this.GetParentRow(this.Table.ParentRelations["FK_Contas_Atendimentos"])));
@@ -2055,6 +2460,126 @@ namespace TrabHospital {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setatn_vrdescontoNull() {
                 this[this.tableContas.atn_vrdescontoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispro_descricaoNull() {
+                return this.IsNull(this.tableContas.pro_descricaoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpro_descricaoNull() {
+                this[this.tableContas.pro_descricaoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispro_valorNull() {
+                return this.IsNull(this.tableContas.pro_valorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpro_valorNull() {
+                this[this.tableContas.pro_valorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispac_nomeNull() {
+                return this.IsNull(this.tableContas.pac_nomeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpac_nomeNull() {
+                this[this.tableContas.pac_nomeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispac_sexoNull() {
+                return this.IsNull(this.tableContas.pac_sexoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpac_sexoNull() {
+                this[this.tableContas.pac_sexoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispac_dtnascNull() {
+                return this.IsNull(this.tableContas.pac_dtnascColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpac_dtnascNull() {
+                this[this.tableContas.pac_dtnascColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispac_enderecoNull() {
+                return this.IsNull(this.tableContas.pac_enderecoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpac_enderecoNull() {
+                this[this.tableContas.pac_enderecoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispac_cidadeNull() {
+                return this.IsNull(this.tableContas.pac_cidadeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpac_cidadeNull() {
+                this[this.tableContas.pac_cidadeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispac_ufNull() {
+                return this.IsNull(this.tableContas.pac_ufColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpac_ufNull() {
+                this[this.tableContas.pac_ufColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispac_cepNull() {
+                return this.IsNull(this.tableContas.pac_cepColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpac_cepNull() {
+                this[this.tableContas.pac_cepColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Ispac_foneNull() {
+                return this.IsNull(this.tableContas.pac_foneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setpac_foneNull() {
+                this[this.tableContas.pac_foneColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2974,6 +3499,19 @@ SELECT atn_codigo, dia_codigo, med_codigo, pac_codigo, atn_data, atn_anamnese, a
             tableMapping.ColumnMappings.Add("atn_vrconta", "atn_vrconta");
             tableMapping.ColumnMappings.Add("atn_dtobito", "atn_dtobito");
             tableMapping.ColumnMappings.Add("atn_vrdesconto", "atn_vrdesconto");
+            tableMapping.ColumnMappings.Add("pro_codigo1", "pro_codigo1");
+            tableMapping.ColumnMappings.Add("pro_descricao", "pro_descricao");
+            tableMapping.ColumnMappings.Add("pro_valor", "pro_valor");
+            tableMapping.ColumnMappings.Add("pac_codigo1", "pac_codigo1");
+            tableMapping.ColumnMappings.Add("pla_codigo", "pla_codigo");
+            tableMapping.ColumnMappings.Add("pac_nome", "pac_nome");
+            tableMapping.ColumnMappings.Add("pac_sexo", "pac_sexo");
+            tableMapping.ColumnMappings.Add("pac_dtnasc", "pac_dtnasc");
+            tableMapping.ColumnMappings.Add("pac_endereco", "pac_endereco");
+            tableMapping.ColumnMappings.Add("pac_cidade", "pac_cidade");
+            tableMapping.ColumnMappings.Add("pac_uf", "pac_uf");
+            tableMapping.ColumnMappings.Add("pac_cep", "pac_cep");
+            tableMapping.ColumnMappings.Add("pac_fone", "pac_fone");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2991,8 +3529,10 @@ SELECT atn_codigo, dia_codigo, med_codigo, pac_codigo, atn_data, atn_anamnese, a
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT  * FROM Contas INNER JOIN Atendimentos ON Contas.atn_codigo = Atendimentos" +
-                ".atn_codigo";
+            this._commandCollection[0].CommandText = "SELECT  * FROM Contas \r\nINNER JOIN Atendimentos ON Contas.atn_codigo = Atendiment" +
+                "os.atn_codigo\r\nINNER JOIN Procedimentos ON Procedimentos.pro_codigo = Contas.pro" +
+                "_codigo\r\nINNER JOIN Pacientes ON Pacientes.pac_codigo = Atendimentos.pac_codigo\r" +
+                "\n";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

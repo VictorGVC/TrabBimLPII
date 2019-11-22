@@ -132,7 +132,11 @@ SELECT atn_codigo, dia_codigo, med_codigo, pac_codigo, atn_data, atn_anamnese, a
               <DbSource ConnectionRef="BancoHospital.mdf" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT  * FROM Contas INNER JOIN Atendimentos ON Contas.atn_codigo = Atendimentos.atn_codigo</CommandText>
+                    <CommandText>SELECT  * FROM Contas 
+INNER JOIN Atendimentos ON Contas.atn_codigo = Atendimentos.atn_codigo
+INNER JOIN Procedimentos ON Procedimentos.pro_codigo = Contas.pro_codigo
+INNER JOIN Pacientes ON Pacientes.pac_codigo = Atendimentos.pac_codigo
+</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -158,6 +162,19 @@ SELECT atn_codigo, dia_codigo, med_codigo, pac_codigo, atn_data, atn_anamnese, a
               <Mapping SourceColumn="atn_vrconta" DataSetColumn="atn_vrconta" />
               <Mapping SourceColumn="atn_dtobito" DataSetColumn="atn_dtobito" />
               <Mapping SourceColumn="atn_vrdesconto" DataSetColumn="atn_vrdesconto" />
+              <Mapping SourceColumn="pro_codigo1" DataSetColumn="pro_codigo1" />
+              <Mapping SourceColumn="pro_descricao" DataSetColumn="pro_descricao" />
+              <Mapping SourceColumn="pro_valor" DataSetColumn="pro_valor" />
+              <Mapping SourceColumn="pac_codigo1" DataSetColumn="pac_codigo1" />
+              <Mapping SourceColumn="pla_codigo" DataSetColumn="pla_codigo" />
+              <Mapping SourceColumn="pac_nome" DataSetColumn="pac_nome" />
+              <Mapping SourceColumn="pac_sexo" DataSetColumn="pac_sexo" />
+              <Mapping SourceColumn="pac_dtnasc" DataSetColumn="pac_dtnasc" />
+              <Mapping SourceColumn="pac_endereco" DataSetColumn="pac_endereco" />
+              <Mapping SourceColumn="pac_cidade" DataSetColumn="pac_cidade" />
+              <Mapping SourceColumn="pac_uf" DataSetColumn="pac_uf" />
+              <Mapping SourceColumn="pac_cep" DataSetColumn="pac_cep" />
+              <Mapping SourceColumn="pac_fone" DataSetColumn="pac_fone" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -169,7 +186,7 @@ SELECT atn_codigo, dia_codigo, med_codigo, pac_codigo, atn_data, atn_anamnese, a
   <xs:element name="DSAtendimento" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DSAtendimento" msprop:Generator_UserDSName="DSAtendimento">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Atendimentos" msprop:Generator_TableClassName="AtendimentosDataTable" msprop:Generator_TableVarName="tableAtendimentos" msprop:Generator_TablePropName="Atendimentos" msprop:Generator_RowDeletingName="AtendimentosRowDeleting" msprop:Generator_RowChangingName="AtendimentosRowChanging" msprop:Generator_RowEvHandlerName="AtendimentosRowChangeEventHandler" msprop:Generator_RowDeletedName="AtendimentosRowDeleted" msprop:Generator_UserTableName="Atendimentos" msprop:Generator_RowChangedName="AtendimentosRowChanged" msprop:Generator_RowEvArgName="AtendimentosRowChangeEvent" msprop:Generator_RowClassName="AtendimentosRow">
+        <xs:element name="Atendimentos" msprop:Generator_TableClassName="AtendimentosDataTable" msprop:Generator_TableVarName="tableAtendimentos" msprop:Generator_RowChangedName="AtendimentosRowChanged" msprop:Generator_TablePropName="Atendimentos" msprop:Generator_RowDeletingName="AtendimentosRowDeleting" msprop:Generator_RowChangingName="AtendimentosRowChanging" msprop:Generator_RowEvHandlerName="AtendimentosRowChangeEventHandler" msprop:Generator_RowDeletedName="AtendimentosRowDeleted" msprop:Generator_RowClassName="AtendimentosRow" msprop:Generator_UserTableName="Atendimentos" msprop:Generator_RowEvArgName="AtendimentosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="atn_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnatn_codigo" msprop:Generator_ColumnPropNameInRow="atn_codigo" msprop:Generator_ColumnPropNameInTable="atn_codigoColumn" msprop:Generator_UserColumnName="atn_codigo" type="xs:int" />
@@ -206,7 +223,7 @@ SELECT atn_codigo, dia_codigo, med_codigo, pac_codigo, atn_data, atn_anamnese, a
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Contas" msprop:Generator_TableClassName="ContasDataTable" msprop:Generator_TableVarName="tableContas" msprop:Generator_TablePropName="Contas" msprop:Generator_RowDeletingName="ContasRowDeleting" msprop:Generator_RowChangingName="ContasRowChanging" msprop:Generator_RowEvHandlerName="ContasRowChangeEventHandler" msprop:Generator_RowDeletedName="ContasRowDeleted" msprop:Generator_UserTableName="Contas" msprop:Generator_RowChangedName="ContasRowChanged" msprop:Generator_RowEvArgName="ContasRowChangeEvent" msprop:Generator_RowClassName="ContasRow">
+        <xs:element name="Contas" msprop:Generator_TableClassName="ContasDataTable" msprop:Generator_TableVarName="tableContas" msprop:Generator_RowChangedName="ContasRowChanged" msprop:Generator_TablePropName="Contas" msprop:Generator_RowDeletingName="ContasRowDeleting" msprop:Generator_RowChangingName="ContasRowChanging" msprop:Generator_RowEvHandlerName="ContasRowChangeEventHandler" msprop:Generator_RowDeletedName="ContasRowDeleted" msprop:Generator_RowClassName="ContasRow" msprop:Generator_UserTableName="Contas" msprop:Generator_RowEvArgName="ContasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="con_codigo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columncon_codigo" msprop:Generator_ColumnPropNameInRow="con_codigo" msprop:Generator_ColumnPropNameInTable="con_codigoColumn" msprop:Generator_UserColumnName="con_codigo" type="xs:int" />
@@ -246,6 +263,67 @@ SELECT atn_codigo, dia_codigo, med_codigo, pac_codigo, atn_data, atn_anamnese, a
               <xs:element name="atn_vrconta" msprop:Generator_ColumnVarNameInTable="columnatn_vrconta" msprop:Generator_ColumnPropNameInRow="atn_vrconta" msprop:Generator_ColumnPropNameInTable="atn_vrcontaColumn" msprop:Generator_UserColumnName="atn_vrconta" type="xs:decimal" minOccurs="0" />
               <xs:element name="atn_dtobito" msprop:Generator_ColumnVarNameInTable="columnatn_dtobito" msprop:Generator_ColumnPropNameInRow="atn_dtobito" msprop:Generator_ColumnPropNameInTable="atn_dtobitoColumn" msprop:Generator_UserColumnName="atn_dtobito" type="xs:dateTime" minOccurs="0" />
               <xs:element name="atn_vrdesconto" msprop:Generator_ColumnVarNameInTable="columnatn_vrdesconto" msprop:Generator_ColumnPropNameInRow="atn_vrdesconto" msprop:Generator_ColumnPropNameInTable="atn_vrdescontoColumn" msprop:Generator_UserColumnName="atn_vrdesconto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="pro_codigo1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpro_codigo1" msprop:Generator_ColumnPropNameInRow="pro_codigo1" msprop:Generator_ColumnPropNameInTable="pro_codigo1Column" msprop:Generator_UserColumnName="pro_codigo1" type="xs:int" />
+              <xs:element name="pro_descricao" msprop:Generator_ColumnVarNameInTable="columnpro_descricao" msprop:Generator_ColumnPropNameInRow="pro_descricao" msprop:Generator_ColumnPropNameInTable="pro_descricaoColumn" msprop:Generator_UserColumnName="pro_descricao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pro_valor" msprop:Generator_ColumnVarNameInTable="columnpro_valor" msprop:Generator_ColumnPropNameInRow="pro_valor" msprop:Generator_ColumnPropNameInTable="pro_valorColumn" msprop:Generator_UserColumnName="pro_valor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="pac_codigo1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpac_codigo1" msprop:Generator_ColumnPropNameInRow="pac_codigo1" msprop:Generator_ColumnPropNameInTable="pac_codigo1Column" msprop:Generator_UserColumnName="pac_codigo1" type="xs:int" />
+              <xs:element name="pla_codigo" msprop:Generator_ColumnVarNameInTable="columnpla_codigo" msprop:Generator_ColumnPropNameInRow="pla_codigo" msprop:Generator_ColumnPropNameInTable="pla_codigoColumn" msprop:Generator_UserColumnName="pla_codigo" type="xs:int" />
+              <xs:element name="pac_nome" msprop:Generator_ColumnVarNameInTable="columnpac_nome" msprop:Generator_ColumnPropNameInRow="pac_nome" msprop:Generator_ColumnPropNameInTable="pac_nomeColumn" msprop:Generator_UserColumnName="pac_nome" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pac_sexo" msprop:Generator_ColumnVarNameInTable="columnpac_sexo" msprop:Generator_ColumnPropNameInRow="pac_sexo" msprop:Generator_ColumnPropNameInTable="pac_sexoColumn" msprop:Generator_UserColumnName="pac_sexo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pac_dtnasc" msprop:Generator_ColumnVarNameInTable="columnpac_dtnasc" msprop:Generator_ColumnPropNameInRow="pac_dtnasc" msprop:Generator_ColumnPropNameInTable="pac_dtnascColumn" msprop:Generator_UserColumnName="pac_dtnasc" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="pac_endereco" msprop:Generator_ColumnVarNameInTable="columnpac_endereco" msprop:Generator_ColumnPropNameInRow="pac_endereco" msprop:Generator_ColumnPropNameInTable="pac_enderecoColumn" msprop:Generator_UserColumnName="pac_endereco" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pac_cidade" msprop:Generator_ColumnVarNameInTable="columnpac_cidade" msprop:Generator_ColumnPropNameInRow="pac_cidade" msprop:Generator_ColumnPropNameInTable="pac_cidadeColumn" msprop:Generator_UserColumnName="pac_cidade" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pac_uf" msprop:Generator_ColumnVarNameInTable="columnpac_uf" msprop:Generator_ColumnPropNameInRow="pac_uf" msprop:Generator_ColumnPropNameInTable="pac_ufColumn" msprop:Generator_UserColumnName="pac_uf" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pac_cep" msprop:Generator_ColumnVarNameInTable="columnpac_cep" msprop:Generator_ColumnPropNameInRow="pac_cep" msprop:Generator_ColumnPropNameInTable="pac_cepColumn" msprop:Generator_UserColumnName="pac_cep" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pac_fone" msprop:Generator_ColumnVarNameInTable="columnpac_fone" msprop:Generator_ColumnPropNameInRow="pac_fone" msprop:Generator_ColumnPropNameInTable="pac_foneColumn" msprop:Generator_UserColumnName="pac_fone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -262,7 +340,7 @@ SELECT atn_codigo, dia_codigo, med_codigo, pac_codigo, atn_data, atn_anamnese, a
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Contas_Atendimentos" msdata:parent="Atendimentos" msdata:child="Contas" msdata:parentkey="atn_codigo" msdata:childkey="atn_codigo" msprop:Generator_UserChildTable="Contas" msprop:Generator_ChildPropName="GetContasRows" msprop:Generator_UserRelationName="FK_Contas_Atendimentos" msprop:Generator_ParentPropName="AtendimentosRow" msprop:Generator_RelationVarName="relationFK_Contas_Atendimentos" msprop:Generator_UserParentTable="Atendimentos" />
+      <msdata:Relationship name="FK_Contas_Atendimentos" msdata:parent="Atendimentos" msdata:child="Contas" msdata:parentkey="atn_codigo" msdata:childkey="atn_codigo" msprop:Generator_UserChildTable="Contas" msprop:Generator_ChildPropName="GetContasRows" msprop:Generator_UserRelationName="FK_Contas_Atendimentos" msprop:Generator_RelationVarName="relationFK_Contas_Atendimentos" msprop:Generator_UserParentTable="Atendimentos" msprop:Generator_ParentPropName="AtendimentosRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

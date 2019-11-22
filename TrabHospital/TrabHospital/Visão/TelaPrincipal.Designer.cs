@@ -36,7 +36,6 @@
 			this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pacientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.atendimentosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pnlImage = new System.Windows.Forms.Panel();
 			this.pnlButtons = new System.Windows.Forms.Panel();
 			this.btnRelatorios = new System.Windows.Forms.Button();
@@ -52,8 +51,7 @@
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
-            this.relatóriosToolStripMenuItem,
-            this.sobreToolStripMenuItem});
+            this.relatóriosToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -72,14 +70,14 @@
 			// PacientesToolStripMenuItem
 			// 
 			this.PacientesToolStripMenuItem.Name = "PacientesToolStripMenuItem";
-			this.PacientesToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+			this.PacientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.PacientesToolStripMenuItem.Text = "Pacientes";
 			this.PacientesToolStripMenuItem.Click += new System.EventHandler(this.ClientesToolStripMenuItem_Click);
 			// 
 			// atendimentosToolStripMenuItem
 			// 
 			this.atendimentosToolStripMenuItem.Name = "atendimentosToolStripMenuItem";
-			this.atendimentosToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+			this.atendimentosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.atendimentosToolStripMenuItem.Text = "Atendimentos";
 			this.atendimentosToolStripMenuItem.Click += new System.EventHandler(this.AtendimentosToolStripMenuItem_Click);
 			// 
@@ -105,12 +103,6 @@
 			this.atendimentosToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
 			this.atendimentosToolStripMenuItem1.Text = "Atendimentos";
 			this.atendimentosToolStripMenuItem1.Click += new System.EventHandler(this.AtendimentosToolStripMenuItem1_Click);
-			// 
-			// sobreToolStripMenuItem
-			// 
-			this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-			this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-			this.sobreToolStripMenuItem.Text = "Sobre";
 			// 
 			// pnlImage
 			// 
@@ -228,7 +220,6 @@
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem PacientesToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
 		private System.Windows.Forms.Panel pnlImage;
 		private System.Windows.Forms.Panel pnlButtons;
 		private System.Windows.Forms.Button btnPacientes;

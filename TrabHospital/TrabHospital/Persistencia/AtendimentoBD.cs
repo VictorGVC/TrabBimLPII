@@ -375,7 +375,11 @@ namespace TrabHospital.Persistencia
 
 			string SQL = @"SELECT  * FROM Contas 
 							INNER JOIN Atendimentos 
-								ON Contas.atn_codigo = Atendimentos.atn_codigo";
+								ON Contas.atn_codigo = Atendimentos.atn_codigo 
+									INNER JOIN Procedimentos 
+										ON Procedimentos.pro_codigo = Contas.pro_codigo
+											INNER JOIN Pacientes 
+												ON Pacientes.pac_codigo = Atendimentos.pac_codigo";
 
 			bco.ExecuteQuery(SQL, out dtp);
 
