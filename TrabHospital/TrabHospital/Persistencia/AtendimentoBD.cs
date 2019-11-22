@@ -369,7 +369,20 @@ namespace TrabHospital.Persistencia
             return dta;
         }
 
-        public void FechaAtendimento(int atncod)
+		public DataTable BuscarAtendimentoRel()
+		{
+			DataTable dtp = new DataTable();
+
+			string SQL = @"SELECT  * FROM Contas 
+							INNER JOIN Atendimentos 
+								ON Contas.atn_codigo = Atendimentos.atn_codigo";
+
+			bco.ExecuteQuery(SQL, out dtp);
+
+			return (dtp);
+		}
+
+		public void FechaAtendimento(int atncod)
         {
             string SQL = @"UPDATE Atendimentos SET atn_contafechada = 'S'
                             WHERE atn_codigo = @cod";

@@ -14,6 +14,7 @@ namespace TrabHospital.Visão
 	public partial class TelaRelatórios : Form
 	{
 		private CtrlPacientes ControlPac = new CtrlPacientes();
+		private CtrlAtendimentos ControlAtn = new CtrlAtendimentos();
 
 		public TelaRelatórios(int index)
 		{
@@ -28,6 +29,9 @@ namespace TrabHospital.Visão
 			ControlPac.ProcessaRelatorio(@"..\..\Relatorios\RPaciente.rdlc",
 						 dtDados, reportViewer1, "DSPaciente", null);
 			this.reportViewer2.RefreshReport();
+			DataTable dtDados2 = ControlAtn.BuscaAtendimentos();
+			ControlAtn.ProcessaRelatorio(@"..\..\Relatorios\RAtendimento.rdlc",
+						 dtDados2, reportViewer2, "DSAtendimento", null);
 		}
 	}
 }

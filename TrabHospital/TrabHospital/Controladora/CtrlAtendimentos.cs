@@ -41,7 +41,7 @@ namespace TrabHospital.Controladora
             return result;
         }
 
-        public DataTable BuscaDiagnosticos()
+		public DataTable BuscaDiagnosticos()
         {
             DataTable dtdiags = new DataTable();
 
@@ -428,6 +428,18 @@ namespace TrabHospital.Controladora
             abd.FechaAtendimento(atncod);
             bco.Desconecta();
         }
+
+		public DataTable BuscaAtendimentos()
+		{
+			DataTable dtatn = new DataTable();
+			AtendimentoBD abd = new AtendimentoBD(bco);
+
+			bco.Conecta();
+			dtatn = abd.BuscarAtendimentoRel();
+			bco.Desconecta();
+
+			return (dtatn);
+		}
 
 		public bool ProcessaRelatorio(string caminhoRelatorio, DataTable dtDados, ReportViewer visualizador,
 									  string nomeDataSet, ReportParameter[] parametros)
